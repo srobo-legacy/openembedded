@@ -196,7 +196,7 @@ python packagestage_scenefunc () {
         #
         # Copy the stamp files into the main stamps directoy
         #
-        cmd = bb.data.expand("cp -dpR ${WORKDIR}/tstage/stamps/* ${TMPDIR}/stamps/", d)
+        cmd = bb.data.expand("cp -PpR ${WORKDIR}/tstage/stamps/* ${TMPDIR}/stamps/", d)
         ret = os.system(cmd)
         if ret != 0:
             bb.fatal("Couldn't copy the staging package stamp files")
@@ -401,7 +401,7 @@ python do_package_stage () {
     bb.mkdirhier(destdir)
     # We need to include the package_stage stamp in the staging package so create one
     bb.build.make_stamp("do_package_stage", d)
-    os.system("cp -dpR %s.do_* %s/" % (stampfn, destdir))
+    os.system("cp -PpR %s.do_* %s/" % (stampfn, destdir))
 
     pstage_set_pkgmanager(d)
     bb.build.exec_func("staging_helper", d)
