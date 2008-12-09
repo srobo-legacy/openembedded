@@ -2,9 +2,11 @@ DESCRIPTION = "The GNU internationalization library."
 HOMEPAGE = "http://www.gnu.org/software/gettext/gettext.html"
 SECTION = "libs"
 LICENSE = "GPL"
-PR = "r2"
+PR = "r3"
 DEPENDS = "gettext-native virtual/libiconv ncurses expat"
+RCONFLICTS_gettext-libintl = "proxy-libintl"
 PROVIDES = "virtual/libintl"
+RPROVIDES_gettext-libintl = "virtual/libintl"
 
 SRC_URI = "${GNU_MIRROR}/gettext/gettext-${PV}.tar.gz \
 	   file://autotools.patch;patch=1 \
@@ -44,10 +46,35 @@ acpaths = '-I ${S}/autoconf-lib-link/m4/ \
 # 140     KiB /armv4t/gettext-dev_0.14.1-r6_armv4t.ipk
 # 4       KiB /ep93xx/libgcc-s-dev_4.2.2-r2_ep93xx.ipk
 
-PACKAGES =+ "libgettextlib libgettextsrc"
+PACKAGES =+ "gettext-libintl libgettextlib libgettextsrc"
+FILES_gettext-libintl = "${libdir}/libintl*.so.*"
 FILES_libgettextlib = "${libdir}/libgettextlib-*.so*"
 FILES_libgettextsrc = "${libdir}/libgettextsrc-*.so*"
 
+FILES_${PN}-dev += "${bindir}/autopoint \
+                    ${bindir}/gettextize \
+                    ${datadir}/gettext/intl/* \
+                    ${datadir}/gettext/intl/gettext.h \
+                    ${datadir}/gettext/config.rpath \
+                    ${datadir}/gettext/po/* \
+                    ${datadir}/gettext/projects/* \
+                   "
+
+
 do_stage () {
 	autotools_stage_all
+}
+
+pkg_postinst_${PN}-dev () {
+       for i in `ls -d /usr/share/automake*`
+       do
+                cp /usr/share/gettext/config.rpath ${i}
+       done
+}
+
+pkg_postrm_${PN}-dev () {
+        for i in `ls -d /usr/share/automake*`
+        do
+                rm ${i}/config.rpath
+        done
 }
