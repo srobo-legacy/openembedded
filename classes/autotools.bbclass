@@ -102,7 +102,21 @@ autotools_do_configure() {
 			echo "AUTOV is $AUTOV"
 			install -d ${STAGING_DATADIR}/aclocal
 			install -d ${STAGING_DATADIR}/aclocal-$AUTOV
-			acpaths="$acpaths -I${STAGING_DATADIR}/aclocal-$AUTOV -I ${STAGING_DATADIR}/aclocal"
+			acpaths="$acpaths -I ${STAGING_DATADIR_NATIVE}/autoconf -I ${STAGING_DATADIR_NATIVE}/aclocal -I ${STAGING_DATADIR}/aclocal-$AUTOV -I ${STAGING_DATADIR}/aclocal"
+			if [ -x ${STAGING_DATADIR_NATIVE}/libtool ]; then
+				acpaths="$acpaths -I ${STAGING_DATADIR_NATIVE}/libtool"
+			fi
+			export AC_MACRODIR=${STAGING_DATADIR_NATIVE}/autoconf
+			export AUTOM4TE="${STAGING_BINDIR_NATIVE}/autom4te"
+			export ACLOCAL="AUTOM4TE=\"${STAGING_BINDIR_NATIVE}/autom4te -B ${STAGING_DATADIR_NATIVE}/autoconf\" aclocal --acdir ${STAGING_DATADIR_NATIVE}/aclocal-$AUTOV"
+			export AUTOCONF="${STAGING_BINDIR_NATIVE}/autoconf -I ${STAGING_DATADIR_NATIVE}/autoconf"
+			export AUTOMAKE="${STAGING_BINDIR_NATIVE}/automake --libdir=${STAGING_DATADIR_NATIVE}/automake-$AUTOV"
+			export AUTOHEADER="${STAGING_BINDIR_NATIVE}/autoheader"
+			export perllibdir="${STAGING_DATADIR_NATIVE}/automake-$AUTOV"
+			if [ -x ${STAGING_BINDIR_NATIVE}/m4 ]; then
+				export M4=${STAGING_BINDIR_NATIVE}/m4
+			fi
+
 			# autoreconf is too shy to overwrite aclocal.m4 if it doesn't look
 			# like it was auto-generated.  Work around this by blowing it away
 			# by hand, unless the package specifically asked not to run aclocal.
