@@ -98,8 +98,6 @@ autotools_do_configure() {
 				acpaths="${acpaths}"
 			fi
 			AUTOV=`automake --version |head -n 1 |sed "s/.* //;s/\.[0-9]\+$//"`
-			automake --version
-			echo "AUTOV is $AUTOV"
 			install -d ${STAGING_DATADIR}/aclocal
 			install -d ${STAGING_DATADIR}/aclocal-$AUTOV
 			acpaths="$acpaths -I ${STAGING_DATADIR_NATIVE}/autoconf -I ${STAGING_DATADIR_NATIVE}/aclocal -I ${STAGING_DATADIR}/aclocal-$AUTOV -I ${STAGING_DATADIR}/aclocal"
@@ -123,26 +121,34 @@ autotools_do_configure() {
 			if ! echo ${EXTRA_AUTORECONF} | grep -q "aclocal"; then
 				rm -f aclocal.m4
 			fi
-			if [ -e configure.in ]; then
-			  CONFIGURE_AC=configure.in
-			else
-			  CONFIGURE_AC=configure.ac
-			fi
-			if grep "^AM_GLIB_GNU_GETTEXT" $CONFIGURE_AC >/dev/null; then
-			  if grep "sed.*POTFILES" $CONFIGURE_AC >/dev/null; then
-			    : do nothing -- we still have an old unmodified configure.ac
-			  else
-			    oenote Executing glib-gettextize --force --copy
-			    echo "no" | glib-gettextize --force --copy
-			  fi
-			fi
-			if grep "^[AI][CT]_PROG_INTLTOOL" $CONFIGURE_AC >/dev/null; then
-			  oenote Executing intltoolize --copy --force --automake
-			  intltoolize --copy --force --automake
-			fi
-			oenote Executing autoreconf --verbose --install --force ${EXTRA_AUTORECONF} $acpaths
-			mkdir -p m4
-			autoreconf -Wcross --verbose --install --force ${EXTRA_AUTORECONF} $acpaths || oefatal "autoreconf execution failed."
+
+			subdirs="`autoconf -t AC_CONFIG_SUBDIRS|cut -d: -f4`"
+			for dir in $subdirs .; do
+				if [ ! -e "${S}/$dir" ]; then
+					continue
+				fi
+
+				cd ${S}/$dir
+				if [ -n "`autoconf -t AM_GLIB_GNU_GETTEXT`" ]; then
+					oenote Executing glib-gettextize --force --copy
+					echo "no" | glib-gettextize --force --copy
+				fi
+				if [ -n "`autoconf -t AC_PROG_INTLTOOL -t IT_PROG_INTLTOOL`" ]; then
+					oenote Executing intltoolize --copy --force --automake
+					intltoolize --copy --force --automake
+				fi
+				if [ -n "`autoconf -t AC_CANONICAL_BUILD`" ]; then
+					macrodir="`autoconf -t AC_CONFIG_MACRO_DIR|cut -d: -f4`"
+					if [ -z "$macrodir" ]; then
+						macrodir="."
+					fi
+					ln -sf ${STAGING_DATADIR_NATIVE}/automake-$AUTOV/config.sub $macrodir/config.sub
+					ln -sf ${STAGING_DATADIR_NATIVE}/automake-$AUTOV/config.guess $macrodir/config.guess
+				fi
+			done
+
+			oenote Executing autoreconf --install ${EXTRA_AUTORECONF} $acpaths
+			autoreconf --install ${EXTRA_AUTORECONF} $acpaths || oefatal "autoreconf execution failed."
 			cd $olddir
 		fi
 	;;
