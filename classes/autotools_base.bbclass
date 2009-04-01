@@ -52,6 +52,7 @@ gnu_configize_here() {
 		if [ ! -e ${STAGING_DATADIR_NATIVE}/gnu-config/config.sub ]; then
 			oefatal "gnu-config data files missing"
 		fi
+		oenote Updating config.sub and config.guess in $macrodir
 		rm -f $macrodir/config.sub $macrodir/config.guess
 		cp -f ${STAGING_DATADIR_NATIVE}/gnu-config/config.sub $macrodir/config.sub
 		cp -f ${STAGING_DATADIR_NATIVE}/gnu-config/config.guess $macrodir/config.guess
