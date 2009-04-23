@@ -116,6 +116,7 @@ TARGET_CC_ARCH_pn-cairo_armv5te = "-march=armv4t"
 
 # Can be "glibc", "eglibc" or "uclibc"
 PREFERRED_LIBC ?= "glibc"
+require conf/distro/include/${PREFERRED_LIBC}.inc
 PSTAGE_EXTRAPATH = "${PREFERRED_LIBC}"
 require conf/distro/include/sane-toolchain-${PREFERRED_LIBC}.inc
 
