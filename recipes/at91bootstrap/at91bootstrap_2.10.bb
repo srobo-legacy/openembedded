@@ -1,2 +1,2 @@
 PR = "r1"
-require at91bootstrap.inc
+require at91bootstrap-old.inc

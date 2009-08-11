@@ -1,4 +1,4 @@
-require at91bootstrap.inc
+require at91bootstrap-old.inc
 PR = "r0"
 DEFAULT_PREFERENCE = "-1"
 DEFAULT_PREFERENCE_afeb9260 = "1"
