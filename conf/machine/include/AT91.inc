@@ -1,0 +1,29 @@
+# Common description for Atmel ARM processors
+
+TARGET_ARCH = "arm"
+#PACKAGE_EXTRA_ARCHS = "armv4t armv5te"
+
+PREFERRED_PROVIDER_virtual/kernel = "linux"
+PREFERRED_VERSION_linux = "2.6.30.2"
+PREFERRED_PROVIDER_xserver = "xserver-kdrive"
+PREFERRED_PROVIDER_at91bootstrap = "at91bootstrap_2.13-rc1"
+PREFERRED_PROVIDER_u-boot = "u-boot_2009.09-rc2"
+
+KERNEL_IMAGETYPE = "uImage"
+
+PREFERRED_VERSION_at91bootstrap = "2.13-rc1"
+PREFERRED_VERSION_u-boot = "2009.08-rc2"
+#don't try to access tty1
+USE_VT = "0"
+
+MACHINE_FEATURES = "kernel26 alsa ext2 usbgadget vfat"
+EXTRA_IMAGEDEPENDS += "u-boot"
+EXTRA_IMAGEDEPENDS += "at91bootstrap"
+
+# used by sysvinit_2
+SERIAL_CONSOLE = "115200 ttyS0"
+IMAGE_FSTYPES ?= "jffs2"
+EXTRA_IMAGECMD_jffs2 = "--pad --little-endian --eraseblock=0x20000 -n"
+
+require conf/machine/include/tune-arm926ejs.inc
+
