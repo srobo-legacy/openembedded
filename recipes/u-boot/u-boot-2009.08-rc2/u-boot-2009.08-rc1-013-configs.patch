@@ -1,0 +1,84 @@
+diff -urN u-boot-2009.08-rc1-0rig/include/configs/at91cap9adk.h u-boot-2009.08-rc1/include/configs/at91cap9adk.h
+--- u-boot-2009.08-rc1-0rig/include/configs/at91cap9adk.h	2009-07-27 10:37:37.000000000 +0200
++++ u-boot-2009.08-rc1/include/configs/at91cap9adk.h	2009-07-31 22:28:25.000000000 +0200
+@@ -65,6 +65,10 @@
+ #define CONFIG_ATMEL_LCD_BGR555		1
+ #define CONFIG_SYS_CONSOLE_IS_IN_ENV		1
+ 
++#define CONFIG_CMD_FACTORY
++#define CONFIG_CMD_LED
++#define CONFIG_COLOURED_LED
++
+ /* LED */
+ #define CONFIG_AT91_LED
+ #define	CONFIG_RED_LED		AT91_PIN_PC29	/* this is the power led */
+diff -urN u-boot-2009.08-rc1-0rig/include/configs/at91rm9200dk.h u-boot-2009.08-rc1/include/configs/at91rm9200dk.h
+--- u-boot-2009.08-rc1-0rig/include/configs/at91rm9200dk.h	2009-07-27 10:37:37.000000000 +0200
++++ u-boot-2009.08-rc1/include/configs/at91rm9200dk.h	2009-07-31 22:30:05.000000000 +0200
+@@ -117,6 +117,10 @@
+ 
+ #define CONFIG_CMD_DHCP
+ #define CONFIG_CMD_MII
++#define CONFIG_CMD_FACTORY
++#define CONFIG_CMD_LED
++#define CONFIG_CMD_ETHINIT
++#define CONFIG_COLOURED_LED
+ 
+ #include <asm/arch/AT91RM9200.h>	/* needed for port definitions */
+ 
+diff -urN u-boot-2009.08-rc1-0rig/include/configs/at91rm9200ek.h u-boot-2009.08-rc1/include/configs/at91rm9200ek.h
+--- u-boot-2009.08-rc1-0rig/include/configs/at91rm9200ek.h	2009-07-27 10:37:37.000000000 +0200
++++ u-boot-2009.08-rc1/include/configs/at91rm9200ek.h	2009-07-31 22:28:25.000000000 +0200
+@@ -139,6 +139,9 @@
+ #undef CONFIG_CMD_FPGA
+ #undef CONFIG_CMD_MISC
+ #undef CONFIG_CMD_LOADS
++#define CONFIG_CMD_FACTORY
++#define CONFIG_CMD_LED
++#define CONFIG_COLOURED_LED
+ 
+ #include <asm/arch/AT91RM9200.h>	/* needed for port definitions */
+ /* Options for MMC/SD Card */
+diff -urN u-boot-2009.08-rc1-0rig/include/configs/at91sam9261ek.h u-boot-2009.08-rc1/include/configs/at91sam9261ek.h
+--- u-boot-2009.08-rc1-0rig/include/configs/at91sam9261ek.h	2009-07-27 10:37:37.000000000 +0200
++++ u-boot-2009.08-rc1/include/configs/at91sam9261ek.h	2009-07-31 22:28:25.000000000 +0200
+@@ -103,6 +103,10 @@
+ #define CONFIG_CMD_DHCP		1
+ #define CONFIG_CMD_NAND		1
+ #define CONFIG_CMD_USB		1
++#define CONFIG_CMD_AUTOSCRIPT
++#define CONFIG_CMD_FACTORY
++#define CONFIG_CMD_LED
++#define CONFIG_COLOURED_LED
+ 
+ /* SDRAM */
+ #define CONFIG_NR_DRAM_BANKS		1
+diff -urN u-boot-2009.08-rc1-0rig/include/configs/at91sam9263ek.h u-boot-2009.08-rc1/include/configs/at91sam9263ek.h
+--- u-boot-2009.08-rc1-0rig/include/configs/at91sam9263ek.h	2009-07-27 10:37:37.000000000 +0200
++++ u-boot-2009.08-rc1/include/configs/at91sam9263ek.h	2009-07-31 22:28:25.000000000 +0200
+@@ -98,6 +98,10 @@
+ #define CONFIG_CMD_DHCP		1
+ #define CONFIG_CMD_NAND		1
+ #define CONFIG_CMD_USB		1
++#define CONFIG_CMD_AUTOSCRIPT
++#define CONFIG_CMD_FACTORY
++#define CONFIG_CMD_LED
++#define CONFIG_COLOURED_LED
+ 
+ /* SDRAM */
+ #define CONFIG_NR_DRAM_BANKS		1
+diff -urN u-boot-2009.08-rc1-0rig/include/configs/at91sam9rlek.h u-boot-2009.08-rc1/include/configs/at91sam9rlek.h
+--- u-boot-2009.08-rc1-0rig/include/configs/at91sam9rlek.h	2009-07-27 10:37:37.000000000 +0200
++++ u-boot-2009.08-rc1/include/configs/at91sam9rlek.h	2009-07-31 22:28:25.000000000 +0200
+@@ -85,7 +85,10 @@
+ #undef CONFIG_CMD_NET
+ #undef CONFIG_CMD_SOURCE
+ #undef CONFIG_CMD_USB
+-
++#define CONFIG_CMD_AUTOSCRIPT
++#define CONFIG_CMD_FACTORY
++#define CONFIG_CMD_LED
++#define CONFIG_COLOURED_LED
+ #define CONFIG_CMD_NAND		1
+ 
+ /* SDRAM */

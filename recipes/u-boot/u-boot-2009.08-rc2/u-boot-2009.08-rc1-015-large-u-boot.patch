@@ -1,0 +1,84 @@
+diff -urN u-boot-2009.08-rc1-0rig/board/atmel/at91cap9adk/partition.c u-boot-2009.08-rc1/board/atmel/at91cap9adk/partition.c
+--- u-boot-2009.08-rc1-0rig/board/atmel/at91cap9adk/partition.c	2009-07-27 10:37:37.000000000 +0200
++++ u-boot-2009.08-rc1/board/atmel/at91cap9adk/partition.c	2009-08-05 09:51:19.000000000 +0200
+@@ -34,6 +34,6 @@
+ 	{0x00000000, 0x000041FF, FLAG_PROTECT_SET,   0, "Bootstrap"},
+ 	{0x00004200, 0x000083FF, FLAG_PROTECT_CLEAR, 0, "Environment"},
+ 	{0x00008400, 0x00041FFF, FLAG_PROTECT_SET,   0, "U-Boot"},
+-	{0x00042000, 0x00251FFF, FLAG_PROTECT_CLEAR, 0,	"Kernel"},
+-	{0x00252000, 0xFFFFFFFF, FLAG_PROTECT_CLEAR, 0,	"FS"},
++	{0x00084000, 0x00293FFF, FLAG_PROTECT_CLEAR, 0,	"Kernel"},
++	{0x00294000, 0xFFFFFFFF, FLAG_PROTECT_CLEAR, 0,	"FS"},
+ };
+diff -urN u-boot-2009.08-rc1-0rig/board/atmel/at91rm9200dk/partition.c u-boot-2009.08-rc1/board/atmel/at91rm9200dk/partition.c
+--- u-boot-2009.08-rc1-0rig/board/atmel/at91rm9200dk/partition.c	2009-07-27 10:37:37.000000000 +0200
++++ u-boot-2009.08-rc1/board/atmel/at91rm9200dk/partition.c	2009-08-05 09:51:32.000000000 +0200
+@@ -35,6 +35,6 @@
+ 	{0x00000000, 0x000041FF, FLAG_PROTECT_SET,   0, "Bootstrap"},
+ 	{0x00004200, 0x000083FF, FLAG_PROTECT_CLEAR, 0, "Environment"},
+ 	{0x00008400, 0x00041FFF, FLAG_PROTECT_SET,   0, "U-Boot"},
+-	{0x00042000, 0x00251FFF, FLAG_PROTECT_CLEAR, 0,	"Kernel"},
+-	{0x00252000, 0xFFFFFFFF, FLAG_PROTECT_CLEAR, 0,	"FS"},
++	{0x00084000, 0x00293FFF, FLAG_PROTECT_CLEAR, 0,	"Kernel"},
++	{0x00294000, 0xFFFFFFFF, FLAG_PROTECT_CLEAR, 0,	"FS"},
+ };
+diff -urN u-boot-2009.08-rc1-0rig/board/atmel/at91rm9200ek/partition.c u-boot-2009.08-rc1/board/atmel/at91rm9200ek/partition.c
+--- u-boot-2009.08-rc1-0rig/board/atmel/at91rm9200ek/partition.c	2009-07-27 10:37:37.000000000 +0200
++++ u-boot-2009.08-rc1/board/atmel/at91rm9200ek/partition.c	2009-08-05 09:51:47.000000000 +0200
+@@ -33,6 +33,6 @@
+ 	{0x00000000, 0x000041FF, FLAG_PROTECT_SET,	0, "Bootstrap"},
+ 	{0x00004200, 0x000083FF, FLAG_PROTECT_CLEAR,	0, "Environment"},
+ 	{0x00008400, 0x00041FFF, FLAG_PROTECT_SET,	0, "U-Boot"},
+-	{0x00042000, 0x00251FFF, FLAG_PROTECT_CLEAR,	0, "Kernel"},
+-	{0x00252000, 0xFFFFFFFF, FLAG_PROTECT_CLEAR,	0, "FS"},
++	{0x00084000, 0x00293FFF, FLAG_PROTECT_CLEAR,	0, "Kernel"},
++	{0x00294000, 0xFFFFFFFF, FLAG_PROTECT_CLEAR,	0, "FS"},
+ };
+diff -urN u-boot-2009.08-rc1-0rig/board/atmel/at91sam9260ek/partition.c u-boot-2009.08-rc1/board/atmel/at91sam9260ek/partition.c
+--- u-boot-2009.08-rc1-0rig/board/atmel/at91sam9260ek/partition.c	2009-07-27 10:37:37.000000000 +0200
++++ u-boot-2009.08-rc1/board/atmel/at91sam9260ek/partition.c	2009-08-05 09:52:59.000000000 +0200
+@@ -35,6 +35,6 @@
+ 	{0x00000000, 0x000041FF, FLAG_PROTECT_SET,   0, "Bootstrap"},
+ 	{0x00004200, 0x000083FF, FLAG_PROTECT_CLEAR, 0, "Environment"},
+ 	{0x00008400, 0x00041FFF, FLAG_PROTECT_SET,   0, "U-Boot"},
+-	{0x00042000, 0x00251FFF, FLAG_PROTECT_CLEAR, 0,	"Kernel"},
+-	{0x00252000, 0xFFFFFFFF, FLAG_PROTECT_CLEAR, 0,	"FS"},
++	{0x00084000, 0x00293FFF, FLAG_PROTECT_CLEAR, 0,	"Kernel"},
++	{0x00294000, 0xFFFFFFFF, FLAG_PROTECT_CLEAR, 0,	"FS"},
+ };
+diff -urN u-boot-2009.08-rc1-0rig/board/atmel/at91sam9261ek/partition.c u-boot-2009.08-rc1/board/atmel/at91sam9261ek/partition.c
+--- u-boot-2009.08-rc1-0rig/board/atmel/at91sam9261ek/partition.c	2009-07-27 10:37:37.000000000 +0200
++++ u-boot-2009.08-rc1/board/atmel/at91sam9261ek/partition.c	2009-08-05 09:53:17.000000000 +0200
+@@ -35,6 +35,6 @@
+ 	{0x00000000, 0x000041FF, FLAG_PROTECT_SET,   0, "Bootstrap"},
+ 	{0x00004200, 0x000083FF, FLAG_PROTECT_CLEAR, 0, "Environment"},
+ 	{0x00008400, 0x00041FFF, FLAG_PROTECT_SET,   0, "U-Boot"},
+-	{0x00042000, 0x00251FFF, FLAG_PROTECT_CLEAR, 0,	"Kernel"},
+-	{0x00252000, 0xFFFFFFFF, FLAG_PROTECT_CLEAR, 0,	"FS"},
++	{0x00084000, 0x00293FFF, FLAG_PROTECT_CLEAR, 0,	"Kernel"},
++	{0x00294000, 0xFFFFFFFF, FLAG_PROTECT_CLEAR, 0,	"FS"},
+ };
+diff -urN u-boot-2009.08-rc1-0rig/board/atmel/at91sam9263ek/partition.c u-boot-2009.08-rc1/board/atmel/at91sam9263ek/partition.c
+--- u-boot-2009.08-rc1-0rig/board/atmel/at91sam9263ek/partition.c	2009-07-27 10:37:37.000000000 +0200
++++ u-boot-2009.08-rc1/board/atmel/at91sam9263ek/partition.c	2009-08-05 09:51:00.000000000 +0200
+@@ -34,6 +34,6 @@
+ 	{0x00000000, 0x000041FF, FLAG_PROTECT_SET,   0, "Bootstrap"},
+ 	{0x00004200, 0x000083FF, FLAG_PROTECT_CLEAR, 0, "Environment"},
+ 	{0x00008400, 0x00041FFF, FLAG_PROTECT_SET,   0, "U-Boot"},
+-	{0x00042000, 0x00251FFF, FLAG_PROTECT_CLEAR, 0,	"Kernel"},
+-	{0x00252000, 0xFFFFFFFF, FLAG_PROTECT_CLEAR, 0,	"FS"},
++	{0x00084000, 0x00293FFF, FLAG_PROTECT_CLEAR, 0,	"Kernel"},
++	{0x00294000, 0xFFFFFFFF, FLAG_PROTECT_CLEAR, 0,	"FS"},
+ };
+diff -urN u-boot-2009.08-rc1-0rig/board/atmel/at91sam9rlek/partition.c u-boot-2009.08-rc1/board/atmel/at91sam9rlek/partition.c
+--- u-boot-2009.08-rc1-0rig/board/atmel/at91sam9rlek/partition.c	2009-07-27 10:37:37.000000000 +0200
++++ u-boot-2009.08-rc1/board/atmel/at91sam9rlek/partition.c	2009-08-05 09:52:46.000000000 +0200
+@@ -34,6 +34,6 @@
+ 	{0x00000000, 0x000041FF, FLAG_PROTECT_SET,   0, "Bootstrap"},
+ 	{0x00004200, 0x000083FF, FLAG_PROTECT_CLEAR, 0, "Environment"},
+ 	{0x00008400, 0x00041FFF, FLAG_PROTECT_SET,   0, "U-Boot"},
+-	{0x00042000, 0x00251FFF, FLAG_PROTECT_CLEAR, 0,	"Kernel"},
+-	{0x00252000, 0xFFFFFFFF, FLAG_PROTECT_CLEAR, 0,	"FS"},
++	{0x00084000, 0x00293FFF, FLAG_PROTECT_CLEAR, 0,	"Kernel"},
++	{0x00294000, 0xFFFFFFFF, FLAG_PROTECT_CLEAR, 0,	"FS"},
+ };
