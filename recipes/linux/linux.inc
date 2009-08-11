@@ -54,6 +54,19 @@ python __anonymous () {
 }
 
 do_configure_prepend() {
+	# If linux source knows about a machine, we can use that config by
+	# 	make <MACHINE>_defconfig
+	#
+        if [ test -n "${LINUX26_DEFCONFIG}" ] ; then
+            oe_runmake	${LINUX26_DEFCONFIG}
+	    cp ${WORKDIR}/.config ${WORKDIR}/defconfig
+        fi
+
+	# Override default config, if we provide an update not named "defconfig"
+        if [ test -n "${LINUX26_MACHINE}" ] ; then
+            cp ${WORKDIR}/${LINUX26_MACHINE} ${WORKDIR}/defconfig 
+        fi
+
         echo "" > ${S}/.config
 
         #
@@ -79,6 +92,7 @@ do_configure_prepend() {
                 echo "# CONFIG_AEABI is not set"        >> ${S}/.config
                 echo "# CONFIG_OABI_COMPAT is not set"  >> ${S}/.config
         fi
+
 
         # When enabling thumb for userspace we also need thumb support in the kernel
         if [ "${ARM_INSTRUCTION_SET}" = "thumb" ] ; then
