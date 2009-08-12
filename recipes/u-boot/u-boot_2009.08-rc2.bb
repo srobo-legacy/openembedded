@@ -1,4 +1,4 @@
-PR = "r0"
+PR = "r2"
 require u-boot.inc
 
 DEFAULT_PREFERENCE = "-1"
@@ -31,7 +31,7 @@ SRC_URI_append = " \
 	"
 
 TARGET_LDFLAGS = ""
-
+ALLOW_EMPTY = "1"
 inherit base
 
 do_compile () {
