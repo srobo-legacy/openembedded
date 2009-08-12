@@ -24,12 +24,12 @@ SRC_URI = "${KERNELORG_MIRROR}/pub/linux/kernel/v2.6/linux-2.6.30.tar.bz2 \
 	"
 
 
-SRC_URI_append_at91sam9g10ek = \
+SRC_URI_append_at91sam9g10df = \
 	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
 	file://defconfig \
 	"
 
-SRC_URI_append_at91sam9g20ek = \
+SRC_URI_append_at91sam9g20dfc = \
 	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
 	file://defconfig \
 	"
@@ -39,44 +39,82 @@ SRC_URI_append_at91sam9g45ek = \
 	file://defconfig \
 	"
 
+SRC_URI_append_at91sam9xedfc = \
+	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://defconfig \
+	"
+
+SRC_URI_append_at91sam9260dfc = \
+	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://defconfig \
+	"
+
+SRC_URI_append_at91sam9261df = \
+	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://defconfig \
+	"
+
+SRC_URI_append_at91sam9263dfc = \
+	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://defconfig \
+	"
+
+# -------------------------
+SRC_URI_append_at91sam9260df = \
+	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://defconfig \
+	"
+
+SRC_URI_append_at91sam9260ek = \
+	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://defconfig \
+	"
+
+SRC_URI_append_at91sam9260nf = \
+	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://defconfig \
+	"
+
+SRC_URI_append_at91sam9261ek = \
+	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://defconfig \
+	"
+
 SRC_URI_append_at91sam9263ek = \
 	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
 	file://defconfig \
 	"
 
+SRC_URI_append_at91sam9g10ek = \
+	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://defconfig \
+	"
+
+SRC_URI_append_at91sam9g10nf = \
+	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://defconfig \
+	"
+
+SRC_URI_append_at91sam9g20df = \
+	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://defconfig \
+	"
+
+SRC_URI_append_at91sam9g20ek = \
+	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://defconfig \
+	"
+
+SRC_URI_append_at91sam9g20nf = \
+	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://defconfig \
+	"
+
+
+
 #
 # Boards which rely on kernel defconfigs are here.
+# Not every board is supported in the kernel
 #
-#
-
-
-#SRC_URI_append_at91sam9m10ek = \
-#	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
-#	"
-
-SRC_URI_append_at91sam9rlek = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
-	"
-
-SRC_URI_append_at91sam9260ek = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
-	"
-
-SRC_URI_append_at91sam9261ek = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
-	"
-SRC_URI_append_at91capadk = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
-	"
-
-#SRC_URI_append_at91capstk = \
-#	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
-#	"
-
-SRC_URI_append_at572d940hfek = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
-	"
-
-
-
+require linux-2.6.30.2-at91-kernel-config.inc
 
