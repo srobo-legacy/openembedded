@@ -20,10 +20,11 @@ USE_VT = "0"
 
 MACHINE_FEATURES = "kernel26 alsa ext2 usbgadget vfat"
 MACHINE_EXTRA_RDEPENDS += "mpg321 mpd madplay mplayer libmad"
-MACHINE_EXTRA_RDEPENDS += "kernel-modules u-boot-utils"
+MACHINE_EXTRA_RDEPENDS += "kernel-modules"
 MACHINE_EXTRA_RDEPENDS += "minicom"
 MACHINE_EXTRA_RDEPENDS += "samba vsftpd"
 MACHINE_EXTRA_RDEPENDS += "nano"
+# MACHINE_EXTRA_RDEPENDS += "u-boot-utils"
 
 
 EXTRA_IMAGEDEPENDS += "u-boot"
