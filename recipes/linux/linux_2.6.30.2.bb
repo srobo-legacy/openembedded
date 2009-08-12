@@ -2,7 +2,7 @@ require linux.inc
 
 PR = "r0"
 
-S = "${WORKDIR}/linux-${PV}"
+S = "${WORKDIR}/linux-2.6.30"
 
 # Mark archs/machines that this kernel supports
 DEFAULT_PREFERENCE = "-1"
@@ -19,8 +19,10 @@ DEFAULT_PREFERENCE_at91capadk = "2"
 DEFAULT_PREFERENCE_at91capstk = "-1"
 DEFAULT_PREFERENCE_at572d940hfek = "2"
 
-SRC_URI = "${KERNELORG_MIRROR}/pub/linux/kernel/v2.6/linux-${PV}.tar.bz2 \
+SRC_URI = "${KERNELORG_MIRROR}/pub/linux/kernel/v2.6/linux-2.6.30.tar.bz2 \
+           ${KERNELORG_MIRROR}/pub/linux/kernel/v2.6/patch-2.6.30.2.bz2;patch=1 \
 	"
+
 
 SRC_URI_append_at91sam9g10ek = \
 	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
@@ -37,6 +39,17 @@ SRC_URI_append_at91sam9g45ek = \
 	file://defconfig \
 	"
 
+SRC_URI_append_at91sam9263ek = \
+	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://defconfig \
+	"
+
+#
+# Boards which rely on kernel defconfigs are here.
+#
+#
+
+
 #SRC_URI_append_at91sam9m10ek = \
 #	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
 #	"
@@ -52,12 +65,6 @@ SRC_URI_append_at91sam9260ek = \
 SRC_URI_append_at91sam9261ek = \
 	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
 	"
-
-SRC_URI_append_at91sam9263ek = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
-	file://defconfig \
-	"
-
 SRC_URI_append_at91capadk = \
 	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
 	"
