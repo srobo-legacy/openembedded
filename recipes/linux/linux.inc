@@ -54,17 +54,19 @@ python __anonymous () {
 }
 
 do_configure_prepend() {
+	# Traditionally, openembedded linux copies a file defconfig to ${WORKDIR}
 	# If linux source knows about a machine, we can use that config by
 	# 	make <MACHINE>_defconfig
 	#
-        if [ test -n "${LINUX26_DEFCONFIG}" ] ; then
+        if test -n "${LINUX26_DEFCONFIG}"; then
             oe_runmake	${LINUX26_DEFCONFIG}
-	    cp ${WORKDIR}/.config ${WORKDIR}/defconfig
+	    cp ${S}/.config ${WORKDIR}/defconfig
         fi
 
-	# Override default config, if we provide an update not named "defconfig"
-        if [ test -n "${LINUX26_MACHINE}" ] ; then
-            cp ${WORKDIR}/${LINUX26_MACHINE} ${WORKDIR}/defconfig 
+	# if we copy a file, not named "defconfig" to WORKDIR we have to rename it.
+	# we have to specify which machine it is.
+        if test -n "${LINUX26_MACHINE}"; then
+            mv ${WORKDIR}/${LINUX26_MACHINE} ${WORKDIR}/defconfig 
         fi
 
         echo "" > ${S}/.config
