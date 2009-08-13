@@ -18,7 +18,7 @@ PREFERRED_VERSION_u-boot = "2009.08-rc2"
 #don't try to access tty1
 USE_VT = "0"
 
-MACHINE_FEATURES = "kernel26 alsa ext2 usbgadget vfat"
+MACHINE_FEATURES = "kernel26 alsa ext2 usbgadget vfat uboot"
 MACHINE_EXTRA_RDEPENDS += "mpg321 mpd madplay mplayer libmad"
 MACHINE_EXTRA_RDEPENDS += "kernel-modules"
 MACHINE_EXTRA_RDEPENDS += "minicom"
