@@ -6,7 +6,7 @@ require qt4_arch.inc
 QT_ARCH := "${@qt_arch(d)}"
 QT_ENDIAN = "${@qt_endian(d)}"
 
-QT_CONFIG_FLAGS += "-release -no-cups -no-accessibility -reduce-relocations \
+QT_CONFIG_FLAGS += "-release -generic -no-cups -no-accessibility -reduce-relocations \
                     -shared -no-nas-sound -no-sm -no-nis \
                     -qt-gif -system-libjpeg -system-libpng -system-zlib \
                     -no-sql-ibase -plugin-sql-mysql -no-sql-odbc -plugin-sql-psql -plugin-sql-sqlite -plugin-sql-sqlite2 \
