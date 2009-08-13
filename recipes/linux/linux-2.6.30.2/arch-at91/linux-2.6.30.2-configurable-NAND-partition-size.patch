@@ -1,0 +1,138 @@
+diff -urN linux-2.6.30.2-0rig/arch/arm/mach-at91/board-sam9260ek.c linux-2.6.30.2/arch/arm/mach-at91/board-sam9260ek.c
+--- linux-2.6.30.2-0rig/arch/arm/mach-at91/board-sam9260ek.c	2009-08-13 19:38:58.000000000 +0200
++++ linux-2.6.30.2/arch/arm/mach-at91/board-sam9260ek.c	2009-08-13 20:05:48.000000000 +0200
+@@ -182,12 +182,12 @@
+ 		.size   = 4 * SZ_1M,
+ 	},
+ 	{
+-		.name	= "Partition 1",
++		.name	= "Root File System",
+ 		.offset	= MTDPART_OFS_NXTBLK,
+-		.size	= 60 * SZ_1M,
++		.size	= CONFIG_MTD_NAND_ATMEL_ROOTFS_SIZE * SZ_1M,
+ 	},
+ 	{
+-		.name	= "Partition 2",
++		.name	= "Data",
+ 		.offset	= MTDPART_OFS_NXTBLK,
+ 		.size	= MTDPART_SIZ_FULL,
+ 	},
+diff -urN linux-2.6.30.2-0rig/arch/arm/mach-at91/board-sam9261ek.c linux-2.6.30.2/arch/arm/mach-at91/board-sam9261ek.c
+--- linux-2.6.30.2-0rig/arch/arm/mach-at91/board-sam9261ek.c	2009-08-13 19:38:58.000000000 +0200
++++ linux-2.6.30.2/arch/arm/mach-at91/board-sam9261ek.c	2009-08-13 20:05:46.000000000 +0200
+@@ -188,12 +188,12 @@
+ 		.size   = 4 * SZ_1M,
+ 	},
+ 	{
+-		.name	= "Partition 1",
++		.name	= "Root File System",
+ 		.offset	= MTDPART_OFS_NXTBLK,
+-		.size	= 60 * SZ_1M,
++		.size	= CONFIG_MTD_NAND_ATMEL_ROOTFS_SIZE * SZ_1M,
+ 	},
+ 	{
+-		.name	= "Partition 2",
++		.name	= "Data",
+ 		.offset	= MTDPART_OFS_NXTBLK,
+ 		.size	= MTDPART_SIZ_FULL,
+ 	},
+diff -urN linux-2.6.30.2-0rig/arch/arm/mach-at91/board-sam9263ek.c linux-2.6.30.2/arch/arm/mach-at91/board-sam9263ek.c
+--- linux-2.6.30.2-0rig/arch/arm/mach-at91/board-sam9263ek.c	2009-08-13 19:38:58.000000000 +0200
++++ linux-2.6.30.2/arch/arm/mach-at91/board-sam9263ek.c	2009-08-13 20:05:44.000000000 +0200
+@@ -179,12 +179,12 @@
+ 		.size   = 4 * SZ_1M,
+ 	},
+ 	{
+-		.name	= "Partition 1",
++		.name	= "Root File System",
+ 		.offset	= MTDPART_OFS_NXTBLK,
+-		.size	= 60 * SZ_1M,
++		.size	= CONFIG_MTD_NAND_ATMEL_ROOTFS_SIZE * SZ_1M,
+ 	},
+ 	{
+-		.name	= "Partition 2",
++		.name	= "Data",
+ 		.offset	= MTDPART_OFS_NXTBLK,
+ 		.size	= MTDPART_SIZ_FULL,
+ 	},
+diff -urN linux-2.6.30.2-0rig/arch/arm/mach-at91/board-sam9g20ek.c linux-2.6.30.2/arch/arm/mach-at91/board-sam9g20ek.c
+--- linux-2.6.30.2-0rig/arch/arm/mach-at91/board-sam9g20ek.c	2009-08-13 19:38:58.000000000 +0200
++++ linux-2.6.30.2/arch/arm/mach-at91/board-sam9g20ek.c	2009-08-13 20:05:42.000000000 +0200
+@@ -127,12 +127,12 @@
+ 		.size   = 4 * SZ_1M,
+ 	},
+ 	{
+-		.name	= "Partition 1",
++		.name	= "Root File System",
+ 		.offset	= MTDPART_OFS_NXTBLK,
+-		.size	= 60 * SZ_1M,
++		.size	= CONFIG_MTD_NAND_ATMEL_ROOTFS_SIZE * SZ_1M,
+ 	},
+ 	{
+-		.name	= "Partition 2",
++		.name	= "Data",
+ 		.offset	= MTDPART_OFS_NXTBLK,
+ 		.size	= MTDPART_SIZ_FULL,
+ 	},
+diff -urN linux-2.6.30.2-0rig/arch/arm/mach-at91/board-sam9m10g45ek.c linux-2.6.30.2/arch/arm/mach-at91/board-sam9m10g45ek.c
+--- linux-2.6.30.2-0rig/arch/arm/mach-at91/board-sam9m10g45ek.c	2009-08-13 19:38:58.000000000 +0200
++++ linux-2.6.30.2/arch/arm/mach-at91/board-sam9m10g45ek.c	2009-08-13 20:05:40.000000000 +0200
+@@ -117,12 +117,12 @@
+ 		.size   = 4 * SZ_1M,
+ 	},
+ 	{
+-		.name	= "Partition 1",
++		.name	= "Root File System",
+ 		.offset	= MTDPART_OFS_NXTBLK,
+-		.size	= 60 * SZ_1M,
++		.size	= CONFIG_MTD_NAND_ATMEL_ROOTFS_SIZE * SZ_1M,
+ 	},
+ 	{
+-		.name	= "Partition 2",
++		.name	= "Data",
+ 		.offset	= MTDPART_OFS_NXTBLK,
+ 		.size	= MTDPART_SIZ_FULL,
+ 	},
+diff -urN linux-2.6.30.2-0rig/arch/arm/mach-at91/board-sam9rlek.c linux-2.6.30.2/arch/arm/mach-at91/board-sam9rlek.c
+--- linux-2.6.30.2-0rig/arch/arm/mach-at91/board-sam9rlek.c	2009-08-13 19:38:58.000000000 +0200
++++ linux-2.6.30.2/arch/arm/mach-at91/board-sam9rlek.c	2009-08-13 20:05:38.000000000 +0200
+@@ -86,12 +86,12 @@
+ 		.size   = 4 * SZ_1M,
+ 	},
+ 	{
+-		.name	= "Partition 1",
++		.name	= "Root File System",
+ 		.offset	= MTDPART_OFS_NXTBLK,
+-		.size	= 60 * SZ_1M,
++		.size	= CONFIG_MTD_NAND_ATMEL_ROOTFS_SIZE * SZ_1M,
+ 	},
+ 	{
+-		.name	= "Partition 2",
++		.name	= "Data",
+ 		.offset	= MTDPART_OFS_NXTBLK,
+ 		.size	= MTDPART_SIZ_FULL,
+ 	},
+diff -urN linux-2.6.30.2-0rig/arch/arm/mach-at91/Kconfig linux-2.6.30.2/arch/arm/mach-at91/Kconfig
+--- linux-2.6.30.2-0rig/arch/arm/mach-at91/Kconfig	2009-08-13 19:38:58.000000000 +0200
++++ linux-2.6.30.2/arch/arm/mach-at91/Kconfig	2009-08-13 20:22:12.000000000 +0200
+@@ -469,6 +469,20 @@
+ 	  On AT91SAM926x boards both types of NAND flash can be present
+ 	  (8 and 16 bit data bus width).
+ 
++config MTD_NAND_ATMEL_ROOTFS_SIZE
++	int "Size NAND rootfs in MB"
++	range 8 250
++	depends on (MACH_AT91SAM9260EK || MACH_AT91SAM9261EK  || MACH_AT91SAM9263EK || MACH_AT91SAM9G20EK || MACH_AT91SAM9RLEK || MACH_AT91SAM9G10EK || MACH_AT91SAM9G45EKES)
++	default "124"
++	help
++	  Many Atmel development boards has a NAND Flash, 
++	  divided into three partitions.
++          1) Boot partition (4 MB)
++	  2) Root FS
++	  3) Data partition
++	  This allows you to configure the size of the root fs
++	  with the remainder ending up in the data partition.
++	  The legal values are between 8 and 250
+ # ----------------------------------------------------------
+ 
+ comment "AT91 Feature Selections"
