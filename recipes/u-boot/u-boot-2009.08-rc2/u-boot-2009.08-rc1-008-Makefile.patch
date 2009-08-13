@@ -14,7 +14,7 @@ diff -urN u-boot-2009.08-rc1-0rig/Makefile u-boot-2009.08-rc1/Makefile
  ALL += $(obj)u-boot.srec $(obj)u-boot.bin $(obj)System.map $(U_BOOT_NAND) $(U_BOOT_ONENAND)
  
 +ifneq ($(BOARDNAME),)
-+BINARY := $(BOARDNAME)-u-boot-$(U_BOOT_VERSION)-$(BUILD_DATE)
++BINARY := u-boot-$(BOARDNAME)-$(U_BOOT_VERSION)-$(REVISION)
 +BINARY_BIN := $(obj)$(BINARY).bin
 +BINARY_GZ  := $(obj)$(BINARY).gz
 +ALL += $(BINARY_BIN)

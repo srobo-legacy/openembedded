@@ -31,10 +31,29 @@ SRC_URI_append = " \
 	"
 
 TARGET_LDFLAGS = ""
-ALLOW_EMPTY = "1"
+
 inherit base
 
+EXTRA_OEMAKE = "CROSS_COMPILE=${TARGET_PREFIX} DESTDIR=${DEPLOY_DIR_IMAGE} REVISION=${PR}"
+EXTRA_OEMAKE += "BOARDNAME=${MACHINE}"
+EXTRA_OEMAKE += "BUILD_DATE=${MACHINE}"
+EXTRA_OEMAKE += "U_BOOT_VERSION=${PV}"
+EXTRA_OEMAKE += "TFTPBOOT=/tftpboot"
+
+
 do_compile () {
+	unset LDFLAGS
+	unset CFLAGS
+	unset CPPFLAGS
 	oe_runmake ${UBOOT_MACHINE}
 	oe_runmake all
+	oe_runmake install
+	package_stagefile_shell ${DEPLOY_DIR_IMAGE}/${UBOOT_IMAGE}
+
+	cd ${DEPLOY_DIR_IMAGE}
+	rm -f ${UBOOT_SYMLINK}
+	ln -sf ${UBOOT_IMAGE} ${UBOOT_SYMLINK}
+	package_stagefile_shell ${DEPLOY_DIR_IMAGE}/${UBOOT_SYMLINK}
+
+#	oe_runmake tftp
 }
