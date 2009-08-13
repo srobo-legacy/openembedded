@@ -1,0 +1,99 @@
+#!/bin/sh
+TOPDIR=`pwd`
+LOGFILE=build.log
+OLDLOG=old.log
+METHOD=do_rebuild
+
+
+function log_time()
+{
+	printf	"%-50s\n" $1					| tee -a ${LOGFILE}	| tee -a $2.log
+	printf "%-10s\n" "`date +%T`"				| tee -a ${LOGFILE}	| tee -a $2.log
+	if test -e ${TOPDIR}/build-$1/FAIL ; then
+		printf "%-10s\n"  "[FAIL]"			| tee -a ${LOGFILE}	| tee -a $2.log
+	else
+		printf "%-10s\n"  "[OK]"			| tee -a ${LOGFILE}	| tee -a $2.log
+	fi
+}
+
+function log_time_sts()
+{
+	printf	"%-50s\n" $1					| tee -a ${LOGFILE}	| tee -a $2.log
+	printf "%-10s" "`date +%T`"				| tee -a ${LOGFILE}	| tee -a $2.log
+}
+
+function prepare ()
+{
+	cd ${TOPDIR}
+	rm -f build
+	ln -s build-$1 build
+	cd build
+}
+
+function action ()
+{
+	printf	"%-40s\n" "$1 running from build-$1"		| tee -a ${LOGFILE}	| tee -a $2.log
+
+#	printf	"%-50s\n" "Start building $2 at"		| tee -a ${LOGFILE}	| tee -a $2.log
+	log_time	"$1 start building $2 at"	$2
+	bitbake $2	> build.log	2>&1	|| touch FAIL
+
+#	printf	"%-50s\n" "Start building u-boot at"		| tee -a ${LOGFILE}	| tee -a $2.log
+	log_time	"$1 start building u-boot at"	$2
+	bitbake u-boot	> u-boot.log	2>&1	|| touch FAIL
+
+#	printf	"%-50s\n" "Stop  building $2 at"		| tee -a ${LOGFILE}	| tee -a $2.log
+	log_time	"$1 stop  building $2 at"	$2
+}
+
+function remove_tmp ()
+{
+	printf	"%-50s" "$1 removing tmp from build-$1"		| tee -a ${LOGFILE}	| tee -a $2.log
+	rm -fr tmp/cache	; printf "0"
+	rm -fr tmp/cross	; printf "1"
+	rm -fr tmp/deploy	; printf "2"
+	rm -fr tmp/pkgdata	; printf "3"
+	rm -fr tmp/rootfs	; printf "4"
+	rm -fr tmp/staging	; printf "5"
+	rm -fr tmp/stamps	; printf "6"
+	rm -fr tmp/usr		; printf "7"
+	rm -fr tmp/work	; printf "8"
+	rm -fr tmp		; printf "9"
+	printf	"%-10s\n" "[DONE]"				| tee -a ${LOGFILE}	| tee -a $2.log
+}
+
+function do_rebuild ()
+{
+	prepare		$1	$2
+	cd ${TOPDIR}/build
+	rm -f *.log
+	rm -f FAIL
+	remove_tmp	$1	$2
+	action		$1	$2
+}
+
+function do_build ()
+{
+	prepare	$1	$2
+	cd ${TOPDIR}/build
+	touch ${LOGFILE}
+	cat ${LOGFILE} >> ${OLDLOG}
+	rm -f ${LOGFILE}
+	action	$1	$2
+}
+
+function build_board ()
+{
+
+#	printf	"%-50s" "$1 started at"				| tee -a ${LOGFILE}	| tee -a $2.log
+	log_time 	"$1 started at"	$2
+	${METHOD} $1 $2
+
+
+#	printf	"%-50s" "$1 completed at"			| tee -a ${LOGFILE}	| tee -a $2.log
+	log_time_sts	"$1 completed at"	$2
+}
+
+source board_list.sh
+
+
