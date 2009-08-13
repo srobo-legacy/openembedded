@@ -2,48 +2,50 @@
 TOPDIR=`pwd`
 LOGFILE=build.log
 OLDLOG=old.log
-METHOD=do_rebuild
+#METHOD=do_rebuild
+METHOD=do_build
 
 
 function log_time()
 {
-	printf	"%-50s\n" $1					| tee -a ${LOGFILE}	| tee -a $2.log
+	printf	"%-50s" "$1"					| tee -a ${LOGFILE}	| tee -a $2.log
 	printf "%-10s\n" "`date +%T`"				| tee -a ${LOGFILE}	| tee -a $2.log
-	if test -e ${TOPDIR}/build-$1/FAIL ; then
+}
+
+function log_time_sts()
+{
+	printf	"%-50s" "$1"					| tee -a ${LOGFILE}	| tee -a $2.log
+	printf "%-10s" "`date +%T`"				| tee -a ${LOGFILE}	| tee -a $2.log
+	if test -e ${TOPDIR}/build/FAIL ; then
 		printf "%-10s\n"  "[FAIL]"			| tee -a ${LOGFILE}	| tee -a $2.log
 	else
 		printf "%-10s\n"  "[OK]"			| tee -a ${LOGFILE}	| tee -a $2.log
 	fi
 }
 
-function log_time_sts()
-{
-	printf	"%-50s\n" $1					| tee -a ${LOGFILE}	| tee -a $2.log
-	printf "%-10s" "`date +%T`"				| tee -a ${LOGFILE}	| tee -a $2.log
-}
-
 function prepare ()
 {
 	cd ${TOPDIR}
 	rm -f build
-	ln -s build-$1 build
+	ln -s boards/build-$1 build
 	cd build
 }
 
 function action ()
 {
-	printf	"%-40s\n" "$1 running from build-$1"		| tee -a ${LOGFILE}	| tee -a $2.log
+	printf	"%-40s\n" "$1 using boards/build-$1/conf/local.conf"		| tee -a ${LOGFILE}	| tee -a $2.log
 
 #	printf	"%-50s\n" "Start building $2 at"		| tee -a ${LOGFILE}	| tee -a $2.log
 	log_time	"$1 start building $2 at"	$2
-	bitbake $2	> build.log	2>&1	|| touch FAIL
-
-#	printf	"%-50s\n" "Start building u-boot at"		| tee -a ${LOGFILE}	| tee -a $2.log
-	log_time	"$1 start building u-boot at"	$2
-	bitbake u-boot	> u-boot.log	2>&1	|| touch FAIL
+#	bitbake $2	> build.log	2>&1	|| touch FAIL
 
 #	printf	"%-50s\n" "Stop  building $2 at"		| tee -a ${LOGFILE}	| tee -a $2.log
 	log_time	"$1 stop  building $2 at"	$2
+
+#	printf	"%-50s\n" "Start building u-boot at"		| tee -a ${LOGFILE}	| tee -a $2.log
+	log_time	"$1 start building u-boot at"	$2
+#	bitbake u-boot	> u-boot.log	2>&1	|| touch FAIL
+
 }
 
 function remove_tmp ()
@@ -85,6 +87,7 @@ function do_build ()
 function build_board ()
 {
 
+	printf "******************************************************************\n"
 #	printf	"%-50s" "$1 started at"				| tee -a ${LOGFILE}	| tee -a $2.log
 	log_time 	"$1 started at"	$2
 	${METHOD} $1 $2
