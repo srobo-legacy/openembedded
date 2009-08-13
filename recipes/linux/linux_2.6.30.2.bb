@@ -7,6 +7,8 @@ S = "${WORKDIR}/linux-2.6.30"
 # Mark archs/machines that this kernel supports
 DEFAULT_PREFERENCE = "-1"
 
+FILEDIR = "${FILE_DIRNAME}/${P}/arch-at91"
+
 DEFAULT_PREFERENCE_at91sam9g10ek = "2"
 DEFAULT_PREFERENCE_at91sam9g20ek = "2"
 DEFAULT_PREFERENCE_at91sam9g45ek = "2"
@@ -24,89 +26,110 @@ SRC_URI = "${KERNELORG_MIRROR}/pub/linux/kernel/v2.6/linux-2.6.30.tar.bz2 \
 	"
 
 
-SRC_URI_append_at91sam9g10df = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+SRC_URI_append_at91sam9g10df = "\
+	file://../arch-at91/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://../arch-at91/linux-2.6.30.2-configurable-NAND-partition-size.patch;patch=1 \
 	file://defconfig \
 	"
 
-SRC_URI_append_at91sam9g20dfc = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+#	ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+
+
+
+SRC_URI_append_at91sam9g20dfc = "\
+	file://../arch-at91/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://../arch-at91/linux-2.6.30.2-configurable-NAND-partition-size.patch;patch=1 \
 	file://defconfig \
 	"
 
-SRC_URI_append_at91sam9g45ek = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+SRC_URI_append_at91sam9g45ek = "\
+	file://../arch-at91/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://../arch-at91/linux-2.6.30.2-configurable-NAND-partition-size.patch;patch=1 \
 	file://defconfig \
 	"
 
-SRC_URI_append_at91sam9xedfc = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+SRC_URI_append_at91sam9xedfc = "\
+	file://../arch-at91/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://../arch-at91/linux-2.6.30.2-configurable-NAND-partition-size.patch;patch=1 \
 	file://defconfig \
 	"
 
-SRC_URI_append_at91sam9260dfc = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+SRC_URI_append_at91sam9260dfc = "\
+	file://../arch-at91/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://../arch-at91/linux-2.6.30.2-configurable-NAND-partition-size.patch;patch=1 \
 	file://defconfig \
 	"
 
-SRC_URI_append_at91sam9261df = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+SRC_URI_append_at91sam9261df = "\
+	file://../arch-at91/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://../arch-at91/linux-2.6.30.2-configurable-NAND-partition-size.patch;patch=1 \
 	file://defconfig \
 	"
 
-SRC_URI_append_at91sam9263dfc = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+SRC_URI_append_at91sam9263dfc = "\
+	file://../arch-at91/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://../arch-at91/linux-2.6.30.2-configurable-NAND-partition-size.patch;patch=1 \
 	file://defconfig \
 	"
 
 # -------------------------
-SRC_URI_append_at91sam9260df = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+SRC_URI_append_at91sam9260df = "\
+	file://../arch-at91/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://../arch-at91/linux-2.6.30.2-configurable-NAND-partition-size.patch;patch=1 \
 	file://defconfig \
 	"
 
-SRC_URI_append_at91sam9260ek = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+SRC_URI_append_at91sam9260ek = "\
+	file://../arch-at91/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://../arch-at91/linux-2.6.30.2-configurable-NAND-partition-size.patch;patch=1 \
 	file://defconfig \
 	"
 
-SRC_URI_append_at91sam9260nf = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+SRC_URI_append_at91sam9260nf = "\
+	file://../arch-at91/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://../arch-at91/linux-2.6.30.2-configurable-NAND-partition-size.patch;patch=1 \
 	file://defconfig \
 	"
 
-SRC_URI_append_at91sam9261ek = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+SRC_URI_append_at91sam9261ek = "\
+	file://../arch-at91/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://../arch-at91/linux-2.6.30.2-configurable-NAND-partition-size.patch;patch=1 \
 	file://defconfig \
 	"
 
-SRC_URI_append_at91sam9263ek = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+SRC_URI_append_at91sam9263ek = "\
+	file://../arch-at91/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://../arch-at91/linux-2.6.30.2-configurable-NAND-partition-size.patch;patch=1 \
 	file://defconfig \
 	"
 
-SRC_URI_append_at91sam9g10ek = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+SRC_URI_append_at91sam9g10ek = "\
+	file://../arch-at91/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://../arch-at91/linux-2.6.30.2-configurable-NAND-partition-size.patch;patch=1 \
 	file://defconfig \
 	"
 
-SRC_URI_append_at91sam9g10nf = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+SRC_URI_append_at91sam9g10nf = "\
+	file://../arch-at91/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://../arch-at91/linux-2.6.30.2-configurable-NAND-partition-size.patch;patch=1 \
 	file://defconfig \
 	"
 
-SRC_URI_append_at91sam9g20df = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+SRC_URI_append_at91sam9g20df = "\
+	file://../arch-at91/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://../arch-at91/linux-2.6.30.2-configurable-NAND-partition-size.patch;patch=1 \
 	file://defconfig \
 	"
 
-SRC_URI_append_at91sam9g20ek = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+SRC_URI_append_at91sam9g20ek = "\
+	file://../arch-at91/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://../arch-at91/linux-2.6.30.2-configurable-NAND-partition-size.patch;patch=1 \
 	file://defconfig \
 	"
 
-SRC_URI_append_at91sam9g20nf = \
-	"ftp://www.at91.com/pub/buildroot/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+SRC_URI_append_at91sam9g20nf = "\
+	file://../arch-at91/linux-2.6.30.2-at91-001.patch.gz;patch=1 \
+	file://../arch-at91/linux-2.6.30.2-configurable-NAND-partition-size.patch;patch=1 \
 	file://defconfig \
 	"
 
