@@ -1,0 +1,66 @@
+#!/bin/sh
+mkdir -p /opt
+mount -t jffs2			/dev/mtdblock2		/opt
+
+cd 	/opt/rootfs
+
+do_install	()
+{
+	cp	$1	/$1
+}
+
+###################################################
+
+# Add fstab to mount /opt and MMC/SD
+do_install	etc/fstab
+
+# /etc directories
+mkdir	-p	/etc/hal/fdi
+mkdir	-p	/etc/cron
+mkdir	-p	/etc/defaults
+
+do_install	etc/hal/fdi/policy
+
+# X11 configuration
+mkdir	-p	/usr/share/X11
+do_install	usr/share/X11/rgb.txt
+do_install 	etc/X11/xorg.conf
+do_install 	etc/X11/Xserver
+do_install 	etc/X11/default.xmodmap
+do_install	etc/X11/gpe-login.keylaunchrc
+do_install	usr/lib/xorg/protocol.txt
+
+# MPlayer
+mkdir	-p /home/root/.mplayer
+do_install	home/root/.mplayer/subfont.ttf
+
+# Startup script
+echo > /home/root/.profile
+
+# Create directories for samba
+do_install	etc/samba/smb.conf
+mkdir	-p /home/samba
+mkdir	-p /public
+mkdir	-p /usr/local/samba/lib
+touch	/usr/local/samba/lib/smb.conf
+
+# Fill /etc/hosts
+echo	"10.175.196.247		grond	grond.atmel.com" >> /etc/hosts
+echo	"10.175.196.220		aeglos	aeglos.atmel.com" >> /etc/hosts
+echo	"10.175.196.243		`hostname`	`hostname`.atmel.com" >> /etc/hosts
+
+# Create MPD directories
+mkdir	-p	/var/lib/mpd
+touch		/var/lib/mpd/mpd.log
+
+# Extract Keyboard info
+cd /opt/rootfs/usr/share/X11
+tar -cvf /var/log/xkb.tar xkb
+cd  /usr/share/X11
+tar -xvf /var/log/xkb.tar
+rm -f /var/log/xkb.tar
+
+# Create X11R6 link
+cd /usr
+ln	-s	/usr	X11R6
+

@@ -3,23 +3,17 @@ PR = "r1"
 
 
 SRC_URI = "ftp://www.at91.com/pub/buildroot/${PN}-${PV}.tar.bz2 \
-           "
-
-SRC_URI_append_at91sam9g45ek = " \
-	file://AT91SAM9G45_RomCode_Replacement.zip \
-	file://README.txt \
+	   file://NAND-empty-1MB.jffs2.bz2 \
+	   file://SD-card-tools.tar.bz2 \
 	"
 
-do_configure_prepend() {
-	install -d ${DEPLOY_DIR_IMAGE}
+SRC_URI_append_at91sam9g45ek = " \
+	file://at91sam9g45ekes/AT91SAM9G45_RomCode_Replacement.zip \
+	"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+PACKAGES = "${PN}"
 
-	if test -e ${WORKDIR}/AT91SAM9G45_RomCode_Replacement.zip ; then
-		cp ${WORKDIR}/AT91SAM9G45_RomCode_Replacement.zip	${DEPLOY_DIR_IMAGE}
-	fi
-	if test -e ${WORKDIR}/README.txt ; then
-		cp ${WORKDIR}/README.txt				${DEPLOY_DIR_IMAGE}
-	fi
-}
-
-PARALLEL_MAKE = ""
+FILES_${PN} = "\
+	/home/root/* \
+	"
 

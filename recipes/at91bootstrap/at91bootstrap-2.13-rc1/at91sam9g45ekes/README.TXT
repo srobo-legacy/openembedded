@@ -13,6 +13,10 @@ Once done the following steps are necessary to store this version of ROM code in
 5. lauch hyper terminal (115200 bauds, 8 bits, parity none, 1 stop bit, no flow control)
 6. plug-in power supply
 7. type on hyper terminal : "Alt-0128 Alt-0128 #"
+   ALT-0128 is the '€' (Euro) sign for people lucky enough to 
+   have a European Keyboard.
+   Otherwise you press the ALT button, and then press 0128 in a sequence before releasing the ALT button
+   V#
 8. AT91SAM9G45-EKES returns ">"
 9. close hyper terminal
 10. close jumper JP12 (DataFlash® Chip Select)
