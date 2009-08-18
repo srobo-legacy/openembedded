@@ -1,0 +1,55 @@
+DESCRIPTION = "at91bootstrap: loaded into internal SRAM by AT91 BootROM"
+SECTION = "bootloaders"
+
+S = "${WORKDIR}/at91bootstrap-${PV}"
+PACKAGE_ARCH = "${AT91BOOTSTRAP_BOARD}"
+EXTRA_OEMAKE = "CROSS_COMPILE=${TARGET_PREFIX} DESTDIR=${DEPLOY_DIR_IMAGE} REVISION=${PR}"
+PARALLEL_MAKE = ""
+
+do_compile () {
+	unset LDFLAGS
+	unset CFLAGS
+	unset CPPFLAGS
+
+	rm -Rf ${S}/binaries
+	oe_runmake AT91_CUSTOM_FLAGS="${AT91BOOTSTRAP_FLAGS}" ${PACKAGE_ARCH}_defconfig
+	oe_runmake AT91_CUSTOM_FLAGS="${AT91BOOTSTRAP_FLAGS}"
+	oe_runmake AT91_CUSTOM_FLAGS="${AT91BOOTSTRAP_FLAGS}" boot
+}
+
+do_install() {
+	install -d ${DEPLOY_DIR_IMAGE}
+
+	oe_runmake AT91_CUSTOM_FLAGS="${AT91BOOTSTRAP_FLAGS}" install
+
+	if test -e ${WORKDIR}/AT91SAM9G45_RomCode_Replacement.bin ; then
+		install -d 755 ${WORKDIR}/AT91SAM9G45_RomCode_Replacement.bin	\
+			${DEPLOY_DIR_IMAGE}
+	fi
+	if test -e ${WORKDIR}/README.txt ; then
+		rm -f ${DEPLOY_DIR_IMAGE}/README.txt
+		install -d 755 ${WORKDIR}/README.txt			${DEPLOY_DIR_IMAGE}
+	fi
+	if test -e ${WORKDIR}/NAND-empty-1MB.jffs2 ; then
+		rm -f ${DEPLOY_DIR_IMAGE}/NAND-empty-1MB.jffs2
+		cp ${WORKDIR}/NAND-empty-1MB.jffs2			${DEPLOY_DIR_IMAGE}
+	fi
+	if test -e ${WORKDIR}/mk-sd-card.sh ; then
+		rm -f ${DEPLOY_DIR_IMAGE}/mk-sd-card.sh	
+		install -d 755 ${WORKDIR}/mk-sd-card.sh			${DEPLOY_DIR_IMAGE}
+	fi
+	if test -e ${WORKDIR}/write-to-SD-card.sh ; then
+		rm -f ${DEPLOY_DIR_IMAGE}/write-to-SD-card.sh	
+		install -d 755 ${WORKDIR}/write-to-SD-card.sh		${DEPLOY_DIR_IMAGE}
+	fi
+	if test -e ${WORKDIR}/fixboot.py ; then
+		rm -f ${DEPLOY_DIR_IMAGE}/fixboot.py
+		install -d 755 ${WORKDIR}/fixboot.py			${DEPLOY_DIR_IMAGE}
+	fi
+	if test -e cp ${WORKDIR}/update ; then
+		rm -f ${DEPLOY_DIR_IMAGE}/update
+		install -d 755 ${WORKDIR}/update			${DEPLOY_DIR_IMAGE}
+		install -d 755 ${WORKDIR}/update			${D}/home/root
+	fi
+
+}
