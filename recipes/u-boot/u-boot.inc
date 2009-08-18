@@ -22,7 +22,7 @@ do_compile () {
 	oe_runmake all
 }
 
-do_deploy () {
+do_install () {
 	install -d ${DEPLOY_DIR_IMAGE}
 	install ${S}/u-boot.bin ${DEPLOY_DIR_IMAGE}/${UBOOT_IMAGE}
 	package_stagefile_shell ${DEPLOY_DIR_IMAGE}/${UBOOT_IMAGE}
@@ -32,8 +32,9 @@ do_deploy () {
 	ln -sf ${UBOOT_IMAGE} ${UBOOT_SYMLINK}
 	package_stagefile_shell ${DEPLOY_DIR_IMAGE}/${UBOOT_SYMLINK}
 }
-do_deploy[dirs] = "${S}"
-addtask deploy before do_build after do_compile
+
+#do_deploy[dirs] = "${S}"
+#addtask deploy before do_build after do_compile
 
 do_stage() {
 	install -d ${STAGING_BINDIR_NATIVE}
