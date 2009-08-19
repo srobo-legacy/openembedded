@@ -4,12 +4,20 @@
 # note xinit needs full server path
 if [ -f /usr/bin/Xfbdev ]; then
   XSERVER=/usr/bin/Xfbdev
+  RGBA_VRGB=-rgba vrgb
+  RGBA_VBGR=-rgba vbgr
+  RGBA_RGB=-rgba rgb
 fi
 if [ -f /usr/bin/Xepson ]; then
   XSERVER=/usr/bin/Xepson
-fi
+  RGBA_VRGB=-rgba vrgb
+  RGBA_VBGR=-rgba vbgr
+  RGBA_RGB=-rgba rgbfi
 if [ -f /usr/bin/Xorg ]; then
   XSERVER=/usr/bin/Xorg
+  RGBA_VRGB=
+  RGBA_VBGR=
+  RGBA_RGB=
 fi
 
 . /etc/profile
@@ -60,36 +68,36 @@ case `module_id` in
         "AML M8050")
                 ARGS="$ARGS -dpi 100 -screen 320x240@270" ;;
         "HP iPAQ H3100" | "HP iPAQ H3800")
-                ARGS="$ARGS -dpi 100 -rgba vrgb -screen ${SCREEN_SIZE}@90" ;;
+                ARGS="$ARGS -dpi 100 ${RGBA_VRGB} -screen ${SCREEN_SIZE}@90" ;;
         "HP iPAQ H3600" | "HP iPAQ H3700" | "HP iPAQ H3900")
-                ARGS="$ARGS -dpi 100 -rgba vbgr -screen ${SCREEN_SIZE}@270" ;;
+                ARGS="$ARGS -dpi 100 ${RGBA_VBGR} -screen ${SCREEN_SIZE}@270" ;;
         "HP iPAQ H5400" | "HP iPAQ H2200")
-                ARGS="$ARGS -dpi 100 -rgba rgb" ;;
+                ARGS="$ARGS -dpi 100 ${RGBA_RGB}" ;;
         "HP iPAQ HX4700")
                 ARGS="$ARGS -dpi 200"
                 IMAGEON="w3220"
                 ;;
         "Ramses")
                 # What is this "vt2" in aid of?
-                ARGS="$ARGS -dpi 100 -rgba vrgb -screen ${SCREEN_SIZE}@90 vt2" ;;
+                ARGS="$ARGS -dpi 100 ${RGBA_VRGB} -screen ${SCREEN_SIZE}@90 vt2" ;;
         # both 'Sharp-Collie' and just 'Collie' have been reported
         *Poodle)
-                ARGS="$ARGS -dpi 100 -rgba vrgb -screen ${SCREEN_SIZE}@270" ;;
+                ARGS="$ARGS -dpi 100 ${RGBA_VRGB} -screen ${SCREEN_SIZE}@270" ;;
         *Collie)
-                ARGS="$ARGS -dpi 100 -rgba vrgb -screen ${SCREEN_SIZE}@270" ;;
+                ARGS="$ARGS -dpi 100 ${RGBA_VRGB} -screen ${SCREEN_SIZE}@270" ;;
         "SHARP Shepherd" | "SHARP Husky" | "SHARP Corgi")
                 if [ `screen_width` -gt 330 ] ; then
                      DPI=200
                 else
                      DPI=100
                 fi 
-                ARGS="$ARGS -dpi ${DPI} -rgba rgb"
+                ARGS="$ARGS -dpi ${DPI} ${RGBA_RGB}"
                 IMAGEON="w100"
                 ;;
         "SHARP Spitz" | "SHARP Akita" | "SHARP Borzoi")
-                ARGS="$ARGS -dpi 200 -rgba rgb -screen ${SCREEN_SIZE}@270" ;;
+                ARGS="$ARGS -dpi 200 ${RGBA_RGB} -screen ${SCREEN_SIZE}@270" ;;
         "Simpad")
-                ARGS="$ARGS -dpi 100 -rgba rgb" ;;
+                ARGS="$ARGS -dpi 100 ${RGBA_RGB}" ;;
         "Generic OMAP1510/1610/1710")
                 ARGS="$ARGS -dpi 220 -mouse /dev/input/event0" ;;
         "Cellon C8000 Board")
@@ -99,7 +107,7 @@ case `module_id` in
         "HTC Universal")
                 ARGS="$ARGS -dpi 225 -screen ${SCREEN_SIZE}@270" ;;
         "ARM-IntegratorCP" | "ARM-Versatile PB")
-                ARGS="$ARGS -rgba vrgb" ;;
+                ARGS="$ARGS ${RGBA_VRGB}" ;;
         "Compulab CM-x270")
                 modprobe mbxfb
                 ARGS="$ARGS -fb /dev/fb1" ;;
