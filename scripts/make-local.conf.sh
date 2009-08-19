@@ -51,5 +51,9 @@ function	build_board ()
 	edit_conf ${MACHINE}
 }
 
-source board_list.sh
+if "x$1" == "x" ; then 
+	source board_list.sh
+else
+	build_board $1
+fi
 
