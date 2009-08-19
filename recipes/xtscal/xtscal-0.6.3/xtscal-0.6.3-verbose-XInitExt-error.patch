@@ -1,0 +1,25 @@
+diff -urN xtscal-0.6.3-0rig/main.c xtscal-0.6.3/main.c
+--- xtscal-0.6.3-0rig/main.c	2009-08-16 18:40:30.000000000 +0200
++++ xtscal-0.6.3/main.c	2009-08-16 18:42:36.000000000 +0200
+@@ -378,7 +378,8 @@
+   XRenderColor colortmp;
+   int max_fd;
+   GC bg_gc;
+-  int i;
++  int i, nextensions;
++  char **XExtensions;
+ 
+   for (i = 1; i < argc; i++)
+     {
+@@ -413,6 +414,11 @@
+     }
+   else
+     {
++      XExtensions = XListExtensions(dpy,&nextensions);
++      fprintf (stderr, "The display supports %d extensions\n", nextensions);
++      for(;nextensions > 0; nextensions --) {
++	fprintf (stderr, "*\t%s\n", *XExtensions++);
++      }
+       perror ("XCALIBRATE extension missing");
+       exit (1);
+     }
