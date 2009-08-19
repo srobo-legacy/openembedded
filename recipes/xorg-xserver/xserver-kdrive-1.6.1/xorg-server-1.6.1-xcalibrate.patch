@@ -1,0 +1,112 @@
+diff -urN xorg-server-1.6.1-0rig/include/dix-config.h.in xorg-server-1.6.1/include/dix-config.h.in
+--- xorg-server-1.6.1-0rig/include/dix-config.h.in	2009-08-17 17:27:00.000000000 +0200
++++ xorg-server-1.6.1/include/dix-config.h.in	2009-08-17 17:55:21.000000000 +0200
+@@ -300,6 +300,9 @@
+ /* Support Xdmcp */
+ #undef XDMCP
+ 
++/* Support XCALIBRATE extension */
++#undef XCALIBRATE
++
+ /* Build XFree86 BigFont extension */
+ #undef XF86BIGFONT
+ 
+diff -urN xorg-server-1.6.1-0rig/include/xorg-server.h.in xorg-server-1.6.1/include/xorg-server.h.in
+--- xorg-server-1.6.1-0rig/include/xorg-server.h.in	2009-08-17 17:27:00.000000000 +0200
++++ xorg-server-1.6.1/include/xorg-server.h.in	2009-08-17 17:51:04.000000000 +0200
+@@ -85,6 +85,9 @@
+ /* Support Xdmcp */
+ #undef XDMCP
+ 
++/* Build XCALIBRATE Touch screen calibration extension */
++#undef XCALIBRATE
++
+ /* Build XFree86 BigFont extension */
+ #undef XF86BIGFONT
+ 
+diff -urN xorg-server-1.6.1-0rig/mi/miinitext.c xorg-server-1.6.1/mi/miinitext.c
+--- xorg-server-1.6.1-0rig/mi/miinitext.c	2009-08-17 17:27:00.000000000 +0200
++++ xorg-server-1.6.1/mi/miinitext.c	2009-08-17 17:46:28.000000000 +0200
+@@ -44,7 +44,7 @@
+ SOFTWARE.
+ 
+ ******************************************************************/
+-
++#include "X11/Xlib.h"
+ #ifdef HAVE_DIX_CONFIG_H
+ #include <dix-config.h>
+ #endif
+@@ -119,6 +119,9 @@
+ #ifdef RES
+ extern Bool noResExtension;
+ #endif
++#ifdef XCALIBRATE
++extern Bool noXCalibrateExtension;
++#endif
+ #ifdef XF86BIGFONT
+ extern Bool noXFree86BigfontExtension;
+ #endif
+@@ -180,6 +183,9 @@
+ #ifdef PANORAMIX
+ #include <X11/extensions/panoramiXproto.h>
+ #endif
++#ifdef XCALIBRATE
++#include <X11/extensions/xcalibrate.h>
++#endif
+ #ifdef XF86BIGFONT
+ #include <X11/extensions/xf86bigfstr.h>
+ #endif
+@@ -229,6 +235,9 @@
+ #ifdef XSELINUX
+ extern void SELinuxExtensionInit(INITARGS);
+ #endif
++#ifdef XCALIBRATE
++extern void XCalibrateExtensionInit(INITARGS);
++#endif
+ #ifdef XF86BIGFONT
+ extern void XFree86BigfontExtensionInit(INITARGS);
+ #endif
+@@ -321,6 +330,9 @@
+ #ifdef RES
+     { "X-Resource", &noResExtension },
+ #endif
++#ifdef XCALIBRATE
++    { "XCALIBRATE", &noXCalibrateExtension },
++#endif
+ #ifdef XF86BIGFONT
+     { "XFree86-Bigfont", &noXFree86BigfontExtension },
+ #endif
+@@ -435,6 +447,9 @@
+ #if defined(DPMSExtension) && !defined(NO_HW_ONLY_EXTS)
+     if (!noDPMSExtension) DPMSExtensionInit();
+ #endif
++#ifdef XCALIBRATE
++    if (!noXCalibrateExtension) XCalibrateExtensionInit();
++#endif
+ #ifdef XF86BIGFONT
+     if (!noXFree86BigfontExtension) XFree86BigfontExtensionInit();
+ #endif
+@@ -507,6 +522,9 @@
+     /* must be before Render to layer DisplayCursor correctly */
+     { XFixesExtensionInit, "XFIXES", &noXFixesExtension, NULL, NULL },
+ #endif
++#ifdef XCALIBRATE
++    { XCalibrateExtensionInit, "XCALIBRATE", &noXCalibrateExtension, NULL, NULL },
++#endif
+ #ifdef XF86BIGFONT
+     { XFree86BigfontExtensionInit, XF86BIGFONTNAME, &noXFree86BigfontExtension, NULL, NULL },
+ #endif
+diff -urN xorg-server-1.6.1-0rig/os/utils.c xorg-server-1.6.1/os/utils.c
+--- xorg-server-1.6.1-0rig/os/utils.c	2009-08-17 17:27:00.000000000 +0200
++++ xorg-server-1.6.1/os/utils.c	2009-08-17 17:52:51.000000000 +0200
+@@ -160,6 +160,9 @@
+ #ifdef RES
+ _X_EXPORT Bool noResExtension = FALSE;
+ #endif
++#ifdef XCALIBRATE
++_X_EXPORT Bool noXCalibrateExtension = FALSE;
++#endif
+ #ifdef XF86BIGFONT
+ _X_EXPORT Bool noXFree86BigfontExtension = FALSE;
+ #endif
+

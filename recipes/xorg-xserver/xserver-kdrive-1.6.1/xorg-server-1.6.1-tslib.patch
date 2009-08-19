@@ -1,0 +1,112 @@
+diff -urN xorg-server-1.6.1-0rig/configure.ac xorg-server-1.6.1/configure.ac
+--- xorg-server-1.6.1-0rig/configure.ac	2009-08-17 19:32:43.000000000 +0200
++++ xorg-server-1.6.1/configure.ac	2009-08-17 19:39:55.000000000 +0200
+@@ -959,7 +959,7 @@
+ 	AC_DEFINE(DPMSExtension, 1, [Support DPMS extension])
+ fi
+ 
+-if test "x$XCALIBRATE" = xyes && test "$KDRIVE" = yes; then
++if test "x$XCALIBRATE" = xyes; then
+    AC_DEFINE(XCALIBRATE, 1, [Build XCalibrate extension])
+    REQUIRED_MODULES="$REQUIRED_MODULES xcalibrateproto"
+ else
+diff -urN xorg-server-1.6.1-0rig/hw/kdrive/linux/tslib.c xorg-server-1.6.1/hw/kdrive/linux/tslib.c
+--- xorg-server-1.6.1-0rig/hw/kdrive/linux/tslib.c	2009-08-17 19:32:39.000000000 +0200
++++ xorg-server-1.6.1/hw/kdrive/linux/tslib.c	2009-08-17 22:36:01.000000000 +0200
+@@ -39,6 +39,7 @@
+ #include <X11/X.h>
+ #include <X11/Xproto.h>
+ #include <X11/Xpoll.h>
++#include <stdio.h>
+ #include "inputstr.h"
+ #include "scrnintstr.h"
+ #include "kdrive.h"
+@@ -56,6 +57,25 @@
+     int phys_screen;
+ };
+ 
++static KdPointerInfo *tsPointer = NULL;	/* Export pointer for XCALIBRATE */
++
++void
++tslib_set_raw_event_hook( void *hook, void *closure)
++{
++	struct TslibPrivate *private;
++	if(tsPointer == NULL) {
++		fprintf(stderr,"tslib_set_raw_event_hook: Invalid KdPointerInfo\n");
++		return;
++	}
++	private = tsPointer->driverPrivate;
++	if(private == NULL) {
++		fprintf(stderr,"tslib_set_raw_event_hook: Invalid driverPrivate\n");
++		return;
++	}
++	private->raw_event_hook = hook;
++	private->raw_event_closure = closure;
++}
++
+ 
+ static void
+ TsRead (int fd, void *closure)
+@@ -183,6 +203,7 @@
+     if (pi->driverPrivate) {
+         xfree(pi->driverPrivate);
+         pi->driverPrivate = NULL;
++	tsPointer = NULL;
+     }
+ }
+ 
+diff -urN xorg-server-1.6.1-0rig/Xext/xcalibrate.c xorg-server-1.6.1/Xext/xcalibrate.c
+--- xorg-server-1.6.1-0rig/Xext/xcalibrate.c	2009-08-17 19:32:53.000000000 +0200
++++ xorg-server-1.6.1/Xext/xcalibrate.c	2009-08-17 22:22:48.000000000 +0200
+@@ -34,12 +34,13 @@
+ #include "dixstruct.h"
+ #include "extnsionst.h"
+ #include "swaprep.h"
++#include "kdrive.h"
+ 
+ #include <X11/extensions/xcalibrateproto.h>
+ #include <X11/extensions/xcalibratewire.h>
+ 
+-extern void (*tslib_raw_event_hook)(int x, int y, int pressure, void *closure);
+-extern void *tslib_raw_event_closure;
++extern void
++tslib_set_raw_event_hook(void *hook, void *closure);
+ 
+ static CARD8	XCalibrateReqCode;
+ int		XCalibrateEventBase;
+@@ -124,8 +125,7 @@
+ 	{
+ 	  /* Start calibrating.  */
+ 	  xcalibrate_client = client;
+-	  tslib_raw_event_hook = xcalibrate_event_hook;
+-	  tslib_raw_event_closure = client;
++	  tslib_set_raw_event_hook(xcalibrate_event_hook, client);
+ 	  rep.status = GrabSuccess;
+ 	}
+       else
+@@ -139,8 +139,7 @@
+ 	{
+ 	  /* Stop calibrating.  */
+ 	  xcalibrate_client = NULL;
+-	  tslib_raw_event_hook = NULL;
+-	  tslib_raw_event_closure = NULL;
++	  tslib_set_raw_event_hook(NULL, NULL);
+ 	  rep.status = GrabSuccess;
+ 
+ 	  /* Cycle input off and on to reload configuration.  */
+@@ -272,8 +271,7 @@
+       {
+ 	/* Stop calibrating.  */
+ 	xcalibrate_client = NULL;
+-	tslib_raw_event_hook = NULL;
+-	tslib_raw_event_closure = NULL;
++	tslib_set_raw_event_hook(NULL, NULL);
+       }
+ }
+ 
+@@ -297,4 +295,5 @@
+   XCalibrateErrorBase = extEntry->errorBase;
+ 
+   xcalibrate_client = 0;
++
+ }
