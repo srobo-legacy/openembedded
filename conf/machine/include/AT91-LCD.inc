@@ -12,3 +12,4 @@ MACHINE_FEATURES += "screen touchscreen keyboard"
 # MACHINE_FEATURES += "i2c spi serial"
 # MACHINE_FEATURES += "sound libogg libvorbis"
 
+

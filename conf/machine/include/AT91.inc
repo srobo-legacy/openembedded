@@ -5,9 +5,20 @@ TARGET_ARCH = "arm"
 
 PREFERRED_PROVIDER_virtual/kernel = "linux"
 PREFERRED_VERSION_linux = "2.6.30.2"
-PREFERRED_PROVIDER_xserver = "xserver-kdrive"
+
+#PREFERRED_PROVIDER_virtual/xserver = "xserver-kdrive"
+PREFERRED_PROVIDER_virtual/xserver = "xserver-kdrive-1300"
+#PREFERRED_PROVIDER_virtual/xserver = "xserver-xorg"
+#PREFERRED_PROVIDER_xserver = "xserver-xorg"
+#PREFERRED_PROVIDER_xserver = "xserver-kdrive"
+#XSERVER = "xserver-kdrive-fbdev"
+# Angstrom defines:
+#PREFERRED_VERSION_xserver-kdrive = "1.4.0.90"
+#PREFERRED_VERSION_xserver-kdrive = "1.6.1"
+
 PREFERRED_PROVIDER_at91bootstrap = "at91bootstrap_2.13-rc1"
 PREFERRED_PROVIDER_u-boot = "u-boot_2009.08-rc2"
+
 
 KERNEL_IMAGETYPE = "uImage"
 
@@ -15,21 +26,19 @@ PREFERRED_VERSION_at91bootstrap = "2.13-rc1"
 PREFERRED_VERSION_u-boot = "2009.08-rc2"
 # PREFERRED_VERSION_mplayer = "svn"
 
+PREFERRED_VERSION_x11-gpe-image = "atmel"
+PREFERRED_VERSION_alsa-state = "atmel"
+
 #don't try to access tty1
 USE_VT = "0"
 
-MACHINE_FEATURES = "kernel26 alsa ext2 usbgadget vfat uboot"
-MACHINE_EXTRA_RDEPENDS += "mpg321 mpd madplay mplayer libmad"
-MACHINE_EXTRA_RDEPENDS += "kernel-modules"
-MACHINE_EXTRA_RDEPENDS += "minicom"
-MACHINE_EXTRA_RDEPENDS += "samba vsftpd"
-MACHINE_EXTRA_RDEPENDS += "nano"
-# MACHINE_EXTRA_RDEPENDS += "u-boot-utils"
-
-
+MACHINE_FEATURES = " kernel26 alsa ext2 usbgadget vfat uboot "
 EXTRA_IMAGEDEPENDS += "u-boot"
 EXTRA_IMAGEDEPENDS += "at91bootstrap"
+EXTRA_IMAGEDEPENDS += "atmel-fixes"
 
+MACHINE_EXTRA_RDEPENDS += " kernel-modules "
+MACHINE_EXTRA_RDEPENDS += " atmel-fixes "
 
 # used by sysvinit_2
 SERIAL_CONSOLE = "115200 ttyS0"
