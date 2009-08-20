@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
 # Linux kernel version: 2.6.30.2
-# Wed Aug 19 23:37:43 2009
+# Thu Aug 13 09:37:24 2009
 #
 CONFIG_ARM=y
 CONFIG_SYS_SUPPORTS_APM_EMULATION=y
@@ -202,7 +202,6 @@ CONFIG_MACH_AT91SAM9G45EKES=y
 #
 # AT91 Board Options
 #
-CONFIG_MTD_NAND_ATMEL_ROOTFS_SIZE=124
 
 #
 # AT91 Feature Selections
@@ -291,7 +290,7 @@ CONFIG_ALIGNMENT_TRAP=y
 #
 CONFIG_ZBOOT_ROM_TEXT=0x0
 CONFIG_ZBOOT_ROM_BSS=0x0
-CONFIG_CMDLINE=" debug "
+CONFIG_CMDLINE="mem=64M console=ttyS0,115200 root=/dev/mmcblk0p1 rootfstype=ext2 rootdelay=5"
 # CONFIG_XIP_KERNEL is not set
 # CONFIG_KEXEC is not set
 
@@ -1007,9 +1006,6 @@ CONFIG_FB_CFB_IMAGEBLIT=y
 # CONFIG_FB_SYS_COPYAREA is not set
 # CONFIG_FB_SYS_IMAGEBLIT is not set
 # CONFIG_FB_FOREIGN_ENDIAN is not set
-# CONFIG_FB_BOTH_ENDIAN is not set
-# CONFIG_FB_BIG_ENDIAN is not set
-# CONFIG_FB_LITTLE_ENDIAN is not set
 # CONFIG_FB_SYS_FOPS is not set
 # CONFIG_FB_SVGALIB is not set
 # CONFIG_FB_MACMODES is not set
@@ -1080,7 +1076,7 @@ CONFIG_SND_VMASTER=y
 CONFIG_SND_AC97_CODEC=y
 # CONFIG_SND_DRIVERS is not set
 CONFIG_SND_ARM=y
-CONFIG_SND_AT91_AC97=y
+# CONFIG_SND_AT91_AC97 is not set
 
 #
 # Atmel devices (AVR32 and AT91)
