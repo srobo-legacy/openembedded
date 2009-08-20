@@ -16,13 +16,13 @@ PREFERRED_PROVIDER_virtual/xserver = "xserver-kdrive-1300"
 #PREFERRED_VERSION_xserver-kdrive = "1.4.0.90"
 #PREFERRED_VERSION_xserver-kdrive = "1.6.1"
 
-PREFERRED_PROVIDER_at91bootstrap = "at91bootstrap_2.13-rc1"
+PREFERRED_PROVIDER_at91bootstrap = "at91bootstrap_2.13-rc3"
 PREFERRED_PROVIDER_u-boot = "u-boot_2009.08-rc2"
 
 
 KERNEL_IMAGETYPE = "uImage"
 
-PREFERRED_VERSION_at91bootstrap = "2.13-rc1"
+PREFERRED_VERSION_at91bootstrap = "2.13-rc3"
 PREFERRED_VERSION_u-boot = "2009.08-rc2"
 # PREFERRED_VERSION_mplayer = "svn"
 
