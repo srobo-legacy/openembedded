@@ -1,0 +1,409 @@
+diff -urN u-boot-2009.08-rc2-0rig/include/configs/at91cap9adk.h u-boot-2009.08-rc2/include/configs/at91cap9adk.h
+--- u-boot-2009.08-rc2-0rig/include/configs/at91cap9adk.h	2009-08-21 17:17:50.000000000 +0200
++++ u-boot-2009.08-rc2/include/configs/at91cap9adk.h	2009-08-21 18:24:10.000000000 +0200
+@@ -53,6 +53,9 @@
+ #undef CONFIG_USART2
+ #define CONFIG_USART3		1	/* USART 3 is DBGU */
+ 
++/* MCI */
++#define CONFIG_ATMEL_MCI		1
++
+ /* LCD */
+ #define CONFIG_LCD			1
+ #define LCD_BPP				LCD_COLOR8
+@@ -89,16 +92,8 @@
+  * Command line configuration.
+  */
+ #include <config_cmd_default.h>
+-#undef CONFIG_CMD_BDI
+-#undef CONFIG_CMD_FPGA
+-#undef CONFIG_CMD_IMI
+-#undef CONFIG_CMD_LOADS
+-#undef CONFIG_CMD_SOURCE
+-
+-#define CONFIG_CMD_PING		1
+-#define CONFIG_CMD_DHCP		1
+-#define CONFIG_CMD_NAND		1
+-#define CONFIG_CMD_USB		1
++#include "at91-common-cmd.h"
++#define CONFIG_CMD_USB
+ 
+ /* SDRAM: Careful: this supposes an AT91CAP-MEM33 expansion card */
+ #define CONFIG_NR_DRAM_BANKS		1
+diff -urN u-boot-2009.08-rc2-0rig/include/configs/at91-common-cmd.h u-boot-2009.08-rc2/include/configs/at91-common-cmd.h
+--- u-boot-2009.08-rc2-0rig/include/configs/at91-common-cmd.h	1970-01-01 01:00:00.000000000 +0100
++++ u-boot-2009.08-rc2/include/configs/at91-common-cmd.h	2009-08-21 18:26:36.000000000 +0200
+@@ -0,0 +1,35 @@
++#define CONFIG_HUSH_PARSER
++
++#define CONFIG_CMD_ASKENV
++#define CONFIG_CMD_AUTOSCRIPT
++#define CONFIG_CMD_FACTORY
++#define CONFIG_CMD_SOURCE
++
++#define CONFIG_CMD_DHCP
++#define CONFIG_CMD_ETHINIT
++
++#define CONFIG_CMD_MTDPARTS
++#define CONFIG_CMD_EXT2
++#define CONFIG_CMD_JFFS2
++#define CONFIG_CMD_MMC
++
++#define CONFIG_CMD_LED
++#define CONFIG_COLOURED_LED
++#define CONFIG_CMD_PORTIO
++
++#define CONFIG_CMD_PING		1
++#define CONFIG_CMD_NAND		1
++#undef CONFIG_CMD_MMC
++#define CONFIG_CMD_SF		1
++#define CONFIG_CMD_SPI		1
++
++#undef CONFIG_CMD_FPGA
++#undef CONFIG_CMD_SETGETDCR
++#undef CONFIG_CMD_SOURCE
++#undef CONFIG_CMD_XIMG
++#undef CONFIG_CMD_BDI
++#undef CONFIG_CMD_IMI
++#undef CONFIG_CMD_IMLS
++#undef CONFIG_CMD_LOADS
++
++
+diff -urN u-boot-2009.08-rc2-0rig/include/configs/at91sam9260ek.h u-boot-2009.08-rc2/include/configs/at91sam9260ek.h
+--- u-boot-2009.08-rc2-0rig/include/configs/at91sam9260ek.h	2009-08-21 17:17:50.000000000 +0200
++++ u-boot-2009.08-rc2/include/configs/at91sam9260ek.h	2009-08-21 18:23:11.000000000 +0200
+@@ -58,6 +58,9 @@
+ #undef CONFIG_USART2
+ #define CONFIG_USART3		1	/* USART 3 is DBGU */
+ 
++/* MCI */
++#define CONFIG_ATMEL_MCI		1
++
+ /* LED */
+ #define CONFIG_AT91_LED
+ #define	CONFIG_RED_LED		AT91_PIN_PA9	/* this is the power led */
+@@ -77,17 +80,8 @@
+  * Command line configuration.
+  */
+ #include <config_cmd_default.h>
+-#undef CONFIG_CMD_BDI
+-#undef CONFIG_CMD_FPGA
+-#undef CONFIG_CMD_IMI
+-#undef CONFIG_CMD_IMLS
+-#undef CONFIG_CMD_LOADS
+-#undef CONFIG_CMD_SOURCE
+-
+-#define CONFIG_CMD_PING		1
+-#define CONFIG_CMD_DHCP		1
+-#define CONFIG_CMD_NAND		1
+-#define CONFIG_CMD_USB		1
++#include "at91-common-cmd.h"
++#define CONFIG_CMD_USB
+ 
+ /* SDRAM */
+ #define CONFIG_NR_DRAM_BANKS		1
+diff -urN u-boot-2009.08-rc2-0rig/include/configs/at91sam9261ek.h u-boot-2009.08-rc2/include/configs/at91sam9261ek.h
+--- u-boot-2009.08-rc2-0rig/include/configs/at91sam9261ek.h	2009-08-21 17:17:50.000000000 +0200
++++ u-boot-2009.08-rc2/include/configs/at91sam9261ek.h	2009-08-21 18:23:21.000000000 +0200
+@@ -56,6 +56,10 @@
+ #undef CONFIG_USART2
+ #define CONFIG_USART3		1	/* USART 3 is DBGU */
+ 
++/* MCI */
++#define CONFIG_ATMEL_MCI		1
++
++
+ /* LCD */
+ #define CONFIG_LCD			1
+ #define LCD_BPP				LCD_COLOR8
+@@ -92,21 +96,9 @@
+  * Command line configuration.
+  */
+ #include <config_cmd_default.h>
+-#undef CONFIG_CMD_BDI
+-#undef CONFIG_CMD_FPGA
+-#undef CONFIG_CMD_IMI
+-#undef CONFIG_CMD_IMLS
+-#undef CONFIG_CMD_LOADS
+-#undef CONFIG_CMD_SOURCE
+-
+-#define CONFIG_CMD_PING		1
+-#define CONFIG_CMD_DHCP		1
+-#define CONFIG_CMD_NAND		1
+-#define CONFIG_CMD_USB		1
+-#define CONFIG_CMD_AUTOSCRIPT
+-#define CONFIG_CMD_FACTORY
+-#define CONFIG_CMD_LED
+-#define CONFIG_COLOURED_LED
++#include "at91-common-cmd.h"
++#define CONFIG_CMD_USB
++
+ 
+ /* SDRAM */
+ #define CONFIG_NR_DRAM_BANKS		1
+diff -urN u-boot-2009.08-rc2-0rig/include/configs/at91sam9263ek.h u-boot-2009.08-rc2/include/configs/at91sam9263ek.h
+--- u-boot-2009.08-rc2-0rig/include/configs/at91sam9263ek.h	2009-08-21 17:17:50.000000000 +0200
++++ u-boot-2009.08-rc2/include/configs/at91sam9263ek.h	2009-08-21 18:23:33.000000000 +0200
+@@ -55,6 +55,9 @@
+ #undef CONFIG_USART2
+ #define CONFIG_USART3		1	/* USART 3 is DBGU */
+ 
++/* MCI */
++#define CONFIG_ATMEL_MCI		1
++
+ /* LCD */
+ #define CONFIG_LCD			1
+ #define LCD_BPP				LCD_COLOR8
+@@ -87,21 +90,9 @@
+  * Command line configuration.
+  */
+ #include <config_cmd_default.h>
+-#undef CONFIG_CMD_BDI
+-#undef CONFIG_CMD_FPGA
+-#undef CONFIG_CMD_IMI
+-#undef CONFIG_CMD_IMLS
+-#undef CONFIG_CMD_LOADS
+-#undef CONFIG_CMD_SOURCE
+-
+-#define CONFIG_CMD_PING		1
+-#define CONFIG_CMD_DHCP		1
+-#define CONFIG_CMD_NAND		1
+-#define CONFIG_CMD_USB		1
+-#define CONFIG_CMD_AUTOSCRIPT
+-#define CONFIG_CMD_FACTORY
+-#define CONFIG_CMD_LED
+-#define CONFIG_COLOURED_LED
++#include "at91-common-cmd.h"
++#define CONFIG_CMD_USB
++
+ 
+ /* SDRAM */
+ #define CONFIG_NR_DRAM_BANKS		1
+diff -urN u-boot-2009.08-rc2-0rig/include/configs/at91sam9m10g45ek.h u-boot-2009.08-rc2/include/configs/at91sam9m10g45ek.h
+--- u-boot-2009.08-rc2-0rig/include/configs/at91sam9m10g45ek.h	2009-08-21 17:17:50.000000000 +0200
++++ u-boot-2009.08-rc2/include/configs/at91sam9m10g45ek.h	2009-08-21 18:25:24.000000000 +0200
+@@ -56,6 +56,9 @@
+ #undef CONFIG_USART2
+ #define CONFIG_USART3		1	/* USART 3 is DBGU */
+ 
++/* MCI */
++#define CONFIG_ATMEL_MCI		1
++
+ /* LCD */
+ #define CONFIG_LCD			1
+ #define LCD_BPP				LCD_COLOR8
+@@ -89,17 +92,9 @@
+  * Command line configuration.
+  */
+ #include <config_cmd_default.h>
+-#undef CONFIG_CMD_BDI
+-#undef CONFIG_CMD_FPGA
+-#undef CONFIG_CMD_IMI
+-#undef CONFIG_CMD_IMLS
+-#undef CONFIG_CMD_AUTOSCRIPT
+-#undef CONFIG_CMD_LOADS
+-
+-#define CONFIG_CMD_PING		1
+-#define CONFIG_CMD_DHCP		1
+-#define CONFIG_CMD_NAND		1
+-#define CONFIG_CMD_USB		1
++#include "at91-common-cmd.h"
++#define CONFIG_CMD_USB
++
+ 
+ /* SDRAM */
+ #define CONFIG_NR_DRAM_BANKS		1
+@@ -161,6 +156,7 @@
+ #define CONFIG_SYS_USB_OHCI_SLOT_NAME		"at91sam9g45"
+ #define CONFIG_SYS_USB_OHCI_MAX_ROOT_PORTS	2
+ #define CONFIG_USB_STORAGE		1
++#define CONFIG_CMD_FAT			1
+ 
+ #define CONFIG_SYS_LOAD_ADDR			0x22000000	/* load address */
+ 
+diff -urN u-boot-2009.08-rc2-0rig/include/configs/at91sam9rlek.h u-boot-2009.08-rc2/include/configs/at91sam9rlek.h
+--- u-boot-2009.08-rc2-0rig/include/configs/at91sam9rlek.h	2009-08-21 17:17:50.000000000 +0200
++++ u-boot-2009.08-rc2/include/configs/at91sam9rlek.h	2009-08-21 18:23:49.000000000 +0200
+@@ -53,6 +53,9 @@
+ #undef CONFIG_USART2
+ #define CONFIG_USART3		1	/* USART 3 is DBGU */
+ 
++/* MCI */
++#define CONFIG_ATMEL_MCI		1
++
+ /* LCD */
+ #define CONFIG_LCD			1
+ #define LCD_BPP				LCD_COLOR8
+@@ -77,19 +80,9 @@
+  * Command line configuration.
+  */
+ #include <config_cmd_default.h>
+-#undef CONFIG_CMD_BDI
+-#undef CONFIG_CMD_FPGA
+-#undef CONFIG_CMD_IMI
+-#undef CONFIG_CMD_IMLS
+-#undef CONFIG_CMD_LOADS
+-#undef CONFIG_CMD_NET
+-#undef CONFIG_CMD_SOURCE
++#include "at91-common-cmd.h"
+ #undef CONFIG_CMD_USB
+-#define CONFIG_CMD_AUTOSCRIPT
+-#define CONFIG_CMD_FACTORY
+-#define CONFIG_CMD_LED
+-#define CONFIG_COLOURED_LED
+-#define CONFIG_CMD_NAND		1
++
+ 
+ /* SDRAM */
+ #define CONFIG_NR_DRAM_BANKS		1
+diff -urN u-boot-2009.08-rc2-0rig/include/configs/atngw100.h u-boot-2009.08-rc2/include/configs/atngw100.h
+--- u-boot-2009.08-rc2-0rig/include/configs/atngw100.h	2009-08-21 17:17:50.000000000 +0200
++++ u-boot-2009.08-rc2/include/configs/atngw100.h	2009-08-21 18:25:56.000000000 +0200
+@@ -107,27 +107,15 @@
+  * Command line configuration.
+  */
+ #include <config_cmd_default.h>
+-
+-#define CONFIG_CMD_ASKENV
+-#define CONFIG_CMD_DHCP
+-#define CONFIG_CMD_EXT2
+-#define CONFIG_CMD_FAT
+-#define CONFIG_CMD_JFFS2
+-#define CONFIG_CMD_MMC
+-#define CONFIG_CMD_SF
+-#define CONFIG_CMD_SPI
+-
+-#undef CONFIG_CMD_FPGA
+-#undef CONFIG_CMD_SETGETDCR
+-#undef CONFIG_CMD_SOURCE
+-#undef CONFIG_CMD_XIMG
++#include "at91-common-cmd.h"
++#undef CONFIG_CMD_USB
++#define CONFIG_CMD_FAT			1
+ 
+ #define CONFIG_ATMEL_USART		1
+ #define CONFIG_MACB			1
+ #define CONFIG_PORTMUX_PIO		1
+ #define CONFIG_SYS_NR_PIOS			5
+ #define CONFIG_SYS_HSDRAMC			1
+-#define CONFIG_MMC			1
+ #define CONFIG_ATMEL_MCI		1
+ #define CONFIG_ATMEL_SPI		1
+ 
+diff -urN u-boot-2009.08-rc2-0rig/include/configs/atstk1002.h u-boot-2009.08-rc2/include/configs/atstk1002.h
+--- u-boot-2009.08-rc2-0rig/include/configs/atstk1002.h	2009-08-21 17:17:50.000000000 +0200
++++ u-boot-2009.08-rc2/include/configs/atstk1002.h	2009-08-21 18:26:03.000000000 +0200
+@@ -134,25 +134,15 @@
+  * Command line configuration.
+  */
+ #include <config_cmd_default.h>
+-
+-#define CONFIG_CMD_ASKENV
+-#define CONFIG_CMD_DHCP
+-#define CONFIG_CMD_EXT2
+-#define CONFIG_CMD_FAT
+-#define CONFIG_CMD_JFFS2
+-#define CONFIG_CMD_MMC
+-
+-#undef CONFIG_CMD_FPGA
+-#undef CONFIG_CMD_SETGETDCR
+-#undef CONFIG_CMD_SOURCE
+-#undef CONFIG_CMD_XIMG
++#include "at91-common-cmd.h"
++#undef CONFIG_CMD_USB
++#define CONFIG_CMD_FAT			1
+ 
+ #define CONFIG_ATMEL_USART		1
+ #define CONFIG_MACB			1
+ #define CONFIG_PORTMUX_PIO		1
+ #define CONFIG_SYS_NR_PIOS			5
+ #define CONFIG_SYS_HSDRAMC			1
+-#define CONFIG_MMC			1
+ #define CONFIG_ATMEL_MCI		1
+ 
+ #define CONFIG_SYS_DCACHE_LINESZ		32
+diff -urN u-boot-2009.08-rc2-0rig/include/configs/atstk1003.h u-boot-2009.08-rc2/include/configs/atstk1003.h
+--- u-boot-2009.08-rc2-0rig/include/configs/atstk1003.h	2009-08-21 17:17:50.000000000 +0200
++++ u-boot-2009.08-rc2/include/configs/atstk1003.h	2009-08-21 18:26:10.000000000 +0200
+@@ -119,23 +119,13 @@
+  * Command line configuration.
+  */
+ #include <config_cmd_default.h>
+-
+-#define CONFIG_CMD_ASKENV
+-#define CONFIG_CMD_EXT2
+-#define CONFIG_CMD_FAT
+-#define CONFIG_CMD_JFFS2
+-#define CONFIG_CMD_MMC
+-
+-#undef CONFIG_CMD_FPGA
+-#undef CONFIG_CMD_NET
+-#undef CONFIG_CMD_NFS
+-#undef CONFIG_CMD_SETGETDCR
+-#undef CONFIG_CMD_XIMG
++#include "at91-common-cmd.h"
++#undef CONFIG_CMD_USB
++#define CONFIG_CMD_FAT			1
+ 
+ #define CONFIG_ATMEL_USART		1
+ #define CONFIG_PORTMUX_PIO		1
+ #define CONFIG_SYS_HSDRAMC			1
+-#define CONFIG_MMC			1
+ #define CONFIG_ATMEL_MCI		1
+ 
+ #define CONFIG_SYS_DCACHE_LINESZ		32
+diff -urN u-boot-2009.08-rc2-0rig/include/configs/atstk1004.h u-boot-2009.08-rc2/include/configs/atstk1004.h
+--- u-boot-2009.08-rc2-0rig/include/configs/atstk1004.h	2009-08-21 17:17:50.000000000 +0200
++++ u-boot-2009.08-rc2/include/configs/atstk1004.h	2009-08-21 18:26:18.000000000 +0200
+@@ -119,23 +119,13 @@
+  * Command line configuration.
+  */
+ #include <config_cmd_default.h>
+-
+-#define CONFIG_CMD_ASKENV
+-#define CONFIG_CMD_EXT2
+-#define CONFIG_CMD_FAT
+-#define CONFIG_CMD_JFFS2
+-#define CONFIG_CMD_MMC
+-
+-#undef CONFIG_CMD_FPGA
+-#undef CONFIG_CMD_NET
+-#undef CONFIG_CMD_NFS
+-#undef CONFIG_CMD_SETGETDCR
+-#undef CONFIG_CMD_XIMG
++#include "at91-common-cmd.h"
++#undef CONFIG_CMD_USB
++#define CONFIG_CMD_FAT			1
+ 
+ #define CONFIG_ATMEL_USART		1
+ #define CONFIG_PORTMUX_PIO		1
+ #define CONFIG_SYS_HSDRAMC			1
+-#define CONFIG_MMC			1
+ #define CONFIG_ATMEL_MCI		1
+ 
+ #define CONFIG_SYS_DCACHE_LINESZ		32
+diff -urN u-boot-2009.08-rc2-0rig/include/configs/atstk1006.h u-boot-2009.08-rc2/include/configs/atstk1006.h
+--- u-boot-2009.08-rc2-0rig/include/configs/atstk1006.h	2009-08-21 17:17:50.000000000 +0200
++++ u-boot-2009.08-rc2/include/configs/atstk1006.h	2009-08-21 18:26:25.000000000 +0200
+@@ -134,18 +134,9 @@
+  * Command line configuration.
+  */
+ #include <config_cmd_default.h>
+-
+-#define CONFIG_CMD_ASKENV
+-#define CONFIG_CMD_DHCP
+-#define CONFIG_CMD_EXT2
+-#define CONFIG_CMD_FAT
+-#define CONFIG_CMD_JFFS2
+-#define CONFIG_CMD_MMC
+-
+-#undef CONFIG_CMD_FPGA
+-#undef CONFIG_CMD_SETGETDCR
+-#undef CONFIG_CMD_SOURCE
+-#undef CONFIG_CMD_XIMG
++#include "at91-common-cmd.h"
++#undef CONFIG_CMD_USB
++#define CONFIG_CMD_FAT			1
+ 
+ #define CONFIG_ATMEL_USART		1
+ #define CONFIG_MACB			1
