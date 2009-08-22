@@ -1,0 +1,118 @@
+#!/bin/bash
+# This script will attempt to apply a number of patches
+# from a patch directory on a source directory.
+# Patches will be applied using "patch -p1 --dry-run"
+# so the source is not changed.
+
+# The user selects two directories and calls the script
+# The patch directory, contains a directory "patch-sets"
+# The source directory must NOT have a patch-sets directory
+# If three or more directories are selec
+
+SCRIPTNAME=test-patches
+base="`echo $NAUTILUS_SCRIPT_CURRENT_URI | cut -d'/' -f3- | sed 's/%20/ /g'`"
+files="`echo $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS | sed 's/\n/ /g'`"
+TOPDIR=${base}
+TOPNAME=`basename ${TOPDIR}`
+
+DRYRUN=--dry-run
+DEBUG=1
+DEBUGFILE=${HOME}/${SCRIPTNAME}.debug
+MULTIPLE_SOURCE_ERROR="${TOPDIR}/ ERROR:MULTIPLE_SOURCE_DIRECTORIES!"
+MULTIPLE_PATCH_ERROR="${TOPDIR}/ ERROR:MULTIPLE_PATCH_DIRECTORIES!"
+MUST_BE_DIRECTORIES="${TOPDIR}/ ERROR:MUST_BE_DIRECTORIES!"
+function debug ()
+{
+	if [ "${DEBUG}" == "1" ] ; then
+		echo "$1"	>> ${DEBUGFILE}			| tee -a ${PATCHLOG}
+	fi
+}
+
+function dbg_printf ()
+{
+	if [ "${DEBUG}" == "1" ] ; then
+		echo "$1" "$2"	>> ${DEBUGFILE}			| tee -a ${PATCHLOG}
+	fi
+}
+
+if [ "${DEBUG}" == "1" ] ; then
+	rm -f ${DEBUGFILE}	
+fi
+
+
+rm -f ${MULTIPLE_SOURCE_ERROR}
+rm -f ${MULTIPLE_PATCH_ERROR}
+rm -f ${MUST_BE_DIRECTORIES}
+rm -f ${TOPDIR}/FAIL
+rm -f ${TOPDIR}/SUCCESS
+
+PACKAGE=
+PATCHTOP=
+
+for f in $files ; do
+	if ! [ -d $f ] ; then
+		touch ${MUST_BE_DIRECTORIES}
+		exit 1
+	fi
+	if [ -d $f/patch-sets ] ; then
+		if ! [ "x${PATCHTOP}" == "x" ] ; then
+			touch ${MULTIPLE_PATCH_ERROR}
+			exit	1
+		fi
+		# Note that $f is an absolute path
+		PATCHTOP=$f
+		PATCHDIR=${PATCHTOP}/patch-sets
+		PATCHLOG=${PATCHTOP}/patch.log.tmp
+		FAIL=${PATCHTOP}/FAIL
+		OK=${PATCHTOP}/OK
+		SUCCESS=${PATCHTOP}/SUCCESS
+		PATCHSETS=`ls ${PATCHDIR}`
+	else
+		if ! [ "x${PACKAGE}" == "x" ] ; then
+			touch ${MULTIPLE_SOURCE_ERROR}
+			exit	1
+		fi
+		PACKAGE=$f
+		SOURCEDIR=${TOPDIR}/${PACKAGE}
+	fi
+done
+
+function process ()
+{
+	cd ${SOURCEDIR}
+	dbg_printf	"%-100s"	"Applying patchset \"$1\" "
+	for p in `ls ${PATCHDIR}/$1/*.patch` ; do
+		rm -f	${PATCHLOG}
+		touch	${PATCHLOG}
+		#touch	${TOPDIR}/"Applying:$p"
+		if `cat ${PATCHDIR}/$1/$p | patch -p1 ${DRYRUN} > ${PATCHLOG} 2>&1` ; then
+			debug	"OK"					
+			echo	"$1/p.patch"				>>	${SUCCESS}
+			mv ${PATCHLOG}	${OK}/$1.log
+		else
+			debug	"FAIL"
+			mv ${PATCHLOG}	${FAIL}/$1.log
+			touch ${TOPDIR}/FAIL
+		fi
+	done
+}
+
+function	reinit ()
+{
+	rm	-rf	$1
+	mkdir	-p	$1
+}
+
+reinit	${OK}
+reinit	${FAIL}
+reinit	${SUCCESS}
+debug "PATCHSETS=${PATCHSETS}"
+for p in ${PATCHSETS} ; do
+	debug	${TOPDIR}/Applying:$p
+	process $p
+done
+
+if ! [ -f ${TOPDIR}/FAIL ] ; then
+	touch ${TOPDIR}/SUCCESS
+fi
+

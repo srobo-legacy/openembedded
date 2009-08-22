@@ -1,0 +1,182 @@
+#!/bin/bash
+SCRIPTNAME=SRC_URI_append_linux
+# ------------------------------------------------------------------------------
+base="`echo $NAUTILUS_SCRIPT_CURRENT_URI | cut -d'/' -f3- | sed 's/%20/ /g'`"
+files="`echo $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS | sed 's/\n/ /g'`"
+
+# The following are absolute directories when running this script
+parent1dir=`dirname $base`
+parent2dir=`dirname ${parent1dir}`
+parent3dir=`dirname ${parent2dir}`
+parent4dir=`dirname ${parent3dir}`
+parent5dir=`dirname ${parent4dir}`
+
+
+
+DEBUG=
+DEBUGFILE=$base/${SCRIPTNAME}.debug
+# ------------------------------------------------------------------------------
+# General purpose functions
+function	gen_cr-lf ()
+{
+	echo	""	>> ${SRC_URI}
+}
+
+function	gen_printf ()
+{
+	printf "$1"	>> ${SRC_URI}
+}
+
+function	gen_printf40 ()
+{
+	printf "%-40s"	"$1"	>> ${SRC_URI}
+}
+
+function	gen_echo ()
+{
+	echo	"$1"	>> ${SRC_URI}
+}
+
+function	gen_cat ()
+{
+	cat $1 	>> ${SRC_URI}
+}
+
+function debug ()
+{
+	if [ "${DEBUG}" == "1" ] ; then
+		echo "$1"	>> ${DEBUGFILE}	
+	fi
+}
+
+# ------------------------------------------------------------------------------
+
+# The following are absolute directory paths when running this script
+KERNEL_VERSION_DIR=${parent1dir}
+KERNEL_VERSION=`basename ${KERNEL_VERSION_DIR}`
+CPU_FAMILY_DIR=${parent2dir}
+CPU_FAMILY=`basename ${CPU_FAMILY_DIR}`
+LINUX_MAJOR_DIR=${parent3dir}
+LINUX_MAJOR=`basename ${LINUX_MAJOR_DIR}`
+KERNEL_MAJOR=`echo ${LINUX_MAJOR} | sed 's/^linux-//g'`
+BOARDS_DIR=${KERNEL_VERSION_DIR}/boards
+
+# The following directories are relative the recipe
+KERNEL_VERSION_RDIR=${LINUX_MAJOR}/${CPU_FAMILY}/${KERNEL_VERSION}
+PATCH_RDIR=${KERNEL_VERSION_RDIR}/patch-sets
+BOARDS_RDIR=${KERNEL_VERSION_RDIR}/boards
+
+SRC_URI=$base/SRC_URI_append.inc
+# ------------------------------------------------------------------------------
+# Clean up the directory
+if [ "${DEBUG}" == "1" ] ; then
+	rm -f ${DEBUGFILE}	
+fi
+rm	-f ${SRC_URI}
+touch	${SRC_URI}
+
+# ------------------------------------------------------------------------------
+# Initial debug output
+
+debug	"base=$base"
+debug	"files=$files"
+debug	"TOPDIR=${TOPDIR}"
+debug	"KERNEL_VERSION=${KERNEL_VERSION_DIR}"
+debug	"CPU_FAMILY=${CPU_FAMILY}"
+debug	"LINUX_MAJOR=${LINUX_MAJOR}"
+debug	"KERNEL_MAJOR=${KERNEL_MAJOR}"
+debug	"KERNEL_VERSION_RDIR=${KERNEL_VERSION_RDIR}"
+debug	"PATCH_RDIR=${PATCH_RDIR}"
+debug	"BOARDS_DIR=${BOARDS_DIR}"
+debug	"BOARDS_RDIR=${BOARDS_RDIR}"
+
+
+# ------------------------------------------------------------------------------
+# The actual things that do something
+
+function	header ()
+{
+	gen_printf	"# Automatically generated from gnome script: "	
+	gen_printf	"\"SRC_URI_append_linux\""
+	gen_cr-lf
+	gen_cr-lf
+}
+
+function process()
+{
+	# Have to use printf to  expand special characters
+	gen_printf	"SRC_URI_append += \"\\"
+	gen_cr-lf
+	# Add things we download from the net
+	if -e $base/network_files ; then
+		geb_cat $base/network_files
+	fi
+	# Add local patches
+	debug	"files=$files"
+	for f in `ls $files` ; do
+		debug	"processing $f"
+		gen_printf "\tfile://${PATCH_RDIR}/`basename $f`;patch=1 \\"
+		gen_cr-lf
+	done
+	# Final line, to terminate the string
+	gen_printf	"\t\""
+	gen_cr-lf
+	gen_cr-lf
+}
+
+function	process_pref ()
+{
+	# Have to use printf to  expand special characters
+	gen_printf40	"DEFAULT_PREFERENCE_$1 ="
+	gen_printf	"\"\${KERNEL_PREF}\""
+	gen_cr-lf
+}
+
+function	process_arch ()
+{
+
+	# Add a board specific defconfig, if it exists
+	debug	"working_directory before cd=`pwd`"
+	cd $1
+	debug	"working_directory after cd=`pwd`"
+	if [ -e "defconfig" ] ; then
+		gen_printf40	"SRC_URI_append_$1 += "
+		gen_printf	"\" file://${BOARDS_RDIR}/$1/defconfig \""
+		gen_cr-lf
+	fi
+	# Append a logo, if present
+	if [ -e "logo_linux_clut224.ppm" ] ; then
+		gen_printf40	"SRC_URI_append_$1 += "
+		gen_printf	"\"file://${BOARDS_RDIR}/$1/logo_linux_clut224.ppm\" "
+		gen_cr-lf
+	fi
+}
+
+header
+process
+if [ -e ${BOARDS_DIR} ] ; then
+	cd ${BOARDS_DIR}
+	debug	"boards_dir=`pwd`"
+	gen_cr-lf
+	gen_echo	"# Preferences"
+	gen_cr-lf
+	for a in `ls` ; do
+		cd ${BOARDS_DIR};
+		debug	"Processing board=$a"
+		process_pref "$a";
+	done
+	gen_cr-lf
+	gen_echo	"# Defconfigs"
+	gen_cr-lf
+	cd ${BOARDS_DIR}
+	debug	"boards_dir=`pwd`"
+	for a in `ls` ; do
+		cd ${BOARDS_DIR};
+		debug	"Processing board=$a"
+		process_arch "$a";
+	done
+else
+	gen_echo "# no board directory=${BOARDS_RDIR}"
+fi
+gen_cr-lf
+

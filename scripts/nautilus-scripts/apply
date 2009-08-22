@@ -1,0 +1,179 @@
+#!/bin/bash
+# This script will attempt to apply a number of patches
+# from a patch directory on a source directory.
+# Patches will be applied using "patch -p1 --dry-run"
+# so the source is not changed.
+
+# The user selects two directories and calls the script
+# The patch directory, contains a directory "patch-sets"
+# The source directory must NOT have a patch-sets directory
+# If three or more directories are selec
+
+SCRIPTNAME=apply
+base="`echo $NAUTILUS_SCRIPT_CURRENT_URI | cut -d'/' -f3- | sed 's/%20/ /g'`"
+files="`echo $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS | sed 's/\n/ /g'`"
+TOPDIR=${base}
+TOPNAME=`basename ${TOPDIR}`
+
+DRYRUN=--dry-run
+DEBUG=1
+DEBUGFILE=${HOME}/${SCRIPTNAME}.debug
+MULTIPLE_SOURCE_ERROR="${TOPDIR}/ ERROR:MULTIPLE_SOURCE_DIRECTORIES!"
+MULTIPLE_PATCH_ERROR="${TOPDIR}/ ERROR:MULTIPLE_PATCH_DIRECTORIES!"
+MUST_BE_DIRECTORIES="${TOPDIR}/ ERROR:MUST_BE_DIRECTORIES!"
+function debug ()
+{
+	if [ "${DEBUG}" == "1" ] ; then
+		echo "$1"	>> ${DEBUGFILE}			| tee -a ${PATCHLOG}
+	fi
+}
+
+function dbg_printf ()
+{
+	if [ "${DEBUG}" == "1" ] ; then
+		echo "$1" "$2"	>> ${DEBUGFILE}			| tee -a ${PATCHLOG}
+	fi
+}
+
+if [ "${DEBUG}" == "1" ] ; then
+	rm -f ${DEBUGFILE}	
+fi
+debug	"${SCRIPTNAME}"
+
+#"$f is not a known file (\".patch\",\".gz,\".bz2\")"
+rm -f ${MULTIPLE_SOURCE_ERROR}
+rm -f ${MULTIPLE_PATCH_ERROR}
+rm -f ${MUST_BE_DIRECTORIES}
+rm -f ${TOPDIR}/FAIL
+rm -f ${TOPDIR}/SUCCESS
+rm -f ${TOPDIR}/NOT_A_KNOWN_FILE_TYPE*
+PACKAGE=
+PATCHTOP=
+
+for f in $files ; do
+	if ! [ -d $f ] ; then
+		if ! [ "x${CAT}" == "x" ] ; then
+			debug	"Multiple Patch ${PATCHNAME} $f"
+			touch ${MULTIPLE_PATCH_ERROR}
+			exit	1
+		fi; 
+		if ! [ "x${PATCHTOP}" == "x" ] ; then
+			debug	"Multiple Patch ${PATCHTOP} $f"
+			touch ${MULTIPLE_PATCH_ERROR}
+			exit	1
+		fi;
+		PATCHFILE=$f
+		if [ `echo $f | grep "\.bz2"` ] ; then
+			debug	"Using BZ2=$f"
+			CAT=bzcat;
+			PATCH=`echo $f | sed s/\.bz2//g`
+		elif [ `echo $f | grep "\.gz"` ] ; then
+			debug	"Using GZ=$f"
+			CAT=zcat;
+			PATCH=`echo $f | sed s/\.gz//g`
+		elif [ `echo $f | grep "\.patch"` ] ; then
+			debug	"Using PATCH=$f"
+			CAT=cat;
+			PATCH=$f
+		elif [ `echo $f | grep "\.diff"` ] ; then
+			debug	"Using DIFF=$f"
+			CAT=cat;
+			PATCH=$f
+		else
+			touch	"${TOPDIR}/NOT_A_KNOWN_FILE_TYPE:$f"
+			exit 1
+		fi;
+		PATCHLOG=${TOPDIR}/patch.log
+	elif [ -d $f/patch-sets ] ; then
+		if ! [ "x${CAT}" == "x" ] ; then
+			debug	"Multiple Patch ${PATCHNAME} $f"
+			touch ${MULTIPLE_PATCH_ERROR}
+			exit	1
+		fi; 
+		if ! [ "x${PATCHTOP}" == "x" ] ; then
+			debug	"Multiple Patch ${PATCHTOP} $f"
+			touch ${MULTIPLE_PATCH_ERROR}
+			exit	1
+		fi;
+		# Note that $f is an absolute path
+		PATCHTOP=$f
+		PATCHDIR=${PATCHTOP}/patch-sets
+		PATCHLOG=${PATCHTOP}/patch.log.tmp
+		FAIL=${PATCHTOP}/FAIL
+		OK=${PATCHTOP}/OK
+		SUCCESS=${PATCHTOP}/SUCCESS
+		PATCHSETS=`ls ${PATCHDIR}`
+	elif [ -d $f ] ; then
+		if ! [ "x${PACKAGE}" == "x" ] ; then
+			debug "Multiple source packages: ${PACKAGE} $f"
+			touch ${MULTIPLE_SOURCE_ERROR}
+			exit	1
+		fi; 
+		PACKAGE=$f
+		SOURCEDIR=${TOPDIR}/${PACKAGE}
+	else
+		debug "No clue what to do"
+	fi
+done
+debug	CAT=${CAT}
+debug	PATCH=${PATCH}
+debug	PATCHFILE=${PATCHFILE}
+debug	PACKAGE=${PACKAGE}
+debug	SOURCEDIR=${}
+
+
+
+function process ()
+{
+	cd ${SOURCEDIR}
+	dbg_printf	"%-100s"	"Applying patchset \"$1\" "
+	for p in `ls ${PATCHDIR}/$1/*.patch` ; do
+		rm -f	${PATCHLOG}
+		touch	${PATCHLOG}
+		#touch	${TOPDIR}/"Applying:$p"
+		if `cat ${PATCHDIR}/$1/$p | patch -p1 ${DRYRUN} > ${PATCHLOG} 2>&1` ; then
+			debug	"OK"					
+			echo	"$1/p.patch"				>>	${SUCCESS}
+			mv ${PATCHLOG}	${OK}/$1.log
+		else
+			debug	"FAIL"
+			mv ${PATCHLOG}	${FAIL}/$1.log
+			touch ${TOPDIR}/FAIL
+		fi;
+	done
+}
+
+function	reinit ()
+{
+	rm	-rf	$1
+	mkdir	-p	$1
+}
+
+if [ "x${CAT}" == "x" ] ; then
+	debug	"Selecting patch directory= ${PATCHTOP}"
+	reinit	${OK}
+	reinit	${FAIL}
+	reinit	${SUCCESS}
+	debug "PATCHSETS=${PATCHSETS}"
+	for p in ${PATCHSETS} ; do
+		debug	${TOPDIR}/Applying:$p
+		process $p
+	done
+	
+	if ! [ -f ${TOPDIR}/FAIL ] ; then
+		touch ${TOPDIR}/SUCCESS
+	fi; 
+else
+	debug	"Selecting single patch = ${PATCHFILE}"
+	rm -f	${PATCHLOG}
+	touch	${PATCHLOG}
+	cd ${PACKAGE}
+	if `${CAT} ${PATCHFILE} | patch -p1 ${DRYRUN} > ${PATCHLOG} 2>&1` ; then
+		debug	"OK"					
+		mv ${PATCHLOG}	${PATCH}.log.OK
+	else
+		debug	"FAIL"
+		mv ${PATCHLOG}	${PATCH}.log.FAIL
+	fi
+fi;
+

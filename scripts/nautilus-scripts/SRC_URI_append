@@ -1,0 +1,18 @@
+#!/bin/bash
+
+base="`echo $NAUTILUS_SCRIPT_CURRENT_URI | cut -d'/' -f3- | sed 's/%20/ /g'`"
+files="`echo $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS | sed 's/\n/ /g'`"
+
+SRC_URI=$base/SRC_URI_append.inc
+
+rm	-f ${SRC_URI}
+touch	${SRC_URI}
+printf	"SRC_URI_append = \"\\"				>> ${SRC_URI}
+echo							>> ${SRC_URI}
+for f in `ls $files` ; do
+	printf "\tfile://`basename $f`;patch=1 \\"		>> ${SRC_URI}
+	echo							>> ${SRC_URI}
+done
+printf	"\t\""				>> ${SRC_URI}
+echo							>> ${SRC_URI}
+

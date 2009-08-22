@@ -1,0 +1,32 @@
+#!/bin/bash
+# diff -urN $1 $2 > $1.patch
+
+base="`echo $NAUTILUS_SCRIPT_CURRENT_URI | cut -d'/' -f3- | sed 's/%20/ /g'`"
+files="`echo $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS | sed 's/\n/ /g'`"
+
+for f in $files ; do
+	src=$orig
+	orig=$f
+done
+
+#rm -f fail
+if [ -z "$src" -o -z "$orig" ]; then
+# Nothing to compare
+echo "FAIL"			>>	fail
+echo "src=$src"			>>	fail
+echo "0rig=$orig"		>>	fail
+exit 1
+#else
+#echo "src=$src"			>>	fail
+#echo "0rig=$orig"		>>	fail
+fi
+
+src=`basename $src`
+orig=`basename $orig`
+cd	$base
+rm -f $src.patch
+diff -urN $orig $src > $src.patch
+
+
+
+

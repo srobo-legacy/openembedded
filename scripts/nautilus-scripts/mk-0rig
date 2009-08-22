@@ -1,0 +1,18 @@
+#!/bin/bash
+# Create $<dir>-0rig from $<dir>
+
+base="`echo $NAUTILUS_SCRIPT_CURRENT_URI | cut -d'/' -f3- | sed 's/%20/ /g'`"
+files="`echo $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS | sed 's/\n/ /g'`"
+
+for f in $files ; do
+	dir=$f
+done
+
+if [ -z "$dir" ]; then
+	exit 1
+fi
+
+dir=`basename $dir`
+cd	$base
+cp -fr $dir $dir-0rig
+

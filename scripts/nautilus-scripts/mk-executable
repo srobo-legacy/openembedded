@@ -1,0 +1,9 @@
+#!/bin/bash
+# Sets eXecute bit on all selected files
+
+files="`echo $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS | sed 's/\n/ /g'`"
+
+for f in $files ; do
+	chmod a+x $f
+done
+

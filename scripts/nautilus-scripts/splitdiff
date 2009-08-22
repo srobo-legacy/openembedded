@@ -1,0 +1,87 @@
+#!/bin/bash
+# This script file will split up a patch 
+# Each file patched, gets one patch.
+# A file "template" containing a list of strings,one per line is read
+# If a patch filename matches a string, then
+# the string is used as a name for a directory, which is created.
+# All matching patches are moved to the directory
+SCRIPTNAME=splitdiff
+
+base="`echo $NAUTILUS_SCRIPT_CURRENT_URI | cut -d'/' -f3- | sed 's/%20/ /g'`"
+files="`echo $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS | sed 's/\n/ /g'`"
+TOPDIR=${base}
+TOPNAME=`basename ${TOPDIR}`
+DEBUG=1
+DEBUGFILE=${HOME}/${SCRIPTNAME}.debug
+
+debug "base=$base"
+debug	"TOPDIR=${TOPDIR}"
+function debug ()
+{
+	if [ "${DEBUG}" == "1" ] ; then
+		echo "$1"	>> ${DEBUGFILE}	
+	fi
+}
+
+if [ "${DEBUG}" == "1" ] ; then
+	rm -f ${DEBUGFILE}	
+fi
+
+rm	-f $base/ERROR:EMPTY_SOURCE_FILE
+rm	-f $base/ERROR:MUST_HAVE_.patch_EXTENSION
+
+for f in $files ; do
+	# Do we have any patches at all?
+	src=`basename $f`
+	debug "src=$src"
+	if [ -z "$src" ]; then
+		touch $base/ERROR:EMPTY_SOURCE_FILE
+		exit	1
+	fi
+	# Yes, so process them!
+	patchname=`echo $src | grep "\.patch" `
+	if [ "x${patchname}" == "x" ; then 
+		touch $base/ERROR:MUST_HAVE_.patch_EXTENSION
+		exit	1
+	end
+	# We will create subdirectory, based on the patchname (- ".patch").
+	subdir=`echo $src | sed s/.patch//g`
+	debug "subdir=$subdir"
+	rm -fr $subdir
+	mkdir -p $subdir/patchdir
+
+	# Enter the subdirectory
+	cd $subdir/patchdir
+	debug "entering subdir=`pwd`"
+
+	# Split the file into its atoms.
+	debug "splitdiff on ${TOPNAME}/$src"
+	splitdiff -a -d -p 1 ${TOPDIR}/$src
+
+	# Stupid file name convention, add ".patch" to the end of each file
+	for pf in `ls` ; do
+		mv $pf $pf.patch
+	done
+
+	# Now we want a template file to move into subdirectories
+	if ! [ -e ../template ] ; then
+		touch	${TOPDIR}/please_supply_a_template_if_you_want_subdirs
+	else
+		rm -f	${TOPDIR}/please_supply_a_template_if_you_want_subdirs
+	fi
+	for t in `cat ${TOPDIR}/template` ; do
+		debug "***** Attempting to match $t*"
+		for try in `ls $t*.patch` ; do
+			if [ -f $try ] ; then
+				mkdir -p $t
+ 			fi
+		done
+		if [ -d $t ] ; then
+			debug "  OK:    $t found"
+			mv $t*.patch	$t
+		else
+			debug "  FAIL   No files matching $t*"
+		fi
+	done
+done
+
