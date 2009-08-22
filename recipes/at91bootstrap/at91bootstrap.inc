@@ -45,13 +45,17 @@ copy_file () {
 		rm -f ${dst}/${file}
 		install -m 755 ${src}/${file}	 ${dst}/${file}
 		echo "AT91BOOTSTRAP: copied ${file} to ${dst}"
+	elif test -e ${S}/files/${file} ; then
+		rm -f ${dst}/${file}
+		install -m 755 ${S}/files/${file}	 ${dst}/${file}
+		echo "AT91BOOTSTRAP: copied ${file} to ${dst}"
 	else
 		echo "AT91BOOTSTRAP.do_install: ${src}/${file} did not exist"
 	fi
 }
 
 do_install() {
-	install -d ${DEPLOY_DIR_IMAGE}
+	install -d ${DEPLOY_DIR_IMAGE}/Utilities
 
 	oe_runmake AT91_CUSTOM_FLAGS="${AT91BOOTSTRAP_FLAGS}" install
 
@@ -59,12 +63,12 @@ do_install() {
 		copy_file	AT91SAM9G45_RomCode_Replacement.bin	${WORKDIR}	${DEPLOY_DIR_IMAGE}
 		copy_file	README.txt				${WORKDIR}	${DEPLOY_DIR_IMAGE}
 	fi
-	copy_file	NAND-empty-1MB.jffs2			${WORKDIR}	${DEPLOY_DIR_IMAGE}
-	copy_file	mk-sd-card.sh				${WORKDIR}	${DEPLOY_DIR_IMAGE}
-	copy_file	write-to-SD-card.sh			${WORKDIR}	${DEPLOY_DIR_IMAGE}
-	copy_file	fixboot.py				${WORKDIR}	${DEPLOY_DIR_IMAGE}
+	copy_file	NAND-empty-1MB.jffs2			${WORKDIR}	${DEPLOY_DIR_IMAGE}/Utilities
+	copy_file	mk-sd-card.sh				${WORKDIR}	${DEPLOY_DIR_IMAGE}/Utilities
+	copy_file	write-to-SD-card.sh			${WORKDIR}	${DEPLOY_DIR_IMAGE}/Utilities
+	copy_file	fixboot.py				${WORKDIR}	${DEPLOY_DIR_IMAGE}/Utilities
 #	copy_file						${WORKDIR}	${DEPLOY_DIR_IMAGE}
 
 	install		-d 	${D}/home/root
-	copy_file	mk-sd-card.sh				${D}/home/root	${DEPLOY_DIR_IMAGE}
+	copy_file	mk-sd-card.sh				${WORKDIR}	${D}/home/root
 }
