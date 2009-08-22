@@ -1,0 +1,12 @@
+diff -urN u-boot-2009.08-rc1-0rig/lib_arm/board.c u-boot-2009.08-rc1/lib_arm/board.c
+--- u-boot-2009.08-rc1-0rig/lib_arm/board.c	2009-07-27 10:37:37.000000000 +0200
++++ u-boot-2009.08-rc1/lib_arm/board.c	2009-08-11 12:51:11.000000000 +0200
+@@ -479,3 +479,8 @@
+ 	puts ("### ERROR ### Please RESET the board ###\n");
+ 	for (;;);
+ }
++
++void	raise(unsigned int errno)
++{
++	hang();
++}
