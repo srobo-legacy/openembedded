@@ -1,0 +1,100 @@
+diff -urN linux-2.6.30-0rig/arch/arm/mach-at91/at91sam9g45_devices.c linux-2.6.30/arch/arm/mach-at91/at91sam9g45_devices.c
+--- linux-2.6.30-0rig/arch/arm/mach-at91/at91sam9g45_devices.c	2009-08-20 23:55:55.000000000 +0200
++++ linux-2.6.30/arch/arm/mach-at91/at91sam9g45_devices.c	2009-08-20 23:55:57.000000000 +0200
+@@ -27,6 +27,7 @@
+ 
+ #include "generic.h"
+ 
++#define		dbg_at91_clock_associate(a,b,c)  printk(KERN_INFO a " -> " c "\n"); at91_clock_associate(a,b,c)
+ 
+ /* --------------------------------------------------------------------
+  *  USB Host (OHCI)
+@@ -161,8 +162,8 @@
+ 	/* Pullup pin is handled internally by USB device peripheral */
+ 
+ 	/* Clocks */
+-	at91_clock_associate("utmi_clk", &at91_usba_udc_device.dev, "hclk");
+-	at91_clock_associate("udphs_clk", &at91_usba_udc_device.dev, "pclk");
++	dbg_at91_clock_associate("utmi_clk", &at91_usba_udc_device.dev, "hclk");
++	dbg_at91_clock_associate("udphs_clk", &at91_usba_udc_device.dev, "pclk");
+ 
+ 	platform_device_register(&at91_usba_udc_device);
+ }
+@@ -532,7 +533,7 @@
+ 		at91_set_A_periph(AT91_PIN_PB1, 0);	/* SPI0_MOSI */
+ 		at91_set_A_periph(AT91_PIN_PB2, 0);	/* SPI0_SPCK */
+ 
+-		at91_clock_associate("spi0_clk", &at91sam9g45_spi0_device.dev, "spi_clk");
++		dbg_at91_clock_associate("spi0_clk", &at91sam9g45_spi0_device.dev, "spi_clk");
+ 		platform_device_register(&at91sam9g45_spi0_device);
+ 	}
+ 	if (enable_spi1) {
+@@ -540,7 +541,7 @@
+ 		at91_set_A_periph(AT91_PIN_PB15, 0);	/* SPI1_MOSI */
+ 		at91_set_A_periph(AT91_PIN_PB16, 0);	/* SPI1_SPCK */
+ 
+-		at91_clock_associate("spi1_clk", &at91sam9g45_spi1_device.dev, "spi_clk");
++		dbg_at91_clock_associate("spi1_clk", &at91sam9g45_spi1_device.dev, "spi_clk");
+ 		platform_device_register(&at91sam9g45_spi1_device);
+ 	}
+ }
+@@ -729,9 +730,9 @@
+ static void __init at91_add_device_tc(void)
+ {
+ 	/* this chip has one clock and irq for all six TC channels */
+-	at91_clock_associate("tcb_clk", &at91sam9g45_tcb0_device.dev, "t0_clk");
++	dbg_at91_clock_associate("tcb_clk", &at91sam9g45_tcb0_device.dev, "t0_clk");
+ 	platform_device_register(&at91sam9g45_tcb0_device);
+-	at91_clock_associate("tcb_clk", &at91sam9g45_tcb1_device.dev, "t0_clk");
++	dbg_at91_clock_associate("tcb_clk", &at91sam9g45_tcb1_device.dev, "t0_clk");
+ 	platform_device_register(&at91sam9g45_tcb1_device);
+ }
+ #else
+@@ -1008,12 +1009,12 @@
+ 	case AT91SAM9G45_ID_SSC0:
+ 		pdev = &at91sam9g45_ssc0_device;
+ 		configure_ssc0_pins(pins);
+-		at91_clock_associate("ssc0_clk", &pdev->dev, "pclk");
++		dbg_at91_clock_associate("ssc0_clk", &pdev->dev, "pclk");
+ 		break;
+ 	case AT91SAM9G45_ID_SSC1:
+ 		pdev = &at91sam9g45_ssc1_device;
+ 		configure_ssc1_pins(pins);
+-		at91_clock_associate("ssc1_clk", &pdev->dev, "pclk");
++		dbg_at91_clock_associate("ssc1_clk", &pdev->dev, "pclk");
+ 		break;
+ 	default:
+ 		return;
+@@ -1254,27 +1255,27 @@
+ 		case 0:		/* DBGU */
+ 			pdev = &at91sam9g45_dbgu_device;
+ 			configure_dbgu_pins();
+-			at91_clock_associate("mck", &pdev->dev, "usart");
++			dbg_at91_clock_associate("mck", &pdev->dev, "usart");
+ 			break;
+ 		case AT91SAM9G45_ID_US0:
+ 			pdev = &at91sam9g45_uart0_device;
+ 			configure_usart0_pins(pins);
+-			at91_clock_associate("usart0_clk", &pdev->dev, "usart");
++			dbg_at91_clock_associate("usart0_clk", &pdev->dev, "usart");
+ 			break;
+ 		case AT91SAM9G45_ID_US1:
+ 			pdev = &at91sam9g45_uart1_device;
+ 			configure_usart1_pins(pins);
+-			at91_clock_associate("usart1_clk", &pdev->dev, "usart");
++			dbg_at91_clock_associate("usart1_clk", &pdev->dev, "usart");
+ 			break;
+ 		case AT91SAM9G45_ID_US2:
+ 			pdev = &at91sam9g45_uart2_device;
+ 			configure_usart2_pins(pins);
+-			at91_clock_associate("usart2_clk", &pdev->dev, "usart");
++			dbg_at91_clock_associate("usart2_clk", &pdev->dev, "usart");
+ 			break;
+ 		case AT91SAM9G45_ID_US3:
+ 			pdev = &at91sam9g45_uart3_device;
+ 			configure_usart3_pins(pins);
+-			at91_clock_associate("usart3_clk", &pdev->dev, "usart");
++			dbg_at91_clock_associate("usart3_clk", &pdev->dev, "usart");
+ 			break;
+ 		default:
+ 			return;

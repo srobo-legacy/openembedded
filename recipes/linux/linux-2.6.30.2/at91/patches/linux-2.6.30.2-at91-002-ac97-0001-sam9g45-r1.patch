@@ -61,3 +61,66 @@ diff -urN linux-2.6.30-0rig/arch/arm/mach-at91/at91sam9g45_devices.c linux-2.6.3
  
  /* --------------------------------------------------------------------
   *  LCD Controller
+diff -urN linux-2.6.30-0rig/arch/arm/mach-at91/at91sam9g45.c linux-2.6.30/arch/arm/mach-at91/at91sam9g45.c
+--- linux-2.6.30-0rig/arch/arm/mach-at91/at91sam9g45.c	2009-08-20 12:07:41.000000000 +0200
++++ linux-2.6.30/arch/arm/mach-at91/at91sam9g45.c	2009-08-20 12:27:20.000000000 +0200
+@@ -120,6 +120,11 @@
+ 	.pmc_mask	= 1 << AT91SAM9G45_ID_SSC1,
+ 	.type		= CLK_TYPE_PERIPHERAL,
+ };
++
++
++
++
++
+ static struct clk tcb_clk = {
+ 	.name		= "tcb_clk",
+ 	.pmc_mask	= 1 << AT91SAM9G45_ID_TCB,
+@@ -200,6 +205,7 @@
+ 	&spi1_clk,
+ 	&ssc0_clk,
+ 	&ssc1_clk,
++	&ac97_clk,
+ 	&tcb_clk,
+ 	&pwm_clk,
+ 	&tsc_clk,
+@@ -331,6 +337,7 @@
+ 	5,	/* Serial Peripheral Interface 1 */
+ 	4,	/* Serial Synchronous Controller 0 */
+ 	4,	/* Serial Synchronous Controller 1 */
++	5,	/* AC97 Controller */
+ 	0,	/* Timer Counter 0, 1, 2, 3, 4 and 5 */
+ 	0,	/* Pulse Width Modulation Controller */
+ 	0,	/* Touch Screen Controller */
+diff -urN linux-2.6.30-0rig/arch/arm/mach-at91/board-sam9m10g45ek.c linux-2.6.30/arch/arm/mach-at91/board-sam9m10g45ek.c
+--- linux-2.6.30-0rig/arch/arm/mach-at91/board-sam9m10g45ek.c	2009-08-20 12:07:41.000000000 +0200
++++ linux-2.6.30/arch/arm/mach-at91/board-sam9m10g45ek.c	2009-08-20 12:35:20.000000000 +0200
+@@ -355,7 +355,18 @@
+ #endif
+ };
+ 
++/*
++ * AC97
++ * AC97.reset is connected to system reset on the SAM9RL.
++ * The SAM9RL cannot reset the Codec.
++ * Keep it in the driver, if someone wants to have this function.
++ * PC0 is not used, 
++ * so it does not hurt to use this for now
++ */
+ 
++static struct atmel_ac97_data ek_ac97_data = {
++	.reset_pin	= AT91_PIN_PC0,
++};
+ 
+ static void __init ek_board_init(void)
+ {
+@@ -380,6 +391,8 @@
+ 	/* LEDs */
+ 	at91_gpio_leds(ek_leds, ARRAY_SIZE(ek_leds));
+ 	at91_pwm_leds(ek_pwm_led, ARRAY_SIZE(ek_pwm_led));
++	/* AC97 */
++	at91_add_device_ac97(&ek_ac97_data);
+ }
+ 
+ MACHINE_START(AT91SAM9G45EKES, "Atmel AT91SAM9G45-EKES")
+

@@ -1,0 +1,66 @@
+diff -urN linux-2.6.30-0rig/arch/arm/mach-at91/at91sam9g45_devices.c linux-2.6.30/arch/arm/mach-at91/at91sam9g45_devices.c
+--- linux-2.6.30-0rig/arch/arm/mach-at91/at91sam9g45_devices.c	2009-08-20 14:18:21.000000000 +0200
++++ linux-2.6.30/arch/arm/mach-at91/at91sam9g45_devices.c	2009-08-20 14:27:30.000000000 +0200
+@@ -687,6 +687,50 @@
+ 
+ 
+ /* --------------------------------------------------------------------
++ *  Touchscreen
++ * -------------------------------------------------------------------- */
++
++#if defined(CONFIG_TOUCHSCREEN_ATMEL_TSADCC) || defined(CONFIG_TOUCHSCREEN_ATMEL_TSADCC_MODULE)
++static u64 tsadcc_dmamask = DMA_BIT_MASK(32);
++
++static struct resource tsadcc_resources[] = {
++	[0] = {
++		.start	= AT91SAM9RL_BASE_TSC,
++		.end	= AT91SAM9RL_BASE_TSC + SZ_16K - 1,
++		.flags	= IORESOURCE_MEM,
++	},
++	[1] = {
++		.start	= AT91SAM9RL_ID_TSC,
++		.end	= AT91SAM9RL_ID_TSC,
++		.flags	= IORESOURCE_IRQ,
++	}
++};
++
++static struct platform_device at91sam9g45_tsadcc_device = {
++	.name		= "atmel_tsadcc",
++	.id		= -1,
++	.dev		= {
++				.dma_mask		= &tsadcc_dmamask,
++				.coherent_dma_mask	= DMA_BIT_MASK(32),
++	},
++	.resource	= tsadcc_resources,
++	.num_resources	= ARRAY_SIZE(tsadcc_resources),
++};
++
++void __init at91_add_device_tsadcc(void)
++{
++	at91_set_A_periph(AT91_PIN_PD20, 0);	/* AD0_Xp (same as XR?) */
++	at91_set_A_periph(AT91_PIN_PD21, 0);	/* AD1_Xm (same as XL?) */
++	at91_set_A_periph(AT91_PIN_PD22, 0);	/* AD2_Yp (same as YT?) */
++	at91_set_A_periph(AT91_PIN_PD23, 0);	/* AD3_Tm (same as YB?) */
++	platform_device_register(&at91sam9g45_tsadcc_device);
++}
++#else
++void __init at91_add_device_tsadcc(void) {}
++#endif
++
++
++/* --------------------------------------------------------------------
+  *  RTC
+  * -------------------------------------------------------------------- */
+ 
+diff -urN linux-2.6.30-0rig/arch/arm/mach-at91/board-sam9m10g45ek.c linux-2.6.30/arch/arm/mach-at91/board-sam9m10g45ek.c
+--- linux-2.6.30-0rig/arch/arm/mach-at91/board-sam9m10g45ek.c	2009-08-20 14:18:21.000000000 +0200
++++ linux-2.6.30/arch/arm/mach-at91/board-sam9m10g45ek.c	2009-08-20 14:19:17.000000000 +0200
+@@ -375,6 +375,8 @@
+ 	at91_add_device_i2c(0, NULL, 0);
+ 	/* LCD Controller */
+ 	at91_add_device_lcdc(&ek_lcdc_data);
++	/* Touch Screen Controller */
++	at91_add_device_tsadcc();
+ 	/* Push Buttons */
+ 	ek_add_device_buttons();
+ 	/* LEDs */

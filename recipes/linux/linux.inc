@@ -54,6 +54,11 @@ python __anonymous () {
 }
 
 do_configure_prepend() {
+	# New recipe puts defconfig into the file system
+        if test -e ${S}/defconfig; then
+	    mv ${S}/defconfig ${WORKDIR}/defconfig
+        fi
+
 	# Traditionally, openembedded linux copies a file defconfig to ${WORKDIR}
 	# If linux source knows about a machine, we can use that config by
 	# 	make <MACHINE>_defconfig

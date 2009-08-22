@@ -1,0 +1,73 @@
+diff -urN linux-2.6.30-0rig/arch/arm/mach-at91/board-sam9m10g45ek.c linux-2.6.30/arch/arm/mach-at91/board-sam9m10g45ek.c
+--- linux-2.6.30-0rig/arch/arm/mach-at91/board-sam9m10g45ek.c	2009-08-20 16:04:00.000000000 +0200
++++ linux-2.6.30/arch/arm/mach-at91/board-sam9m10g45ek.c	2009-08-20 16:15:58.000000000 +0200
+@@ -72,8 +72,30 @@
+  * USB HS Host port (common to OHCI & EHCI)
+  */
+ static struct at91_usbh_data __initdata ek_usbh_hs_data = {
++#if	defined(CONFIG_AT91_USB_SELECT_DEVICE)
++	.ports		= 1,
++	.vbus_pin	= {AT91_PIN_PD1},
++#else
+ 	.ports		= 2,
+ 	.vbus_pin	= {AT91_PIN_PD1, AT91_PIN_PD3},
++#endif
++#if	0
++	/* Handle SP2526A-2 device */
++	/*
++	 * Active low output, Needs to go low to enable USB port
++	 * We use vbus_pin, but this does not reflect its use.
++	 */
++	.ena_pin	= {AT91_PIN_PD1, AT91_PIN_PD3},
++	/*
++	 * An active-low and open-drained fault flag output fot channel B. 
++	 * It can indicate current limit when ENB is active.
++	 * In normal mode operation (ENA or/and ENB is active),
++	 * it also can indicate thermal shudown or undervoltage.
++	 */
++
++	.flg_pin	= {AT91_PIN_PD2, AT91_PIN_PD4},
++#endif
++
+ };
+ 
+ 
+@@ -82,9 +104,11 @@
+  */
+ static struct usba_platform_data __initdata ek_usba_udc_data = {
+ 	.vbus_pin	= AT91_PIN_PB19,
++#if	0
++	.idusb_pin	= AT91_PIN_PD28,
++#endif
+ };
+ 
+-
+ /*
+  * SPI devices.
+  */
+diff -urN linux-2.6.30-0rig/arch/arm/mach-at91/Kconfig linux-2.6.30/arch/arm/mach-at91/Kconfig
+--- linux-2.6.30-0rig/arch/arm/mach-at91/Kconfig	2009-08-20 16:04:00.000000000 +0200
++++ linux-2.6.30/arch/arm/mach-at91/Kconfig	2009-08-20 16:13:10.000000000 +0200
+@@ -522,6 +522,22 @@
+ 	  system clock (of at least several MHz), rounding is less of a
+ 	  problem so it can be safer to use a decimal values like 100.
+ 
++choice AT91_USB_CONFIGURATION
++	prompt "USB Programmable port configuration"
++	depends on ARCH_AT91SAM9G45
++	default	AT91_USB_SELECT_DEVICE
++	help
++	  Fixed configuration of USB Port/Device	
++	  Until we have OTG support in the driver...
++
++config AT91_USB_SELECT_DEVICE
++	bool "Use port as Device"
++
++config AT91_USB_SELECT_HOST
++	bool "Use port as Host"
++
++endchoice
++
+ choice
+ 	prompt "Select a UART for early kernel messages"
+ 
