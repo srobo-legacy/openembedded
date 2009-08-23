@@ -1,0 +1,14 @@
+diff -urN linux-2.6.30-0rig/drivers/misc/Kconfig linux-2.6.30/drivers/misc/Kconfig
+--- linux-2.6.30-0rig/drivers/misc/Kconfig	2009-08-22 21:47:05.000000000 +0200
++++ linux-2.6.30/drivers/misc/Kconfig	2009-08-22 21:54:27.000000000 +0200
+@@ -30,6 +30,9 @@
+ 	  blocks found on many Atmel processors.  This facilitates using
+ 	  these blocks by different drivers despite processor differences.
+ 
++comment "Enabling TCLIB for AT91SAM9G45 is known to have caused a kernel crash on boot"
++	depends on ARCH_AT91SAM9G45
++
+ config ATMEL_TCB_CLKSRC
+ 	bool "TC Block Clocksource"
+ 	depends on ATMEL_TCLIB && GENERIC_TIME
+
