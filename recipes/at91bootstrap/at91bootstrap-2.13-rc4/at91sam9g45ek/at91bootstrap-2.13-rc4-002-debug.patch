@@ -1,0 +1,329 @@
+diff -urN at91bootstrap-2.13-rc4-0rig/board/at91sam9g45ek/at91sam9g45ek.c at91bootstrap-2.13-rc4/board/at91sam9g45ek/at91sam9g45ek.c
+--- at91bootstrap-2.13-rc4-0rig/board/at91sam9g45ek/at91sam9g45ek.c	2009-08-22 17:03:08.000000000 +0200
++++ at91bootstrap-2.13-rc4/board/at91sam9g45ek/at91sam9g45ek.c	2009-08-22 17:30:59.000000000 +0200
+@@ -120,8 +120,11 @@
+ 
+ #ifdef CONFIG_DDR2
+ 	/* Configure DDRAM Controller */
++	dbg_print("DDR2 init...\n\r");
+ 	ddramc_hw_init();
++	dbg_print("ddramc init succeeded...\n\r");
+ #endif /* CONFIG_DDR2 */
++	dbg_print("Returning...\n\r");
+ }
+ #endif /* CONFIG_HW_INIT */
+ 
+@@ -162,20 +165,26 @@
+ /*------------------------------------------------------------------------------*/
+ void ddramc_hw_init(void)
+ {
++	dbg_print("ENABLE DDR2 clock ...\n\r");
+ 	// ENABLE DDR2 clock 
+ 	writel(AT91C_PMC_DDR, AT91C_BASE_PMC + PMC_SCER);
+ 
++	dbg_print("DDRAM2 controller...\n\r");
+ 	/* DDRAM2 controller */
+ 	ddram_init(AT91C_BASE_DDR2C, AT91C_DDR2, &ddram_config);
+ 
++	dbg_print("Setup Smart Media...\n\r");
+ 	/* Setup Smart Media, first enable the address range of CS3 in HMATRIX user interface */
+ 	writel(readl(AT91C_BASE_CCFG + CCFG_EBICSA) | AT91C_EBI_CS1A_SDRAMC, AT91C_BASE_CCFG + CCFG_EBICSA);
+ 	
++	dbg_print("EBI IO in 1.8V mode...\n\r");
+ 	/* EBI IO in 1.8V mode */
+ 	writel(readl(AT91C_BASE_CCFG + CCFG_EBICSA) & ~(1<<16), AT91C_BASE_CCFG + CCFG_EBICSA);
+ 	
++	dbg_print("EBI DDRAM controller...\n\r");
+ 	/* EBI DDRAM controller */
+ 	ddram_init(AT91C_BASE_DDR2CP1, AT91C_EBI_CS1, &ddram_config);
++	dbg_print("Returning...\n\r");
+ 
+ }
+ #endif /* CONFIG_DDR2 */
+diff -urN at91bootstrap-2.13-rc4-0rig/driver/ddramc.c at91bootstrap-2.13-rc4/driver/ddramc.c
+--- at91bootstrap-2.13-rc4-0rig/driver/ddramc.c	2009-08-22 17:03:08.000000000 +0200
++++ at91bootstrap-2.13-rc4/driver/ddramc.c	2009-08-22 18:32:08.000000000 +0200
+@@ -31,9 +31,10 @@
+  * Creation            :
+  *-----------------------------------------------------------------------------
+  */
+-#include "../include/part.h"
+-#include "../include/main.h"
+-#include "../include/ddramc.h"
++#include "part.h"
++#include "main.h"
++#include "ddramc.h"
++#include "debug.h"
+ 
+ #ifdef CONFIG_DDR2
+ 
+@@ -57,170 +58,211 @@
+ {
+ 	volatile unsigned int i;
+ 	unsigned int cr = 0;
+-	
++	dbg_print("ddram_init entered...\n\r");
++
++	dbg_print("1");
+ 	// Step 1: Program the memory device type
+ 	// Configure the DDR controller
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_MDR, ddram_config->ddramc_mdr);
+ 
++	dbg_print("2");
+ 	// Program the DDR Controller
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_CR, ddram_config->ddramc_cr); 
+ 
++	dbg_print("3");
+ 	// assume timings for 7.5ns min clock period
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_T0PR, ddram_config->ddramc_t0pr);
+ 
++	dbg_print("4");
+ 	// pSDDRC->HDDRSDRC2_T1PR 
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_T1PR, ddram_config->ddramc_t1pr);
+ 
++	dbg_print("5");
+ 	// pSDDRC->HDDRSDRC2_T2PR 
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_T2PR, ddram_config->ddramc_t2pr);
+ 
++	dbg_print("6");
+ 	// Initialization Step 3: NOP command -> allow to enable clk
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_MR, AT91C_DDRC2_MODE_NOP_CMD);
+ 	*((unsigned volatile int*) ddram_address) = 0;
+  
++	dbg_print("7");
+ 	// Initialization Step 3 (must wait 200 us) (6 core cycles per iteration, core is at 396MHz: min 13200 loops)
+ 	for (i = 0; i < 13300; i++) {
+ 		asm("    nop");
+ 	}
+ 	
++	dbg_print("8");
+ 	// Step 4:  An NOP command is issued to the DDR2-SDRAM 
+ 	// NOP command -> allow to enable cke
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_MR, AT91C_DDRC2_MODE_NOP_CMD);
+ 	*((unsigned volatile int*) ddram_address) = 0;
+ 
++	dbg_print("9");
+ 	// wait 400 ns min
+ 	for (i = 0; i < 100; i++) {
+ 		asm("    nop");
+ 	}
+ 
++	dbg_print("a");
+ 	// Initialization Step 5: Set All Bank Precharge
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_MR, AT91C_DDRC2_MODE_PRCGALL_CMD);
+ 	*((unsigned volatile int*) ddram_address) = 0;
+ 
++	dbg_print("b");
+ 	// wait 400 ns min
+ 	for (i = 0; i < 100; i++) {
+ 		asm("    nop");
+ 	}
+ 
++	dbg_print("c");
+        // Initialization Step 6: Set EMR operation (EMRS2)
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_MR, AT91C_DDRC2_MODE_EXT_LMR_CMD);
+ 	*((unsigned int *)(ddram_address + 0x4000000)) = 0;
+ 
++	dbg_print("d");
+ 	// wait 2 cycles min
+ 	for (i = 0; i < 100; i++) {
+ 		asm("    nop");
+ 	}
+ 
++	dbg_print("e");
+ 	// Initialization Step 7: Set EMR operation (EMRS3)
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_MR, AT91C_DDRC2_MODE_EXT_LMR_CMD);
+ 	*((unsigned int *)(ddram_address + 0x6000000)) = 0;
+ 
++	dbg_print("f");
+ 	// wait 2 cycles min
+ 	for (i = 0; i < 100; i++) {
+ 		asm("    nop");
+ 	}
+ 
++	dbg_print("g");
+ 	// Initialization Step 8: Set EMR operation (EMRS1)
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_MR, AT91C_DDRC2_MODE_EXT_LMR_CMD);
+ 	*((unsigned int *)(ddram_address + 0x2000000)) = 0;
+ 
++	dbg_print("h");
+ 	// wait 200 cycles min
+ 	for (i = 0; i < 10000; i++) {
+ 		asm("    nop");
+ 	}
+ 
++	dbg_print("i\n\r");
+ 	// Initialization Step 9: enable DLL reset
++	dbg_print("Entering read_ddramc\r\n");
+ 	cr = read_ddramc(ddram_controller_address, HDDRSDRC2_CR);
++	dbg_print("Entering write_ddramc\r\n");
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_CR, cr | AT91C_DDRC2_DLL_RESET_ENABLED);
+-
++	
++	dbg_print("j");
+ 	// Initialization Step 10: reset DLL
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_MR, AT91C_DDRC2_MODE_EXT_LMR_CMD);
+ 	*(((unsigned volatile int*) ddram_address)) = 0;
+ 
++	dbg_print("k");
+ 	// wait 2 cycles min
+ 	for (i = 0; i < 100; i++) {
+ 		asm("    nop");
+ 	}
+ 
++	dbg_print("l");
+ 	// Initialization Step 11: Set All Bank Precharge
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_MR, AT91C_DDRC2_MODE_PRCGALL_CMD);
+ 	*(((unsigned volatile int*) ddram_address)) = 0;
+ 
++	dbg_print("m");
+ 	// wait 400 ns min
+ 	for (i = 0; i < 100; i++) {
+ 		asm("    nop");
+ 	}
+ 
++	dbg_print("n");
+ 	// Initialization Step 12: Two auto-refresh (CBR) cycles are provided. Program the auto refresh command (CBR) into the Mode Register.
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_MR, AT91C_DDRC2_MODE_RFSH_CMD);
+ 	*(((unsigned volatile int*) ddram_address)) = 0;
+ 
++	dbg_print("o");
+ 	// wait 10 cycles min
+ 	for (i = 0; i < 100; i++) {
+ 		asm("    nop");
+ 	}
+ 
++	dbg_print("p");
+ 	// Set 2nd CBR
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_MR, AT91C_DDRC2_MODE_RFSH_CMD);
+ 	*(((unsigned volatile int*) ddram_address)) = 0;
+ 
++	dbg_print("q");
+ 	// wait 10 cycles min
+ 	for (i = 0; i < 100; i++) {
+ 		asm("    nop");
+ 	}
+ 
++	dbg_print("r");
+ 	// Initialization Step 13: Program DLL field into the Configuration Register to low(Disable DLL reset).
+ 	cr = read_ddramc(ddram_controller_address, HDDRSDRC2_CR);
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_CR, cr & (~AT91C_DDRC2_DLL_RESET_ENABLED));
+ 
++	dbg_print("s");
+ 	// Initialization Step 14: A Mode Register set (MRS) cycle is issued to program the parameters of the DDR2-SDRAM devices.
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_MR, AT91C_DDRC2_MODE_LMR_CMD);
+ 	*(((unsigned volatile int*) ddram_address)) = 0;
+ 
++	dbg_print("t");
+ 	// Step 15: Program OCD field into the Configuration Register to high (OCD calibration default).
+ 	cr = read_ddramc(ddram_controller_address, HDDRSDRC2_CR);
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_CR, cr | AT91C_DDRC2_OCD_DEFAULT);
+ 
++	dbg_print("u");
+ 	// Step 16: An Extended Mode Register set (EMRS1) cycle is issued to OCD default value.
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_MR, AT91C_DDRC2_MODE_EXT_LMR_CMD);
+ 	*(((unsigned int*) (ddram_address + 0x2000000))) = 0;
+ 
++	dbg_print("v");
+ 	// wait 2 cycles min
+ 	for (i = 0; i < 100; i++) {
+ 		asm("    nop");
+ 	}
+ 
++	dbg_print("w");
+ 	// Step 17: Program OCD field into the Configuration Register to low (OCD calibration mode exit).
+ 	cr = read_ddramc(ddram_controller_address, HDDRSDRC2_CR);
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_CR, cr & (~AT91C_DDRC2_OCD_EXIT));
+ 
++	dbg_print("x");
+ 	// Step 18: An Extended Mode Register set (EMRS1) cycle is issued to enable OCD exit.
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_MR, AT91C_DDRC2_MODE_EXT_LMR_CMD);
+ 	*(((unsigned int*) (ddram_address + 0x6000000))) = 0;
+ 
++	dbg_print("y");
+ 	// wait 2 cycles min
+ 	for (i = 0; i < 100; i++) {
+ 		asm("    nop");
+ 	}
+ 
++	dbg_print("z");
+ 	// Step 19,20: A mode Normal command is provided. Program the Normal mode into Mode Register.
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_MR, AT91C_DDRC2_MODE_NORMAL_CMD);
+ 	*(((unsigned volatile int*) ddram_address)) = 0;
+ 
++	dbg_print("A");
+ 	// Step 21: Write the refresh rate into the count field in the Refresh Timer register. The DDR2-SDRAM device requires a
+ 	// refresh every 15.625 ¦Is or 7.81 ¦Ìs. With a 100MHz frequency, the refresh timer count register must to be set with
+ 	// (15.625 /100 MHz) = 1562 i.e. 0x061A or (7.81 /100MHz) = 781 i.e. 0x030d.
+ 
++	dbg_print("B");
+ 	// Set Refresh timer
+ 	write_ddramc(ddram_controller_address, HDDRSDRC2_RTR, ddram_config->ddramc_rtr);
+ 
+ 	// OK now we are ready to work on the DDRSDR
+ 
++	dbg_print("C");
+ 	// wait for end of calibration
+ 	for (i = 0; i < 500; i++) {
+ 		asm("    nop");
+ 	}
+-	
++	dbg_print("Returning ...");
+ 	return 0;
+ }
+ 
+diff -urN at91bootstrap-2.13-rc4-0rig/main.c at91bootstrap-2.13-rc4/main.c
+--- at91bootstrap-2.13-rc4-0rig/main.c	2009-08-22 17:03:08.000000000 +0200
++++ at91bootstrap-2.13-rc4/main.c	2009-08-22 19:16:46.000000000 +0200
+@@ -30,12 +30,12 @@
+  * Creation            : ODi Apr 19th 2006
+  *-----------------------------------------------------------------------------
+  */
+-#include "include/part.h"
+-#include "include/main.h"
+-#include "include/debug.h"
+-#include "include/dataflash.h"
+-#include "include/nandflash.h"
+-#include "include/flash.h"
++#include "part.h"
++#include "main.h"
++#include "debug.h"
++#include "dataflash.h"
++#include "nandflash.h"
++#include "flash.h"
+ #ifdef CONFIG_USER_HW_INIT
+ void	user_hw_init(void);
+ #endif
+@@ -169,7 +169,7 @@
+ #ifdef CONFIG_HW_INIT
+ 	hw_init();
+ #endif
+-
++	dbg_print("H/W init completed\n\r");
+ #ifdef CONFIG_USER_HW_INIT
+ 	user_hw_init();
+ #endif
+@@ -199,6 +199,7 @@
+ /* ==================== 2nd step: Load from media ==================== */
+ 	/* Load from Dataflash in RAM */
+ #if defined(CONFIG_DATAFLASH) || defined(CONFIG_DATAFLASH_CARD)
++	dbg_print("Trying to load Dataflash to SDRAM\n\r");
+ 	do {
+ 		if(load_df(
+ 			AT91C_SPI_PCS_DATAFLASH, 
+@@ -213,11 +214,14 @@
+ 			break;
+ 		}
+ 	} while (1);
++#else
++...
+ #endif
+ 
+ 	/* Load from Nandflash in RAM */
+ #ifdef CONFIG_NANDFLASH
+ //	load_nandflash(IMG_ADDRESS, IMG_SIZE, JUMP_ADDR);
++	dbg_print("Trying to load NAND flash to SDRAM\n\r");
+ 	load_nandflash();
+ #endif
+ 
+
