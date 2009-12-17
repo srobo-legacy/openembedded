@@ -1,4 +1,3 @@
-
 require module-init-tools.inc
 inherit cross
 DEFAULT_PREFERENCE = "0"
@@ -10,11 +9,6 @@ RDEPENDS_${PN} = ""
 
 EXTRA_OECONF_append = " --program-prefix=${TARGET_PREFIX}"
 
-do_stage () {
-        oe_runmake install
-        mv ${bindir}/${TARGET_PREFIX}depmod ${bindir}/${TARGET_PREFIX}depmod-2.6
-}
-
-do_install () {
-        :
+do_install_append () {
+        mv ${D}${bindir}/${TARGET_PREFIX}depmod ${D}${bindir}/${TARGET_PREFIX}depmod-2.6
 }
