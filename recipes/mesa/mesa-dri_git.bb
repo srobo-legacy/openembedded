@@ -10,13 +10,13 @@ PR = "${INC_PR}.0"
 PR_append = "+gitr${SRCPV}"
 
 DEFAULT_PREFERENCE = "-2"
-DEFAULT_PREFERENCE_om-gta02 = "2"
+DEFAULT_PREFERENCE_shr = "2"
 
 SRCREV_pn-mesa-dri ?= "196214bf2b677a83653d49f79d03752f29df44ec"
-SRCREV_pn-mesa-dri_om-gta02 ?= "1ac166895fef47806c9e9286d2a6356b4db8398d"
+SRCREV_pn-mesa-dri_shr ?= "1ac166895fef47806c9e9286d2a6356b4db8398d"
 
 SRC_URI = "git://anongit.freedesktop.org/git/mesa/mesa;protocol=git"
-SRC_URI_om-gta02 = "git://git.bitwiz.org.uk/mesa.git;protocol=git;branch=glamo"
+SRC_URI_shr = "git://git.bitwiz.org.uk/mesa.git;protocol=git;branch=glamo"
 S = "${WORKDIR}/git"
 
 PACKAGES =+ " mesa-utils "
@@ -27,6 +27,7 @@ FILES_mesa-utils = "${bindir}/*"
 
 EXTRA_OECONF += "--with-driver=dri --disable-glx-tls --with-dri-drivers=swrast,${MACHINE_DRI_MODULES}"
 EXTRA_OECONF_om-gta02 += "--with-driver=dri --disable-glx-tls --disable-gallium --disable-gallium-intel --with-dri-drivers=swrast,${MACHINE_DRI_MODULES}"
+EXTRA_OECONF_om-gta01 += "--with-driver=dri --disable-glx-tls --disable-gallium --disable-gallium-intel --with-dri-drivers=swrast,${MACHINE_DRI_MODULES}"
 
 # We need glsl-compile built for buildhost arch instead of target (is provided by mesa-dri-glsl-native)"
 do_configure_prepend() {
