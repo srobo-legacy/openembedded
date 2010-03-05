@@ -1,9 +1,7 @@
 require gtk+.inc
 
-SRC_URI_append_virtclass-native = " file://no-demos.patch;patch=1 \
-"
 
-PR = "${INC_PR}.3"
+PR = "${INC_PR}.4"
 
 BBCLASSEXTEND = "native"
 
