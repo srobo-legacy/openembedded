@@ -1,7 +1,9 @@
 require gtk+.inc
 
+SRC_URI_append = " file://no-demos.patch;patch=1 \
+"
 
-PR = "${INC_PR}.4"
+PR = "${INC_PR}.3"
 
 BBCLASSEXTEND = "native"
 
