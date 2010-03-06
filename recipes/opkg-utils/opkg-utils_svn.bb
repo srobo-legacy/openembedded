@@ -16,3 +16,5 @@ S = "${WORKDIR}/opkg-utils"
 do_stage () {
 	autotools_stage_all
 }
+
+BBCLASSEXTEND="native"

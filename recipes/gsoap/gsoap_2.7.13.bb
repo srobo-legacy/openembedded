@@ -13,3 +13,5 @@ do_install_append() {
 
 FILES_${PN} = "${bindir}/wsdl2h ${bindir}/soapcpp2"
 FILES_${PN} += "${datadir}"
+
+BBCLASSEXTEND="native"

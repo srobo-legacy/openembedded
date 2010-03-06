@@ -33,3 +33,5 @@ do_install() {
 	done
 }
 
+
+BBCLASSEXTEND="native"

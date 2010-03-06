@@ -10,3 +10,5 @@ EXTRA_OECONF = "--without-static-progs \
 		--with-zlib \
 		--with-bz2lib \
 		--without-sgml-doc"
+
+BBCLASSEXTEND="native"

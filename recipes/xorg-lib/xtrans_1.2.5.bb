@@ -12,3 +12,5 @@ FILESDIR = "${@os.path.dirname(bb.data.getVar('FILE',d,1))}/xtrans"
 RDEPENDS_${PN}-dev = ""
 
 XORG_PN = "xtrans"
+
+BBCLASSEXTEND="native"

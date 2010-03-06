@@ -17,3 +17,5 @@ do_compile() {
 	) || exit 1
 	oe_runmake
 }
+
+BBCLASSEXTEND="native"

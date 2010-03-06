@@ -11,3 +11,5 @@ EXTRA_OEMAKE += "'infodir=${infodir}'"
 do_configure() {
 	oe_runconf
 }
+
+BBCLASSEXTEND="native"

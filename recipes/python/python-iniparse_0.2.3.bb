@@ -9,3 +9,5 @@ SRC_URI = "http://iniparse.googlecode.com/files/iniparse-${PV}.tar.gz"
 S = "${WORKDIR}/iniparse-${PV}"
 
 inherit distutils
+
+BBCLASSEXTEND="native"

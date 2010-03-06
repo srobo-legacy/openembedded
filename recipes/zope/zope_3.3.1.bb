@@ -4,3 +4,5 @@ RRECOMMENDS += "zope-interfaces"
 inherit distutils-base
 
 require zope.inc
+
+BBCLASSEXTEND="native"

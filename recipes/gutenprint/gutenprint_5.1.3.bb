@@ -46,3 +46,5 @@ FILES_${PN} += "${datadir}/cups/model ${libdir}/cups ${datadir}/cups/calibrate.p
 FILES_${PN}-dbg += "${libdir}/cups/*/.debug"
 
 
+
+BBCLASSEXTEND="native"

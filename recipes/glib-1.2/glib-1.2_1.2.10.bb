@@ -43,3 +43,5 @@ do_stage () {
 }
 
 FILES_${PN}-dev += "${libdir}/glib/include/glibconfig.h"
+
+BBCLASSEXTEND="native"

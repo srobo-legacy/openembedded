@@ -12,3 +12,5 @@ pkg_postinst_${PN} () {
 pkg_prerm_${PN} () {
 	for i in find xargs; do update-alternatives --remove $i $i.${PN}; done
 }
+
+BBCLASSEXTEND="native"

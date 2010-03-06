@@ -34,3 +34,5 @@ do_install () {
         install -m 755 ${S}/tools/env/fw_printenv ${D}/sbin/fw_setenv
 }
 
+
+BBCLASSEXTEND="native"

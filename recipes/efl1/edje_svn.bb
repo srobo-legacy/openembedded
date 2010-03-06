@@ -45,3 +45,5 @@ FILES_${PN}-utils = "\
   ${bindir}/edje_* \
   ${datadir}/edje/include/edje.inc \
 "
+
+BBCLASSEXTEND="native"

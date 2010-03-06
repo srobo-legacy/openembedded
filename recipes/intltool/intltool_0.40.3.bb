@@ -13,3 +13,5 @@ do_configure_prepend() {
 do_configure_append() {
 	sed -i -e s:head\ -1:head\ -n1:g intltool.m4
 }
+
+BBCLASSEXTEND="native"

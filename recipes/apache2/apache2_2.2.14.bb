@@ -112,3 +112,5 @@ do_install_append() {
 # Expat should be found in the staging area via DEPENDS...
 	rm -f ${D}/${libdir}/libexpat.*
 }
+
+BBCLASSEXTEND="native"

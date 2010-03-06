@@ -35,3 +35,5 @@ FILES_${PN}-dbg += "${libdir}/ImageMagick-${IMVER}/modules-Q16/*/.debug/*"
 
 LEAD_SONAME = "libMagick.so.*"
 
+
+BBCLASSEXTEND="native"

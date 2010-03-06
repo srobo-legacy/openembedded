@@ -17,3 +17,5 @@ do_install() {
 	install cramfsck ${D}${bindir}
 }
 
+
+BBCLASSEXTEND="native"

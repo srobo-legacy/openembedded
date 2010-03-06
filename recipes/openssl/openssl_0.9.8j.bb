@@ -12,3 +12,5 @@ SRC_URI += "file://configure-targets.patch;patch=1 \
             file://oe-ldflags.patch;patch=1"
 
 PARALLEL_MAKE = ""
+
+BBCLASSEXTEND="native"

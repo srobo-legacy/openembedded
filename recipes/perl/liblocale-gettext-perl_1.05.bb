@@ -12,3 +12,5 @@ inherit cpan
 
 FILES_${PN} = "${PERLLIBDIRS}/auto/Locale/gettext/* \
                 ${PERLLIBDIRS}/Locale"
+
+BBCLASSEXTEND="native"

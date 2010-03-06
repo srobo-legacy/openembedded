@@ -30,3 +30,5 @@ do_install() {
 
 FILES_${PN} += "${datadir}"
 
+
+BBCLASSEXTEND="native"

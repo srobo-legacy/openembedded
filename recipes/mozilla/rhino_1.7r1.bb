@@ -40,3 +40,5 @@ do_install_append() {
 	install -m 0755 ${WORKDIR}/rhino ${D}${bindir}
 	install -m 0755 ${WORKDIR}/rhino-jsc ${D}${bindir}
 }
+
+BBCLASSEXTEND="native"

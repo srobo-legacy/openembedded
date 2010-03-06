@@ -15,3 +15,5 @@ do_stage () {
 }
 
 
+
+BBCLASSEXTEND="native"

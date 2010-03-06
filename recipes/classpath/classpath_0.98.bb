@@ -23,3 +23,5 @@ EXTRA_OECONF += "\
                 --with-vm=java \
                "
 
+
+BBCLASSEXTEND="native"

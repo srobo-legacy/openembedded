@@ -11,3 +11,5 @@ S = "${WORKDIR}/yum-metadata-parser-${PV}"
 TARGET_CFLAGS += "-I${STAGING_LIBDIR}/glib-2.0"
 
 inherit distutils
+
+BBCLASSEXTEND="native"

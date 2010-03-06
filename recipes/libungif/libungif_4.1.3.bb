@@ -17,3 +17,5 @@ do_stage() {
 	install -m 0644 lib/gif_lib.h ${STAGING_INCDIR}/
 
 }
+
+BBCLASSEXTEND="native"

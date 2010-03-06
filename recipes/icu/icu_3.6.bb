@@ -46,3 +46,5 @@ icu_sysroot_preprocess () {
 }	
 
 
+
+BBCLASSEXTEND="native"

@@ -17,3 +17,5 @@ do_stage() {
 }
 
 inherit cpan_build
+
+BBCLASSEXTEND="native"

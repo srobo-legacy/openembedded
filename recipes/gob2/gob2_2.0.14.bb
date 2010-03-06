@@ -15,3 +15,5 @@ do_compile_prepend() {
 do_stage() {
     install -m 0644 ${S}/gob2.m4 ${STAGING_DATADIR}/aclocal
 }
+
+BBCLASSEXTEND="native"

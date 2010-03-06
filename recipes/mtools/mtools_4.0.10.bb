@@ -27,3 +27,5 @@ do_fix_perms() {
 }
 
 addtask fix_perms after do_unpack before do_patch
+
+BBCLASSEXTEND="native"

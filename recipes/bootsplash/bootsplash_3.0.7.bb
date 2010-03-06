@@ -26,3 +26,5 @@ do_install() {
 	install -m 0755 ${S}/Utilities/fbtruetype ${D}${bindir}
 	install -m 0755 ${S}/Utilities/splash ${D}${bindir}
 }
+
+BBCLASSEXTEND="native"

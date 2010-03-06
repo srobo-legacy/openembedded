@@ -37,3 +37,5 @@ do_install_append() {
 PACKAGES = "${PN}"
 
 FILES_${PN} += "${datadir_java}"
+
+BBCLASSEXTEND="native"

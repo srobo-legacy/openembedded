@@ -40,3 +40,5 @@ do_stage() {
   java_stage
   oe_jarinstall -s ${P}-providers.jar ${PN}-providers.jar
 }
+
+BBCLASSEXTEND="native"

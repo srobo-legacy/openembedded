@@ -27,3 +27,5 @@ pkg_postrm_${PN} () {
 }
 
 require update-alternatives-merge.inc
+
+BBCLASSEXTEND="native"

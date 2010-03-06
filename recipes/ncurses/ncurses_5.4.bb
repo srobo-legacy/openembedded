@@ -9,3 +9,5 @@ S = "${WORKDIR}/ncurses-${PV}"
 require ncurses.inc
 
 LEAD_SONAME = "libncurses.so.5"
+
+BBCLASSEXTEND="native"

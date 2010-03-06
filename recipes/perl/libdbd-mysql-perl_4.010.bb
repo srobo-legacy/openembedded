@@ -11,3 +11,5 @@ RDEPENDS = "perl-module-data-dumper \
 EXTRA_OECONF = "    --mysql_config=${STAGING_BINDIR_CROSS}/mysql_config"
 
 CFLAGS_append = " -I${STAGING_INCDIR}/mysql"
+
+BBCLASSEXTEND="native"

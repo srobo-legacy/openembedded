@@ -16,3 +16,5 @@ do_install () {
         install -d ${D}${bindir}
         install -m 755 ${BPN} ${D}${bindir}
 }
+
+BBCLASSEXTEND="native"

@@ -5,3 +5,5 @@ DESCRIPTION = "converts BDF fonts to PCF fonts"
 
 DEPENDS += " libxfont"
 
+
+BBCLASSEXTEND="native"

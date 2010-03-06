@@ -23,3 +23,5 @@ do_stage () {
        install -m 0644 libltdl/libltdl/*.h ${STAGING_INCDIR}/libltdl/
        oe_libinstall -a -so -C libltdl libltdl ${STAGING_LIBDIR}
 }
+
+BBCLASSEXTEND="native"

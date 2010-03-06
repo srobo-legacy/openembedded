@@ -53,3 +53,5 @@ EXTRA_OECONF += "--disable-gfx-check"
 
 inherit autotools
 
+
+BBCLASSEXTEND="native"

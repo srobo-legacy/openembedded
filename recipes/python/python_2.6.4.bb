@@ -137,3 +137,5 @@ FILES_python-misc = "${libdir}/python${PYTHON_MAJMIN}"
 # catch manpage
 PACKAGES += "python-man"
 FILES_python-man = "${datadir}/man"
+
+BBCLASSEXTEND="native"

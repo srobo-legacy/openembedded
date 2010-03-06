@@ -74,3 +74,5 @@ def get_erlang_libs_R13B01(d):
 FILES_${PN}-libs-dbg += " ${libdir}/erlang/*/.debug ${libdir}/erlang/*/*/.debug ${libdir}/erlang/*/*/*/.debug ${libdir}/erlang/*/*/*/*/.debug ${libdir}/erlang/*/*/*/*/*/.debug "
 FILES_${PN}-libs += " ${@' '.join(get_erlang_libs_R13B01(d))}"
 PACKAGES =+ "${PN}-libs-dbg ${PN}-libs"
+
+BBCLASSEXTEND="native"

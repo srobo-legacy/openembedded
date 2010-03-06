@@ -26,3 +26,5 @@ do_compile() {
 }
 
 
+
+BBCLASSEXTEND="native"

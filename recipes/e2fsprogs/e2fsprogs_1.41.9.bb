@@ -123,3 +123,5 @@ pkg_prerm_e2fsprogs-mke2fs () {
 	update-alternatives --remove mkfs.ext4 mkfs.ext4.${PN}
 	update-alternatives --remove mkfs.ext4dev mkfs.ext4dev.${PN}
 }
+
+BBCLASSEXTEND="native"

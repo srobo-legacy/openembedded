@@ -49,3 +49,5 @@ inherit autotools
 do_configure() {
     ${S}/configure --prefix=${prefix} ${EXTRA_OECONF}
 }
+
+BBCLASSEXTEND="native"

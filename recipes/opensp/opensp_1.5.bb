@@ -28,3 +28,5 @@ do_stage () {
 }
 
 FILES_${PN} += "${datadir}/OpenSP"
+
+BBCLASSEXTEND="native"

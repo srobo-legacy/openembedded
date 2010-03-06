@@ -7,3 +7,5 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/genext2fs/genext2fs-${PV}.tar.gz \
 DEFAULT_PREFERENCE = "1"
 
 inherit autotools
+
+BBCLASSEXTEND="native"

@@ -7,3 +7,5 @@ PR = "r2"
 PE = "1"
 
 XORG_PN = "libXcursor"
+
+BBCLASSEXTEND="native"

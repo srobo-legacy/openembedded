@@ -8,3 +8,5 @@ RDEPENDS = "perl perl-module-file-path cpio findutils sed"
 PR = "r4"
 
 FILES_${PN}-dbg += "${libexecdir}/git-core/.debug"
+
+BBCLASSEXTEND="native"

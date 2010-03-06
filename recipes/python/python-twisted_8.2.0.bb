@@ -210,3 +210,5 @@ FILES_${PN}-dbg += " \
 ${libdir}/${PYTHON_DIR}/site-packages/twisted/*/.debug \
 ${libdir}/${PYTHON_DIR}/site-packages/twisted/*/*/.debug \
 "
+
+BBCLASSEXTEND="native"

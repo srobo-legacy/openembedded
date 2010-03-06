@@ -5,3 +5,5 @@ PV = "0.1.0.001+svnr${SRCPV}"
 PR = "r2"
 
 inherit efl
+
+BBCLASSEXTEND="native"

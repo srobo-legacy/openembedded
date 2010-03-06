@@ -9,3 +9,5 @@ SRC_URI = "http://linux.duke.edu/projects/urlgrabber/download/urlgrabber-${PV}.t
 S = "${WORKDIR}/urlgrabber-${PV}"
 
 inherit distutils
+
+BBCLASSEXTEND="native"

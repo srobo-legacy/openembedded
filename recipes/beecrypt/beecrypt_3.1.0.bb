@@ -18,3 +18,5 @@ do_stage() {
     autotools_stage_all
 }
 
+
+BBCLASSEXTEND="native"

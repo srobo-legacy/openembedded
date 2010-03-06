@@ -13,3 +13,5 @@ PACKAGES =+ "freedesktop-mime-info"
 FILES_freedesktop-mime-info = "${datadir}/mime/packages/freedesktop.org.xml"
 RDEPENDS_freedesktop-mime-info = "shared-mime-info"
 
+
+BBCLASSEXTEND="native"

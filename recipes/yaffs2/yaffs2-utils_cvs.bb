@@ -25,3 +25,5 @@ do_install() {
         install -m 0755 utils/$i ${D}${sbindir}
     done
 }
+
+BBCLASSEXTEND="native"

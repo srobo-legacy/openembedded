@@ -40,3 +40,5 @@ FILES_${PN}-engines-x11 = "${libdir}/etk/engines/ecore_evas_x11.so"
 
 PACKAGES =+ "etk-engines-software-x11-16"
 FILES_${PN}-engines-software-x11-16 = "${libdir}/etk/engines/ecore_evas_software_x11_16.so"
+
+BBCLASSEXTEND="native"

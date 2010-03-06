@@ -43,3 +43,5 @@ do_compile() {
   ln -sf ${D}${datadir_java}/xmlParserAPIs.jar jaxp-1.3.jar
 
 }
+
+BBCLASSEXTEND="native"

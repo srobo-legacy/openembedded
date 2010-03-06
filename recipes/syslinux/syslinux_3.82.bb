@@ -39,3 +39,5 @@ FILES_${PN} = "${bindir}/syslinux"
 FILES_${PN}-extlinux = "${base_sbindir}/extlinux"
 FILES_${PN}-mbr = "${datadir}/${PN}/mbr.bin"
 FILES_${PN}-dev += "${datadir}/${PN}/com32"
+
+BBCLASSEXTEND="native"

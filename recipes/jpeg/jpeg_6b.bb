@@ -47,3 +47,5 @@ PACKAGES =+ 		"jpeg-tools "
 FILES_jpeg-tools = 	"${bindir}/*"
 
 
+
+BBCLASSEXTEND="native"

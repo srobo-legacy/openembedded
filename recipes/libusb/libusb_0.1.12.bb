@@ -34,3 +34,5 @@ do_stage() {
 PACKAGES =+ "libusbpp"
 
 FILES_libusbpp = "${libdir}/libusbpp*.so.*"
+
+BBCLASSEXTEND="native"

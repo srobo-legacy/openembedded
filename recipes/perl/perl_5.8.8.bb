@@ -227,3 +227,5 @@ require perl-rdepends_${PV}.inc
 require perl-rprovides.inc
 
 PARALLEL_MAKE = ""
+
+BBCLASSEXTEND="native"

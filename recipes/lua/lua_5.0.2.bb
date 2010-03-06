@@ -12,3 +12,5 @@ FILESPATH = "${FILE_DIRNAME}/lua-${PV}:${FILE_DIRNAME}/lua:${FILE_DIRNAME}/files
 
 require lua-build.inc
 inherit binconfig
+
+BBCLASSEXTEND="native"

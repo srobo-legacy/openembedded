@@ -30,3 +30,5 @@ RDEPENDS = "\
 PACKAGES =+ "${PN}-tests"
 FILES_${PN}-tests = "${libdir}/${PYTHON_DIR}/pysqlite2/test"
 RDEPENDS_${PN}-tests = "${PN}"
+
+BBCLASSEXTEND="native"

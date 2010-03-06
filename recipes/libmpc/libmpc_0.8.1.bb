@@ -8,3 +8,5 @@ S = "${WORKDIR}/mpc-${PV}"
 do_stage() {
 	autotools_stage_all
 }
+
+BBCLASSEXTEND="native"

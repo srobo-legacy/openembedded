@@ -41,3 +41,5 @@ FILES_${PN}-el = "${datadir}/emacs/*"
 FILES_${PN} = "${datadir}/* \
                ${bindir}/* \
                ${sysconfdir}/anthy-conf"
+
+BBCLASSEXTEND="native"

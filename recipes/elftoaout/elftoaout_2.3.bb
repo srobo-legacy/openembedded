@@ -8,3 +8,5 @@ do_install() {
 	install -d ${D}${bindir}
 	install elftoaout ${D}${bindir}/
 }
+
+BBCLASSEXTEND="native"

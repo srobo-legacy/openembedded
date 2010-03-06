@@ -13,3 +13,5 @@ do_install() {
 	install -m 755 stat ${D}${bindir}
 	install -m 644 stat.1 ${D}${mandir}/man1
 }
+
+BBCLASSEXTEND="native"

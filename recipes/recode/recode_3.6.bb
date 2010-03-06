@@ -23,3 +23,5 @@ do_stage() {
 	oe_libinstall -a -C src librecode ${STAGING_LIBDIR}/
 }
 
+
+BBCLASSEXTEND="native"
