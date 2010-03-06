@@ -5,4 +5,4 @@ PE = "1"
 
 XORG_PN = "inputproto"
 
-BBCLASSEXTEND="native"
+BBCLASSEXTEND="native sdk"

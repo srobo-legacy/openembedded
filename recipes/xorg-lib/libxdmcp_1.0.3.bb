@@ -8,4 +8,4 @@ PE = "1"
 
 XORG_PN = "libXdmcp"
 
-BBCLASSEXTEND="native"
+BBCLASSEXTEND="native sdk"

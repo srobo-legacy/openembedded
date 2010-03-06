@@ -14,3 +14,5 @@ do_compile_prepend () {
 	find ./ -print|xargs chmod u=rwX
 	( cd util; ${BUILD_CC} subst.c -o subst )
 }
+
+BBCLASSEXTEND="native"

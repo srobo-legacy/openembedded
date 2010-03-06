@@ -19,3 +19,4 @@ do_stage() {
 # fakeroot needs getopt which is provided by the util-linux package
 RDEPENDS = "util-linux"
 
+BBCLASSEXTEND="native"

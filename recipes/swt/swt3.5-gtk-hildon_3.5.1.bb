@@ -1,4 +1,4 @@
-require swt3.4-gtk_${PV}.bb
+require swt3.5-gtk_${PV}.bb
 
 PR = "r1"
 

@@ -7,4 +7,4 @@ DEPENDS += "util-macros"
 
 XORG_PN = "xproto"
 
-BBCLASSEXTEND="native"
+BBCLASSEXTEND="native sdk"

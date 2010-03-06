@@ -25,3 +25,5 @@ PROVIDES = "virtual/javac"
 ALTERNATIVE_NAME = "javac"
 ALTERNATIVE_LINK = "/usr/bin/javac"
 ALTERNATIVE_PATH = "${bindir}/javac.jikes"
+
+BBCLASSEXTEND="native"

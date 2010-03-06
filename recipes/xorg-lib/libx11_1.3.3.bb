@@ -33,4 +33,4 @@ do_compile() {
 FILES_${PN} += "${datadir}/X11/XKeysymDB ${datadir}/X11/XErrorDB ${libdir}/X11/Xcms.txt"
 FILES_${PN}-locale += "${datadir}/X11/locale ${libdir}/X11/locale"
 
-BBCLASSEXTEND="native"
+BBCLASSEXTEND="native sdk"

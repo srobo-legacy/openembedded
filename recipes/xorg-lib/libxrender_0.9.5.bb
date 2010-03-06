@@ -8,4 +8,4 @@ PE = "1"
 
 XORG_PN = "libXrender"
 
-BBCLASSEXTEND="native"
+BBCLASSEXTEND="native sdk"

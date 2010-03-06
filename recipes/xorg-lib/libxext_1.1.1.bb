@@ -8,4 +8,4 @@ PE = "1"
 
 XORG_PN = "libXext"
 
-BBCLASSEXTEND="native"
+BBCLASSEXTEND="native sdk"

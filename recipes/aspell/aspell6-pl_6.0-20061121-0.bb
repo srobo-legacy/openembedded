@@ -14,4 +14,4 @@ do_install_append() {
 	install ${S}/Copyright ${D}${docdir}
 }
 
-
+BBCLASSEXTEND="native"

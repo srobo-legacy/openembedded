@@ -3,7 +3,7 @@
 FILESPATH = "${@os.path.dirname(bb.data.getVar('FILE',d,1))}/xextproto-7.0:${@os.path.dirname(bb.data.getVar('FILE',d,1))}/xextproto:${@os.path.dirname(bb.data.getVar('FILE',d,1))}/files"
 PR_append = ".0"
 
-require xextproto_7.0.5.bb
+require xextproto_7.1.1.bb
 
 XORG_PN = "xextproto"
 EXTRA_OECONF += "--includedir=${includedir}/xextproto-70"

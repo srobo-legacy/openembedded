@@ -64,3 +64,4 @@ do_install () {
 	autotools_do_install
 }
 
+BBCLASSEXTEND="native"
