@@ -15,6 +15,3 @@ do_compile_prepend() {
 	done	
 }
 
-do_stage () {
-	autotools_stage_all
-}

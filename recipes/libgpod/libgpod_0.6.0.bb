@@ -9,7 +9,3 @@ inherit autotools
 
 SRC_URI = "http://kent.dl.sourceforge.net/sourceforge/gtkpod/libgpod-${PV}.tar.gz"
 
-do_stage() {
-	autotools_stage_all
-}
-

@@ -11,6 +11,3 @@ SRC_URI = "svn://projects.linuxtogo.org/svn/gpephone/trunk/source/ptim;module=im
 
 S = "${WORKDIR}/imheaders"
 
-do_stage () {
-    autotools_stage_all
-}

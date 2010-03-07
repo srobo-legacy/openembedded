@@ -7,7 +7,3 @@ SRC_URI = "http://download.tangent.org/libid3-${PV}.tar.gz"
 
 inherit autotools pkgconfig
 
-do_stage() {
-    autotools_stage_all
-}
-

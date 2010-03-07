@@ -25,7 +25,3 @@ do_install_append() {
 	mv ${D}/${bindir}/test ${D}/${bindir}/gmyth-upnp-test
 }
 
-do_stage() {
-        autotools_stage_all
-}
-

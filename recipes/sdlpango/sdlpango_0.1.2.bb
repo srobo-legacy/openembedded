@@ -13,6 +13,3 @@ inherit autotools
 
 S = "${WORKDIR}/SDL_Pango-${PV}"
 
-do_stage() {
-        autotools_stage_all
-}

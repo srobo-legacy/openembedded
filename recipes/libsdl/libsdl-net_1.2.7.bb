@@ -15,7 +15,3 @@ inherit autotools
 
 EXTRA_OECONF += "SDL_CONFIG=${STAGING_BINDIR_CROSS}/sdl-config"
 
-do_stage() {
-	autotools_stage_all
-}
-

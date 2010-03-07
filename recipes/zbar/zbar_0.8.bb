@@ -8,10 +8,6 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/${PN}/${P}.tar.bz2"
 
 inherit autotools pkgconfig
 
-do_stage () {
-        autotools_stage_all
-}
-
 EXTRA_OECONF = " --without-imagemagick --without-qt --without-python"
 
 PACKAGES += "libzbar libzbargtk"

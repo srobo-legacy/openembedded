@@ -8,7 +8,3 @@ inherit gnome
 PACKAGES =+ "libgio"
 FILES_libgio = "${libdir}/libgio.so.*"
 
-do_stage() {
-	autotools_stage_all
-}
-

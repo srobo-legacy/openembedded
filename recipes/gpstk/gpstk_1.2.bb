@@ -12,10 +12,6 @@ inherit autotools lib_package
 
 EXTRA_OECONF = "--enable-shared"
 
-do_stage() {
-    autotools_stage_all
-}
-
 
 # This is a handcrafted do_install because 'make install' isn't working.
 # This should install the same files as my native (x86) jam based build, but doesn't since the Makefiles 

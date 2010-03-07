@@ -17,8 +17,4 @@ do_configure_prepend() {
         sed -i -e s:AC_CONFIG_SRCDIR:#AC_CONFIG_SRCDIR:g configure.ac
 }
 
-do_stage() {
-        autotools_stage_all
-}
-
 

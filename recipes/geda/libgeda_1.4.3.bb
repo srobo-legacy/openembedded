@@ -16,6 +16,3 @@ do_install_prepend() {
 	sed -i 's:${STAGING_DIR_HOST}::g' libgeda.pc
 }
 
-do_stage () {
-	autotools_stage_all
-}

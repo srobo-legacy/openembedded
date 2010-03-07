@@ -8,6 +8,3 @@ inherit autotools pkgconfig
 
 SRC_URI = "http://www.freedesktop.org/software/startup-notification/releases/startup-notification-${PV}.tar.gz"
 
-do_stage () {
-	autotools_stage_all
-}

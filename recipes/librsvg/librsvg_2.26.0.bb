@@ -32,8 +32,4 @@ fi
         gdk-pixbuf-query-loaders > /etc/gtk-2.0/gdk-pixbuf.loaders
 }
 
-do_stage() {
-	autotools_stage_all
-}
-
 BBCLASSEXTEND="native"

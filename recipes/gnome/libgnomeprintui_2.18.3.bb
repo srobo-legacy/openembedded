@@ -7,6 +7,3 @@ inherit gnome pkgconfig
 
 EXTRA_OECONF = "use_local_libgnomeprint_la=no"
 
-do_stage() {
-	autotools_stage_all
-}

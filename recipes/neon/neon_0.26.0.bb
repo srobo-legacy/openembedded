@@ -11,6 +11,3 @@ inherit autotools binconfig lib_package pkgconfig
 EXTRA_OECONF = "--with-ssl=gnutls --with-libxml2 --with-expat --enable-shared"
 EXTRA_AUTORECONF=" -I ${S}/macros "
 
-do_stage () {
-	autotools_stage_all
-}

@@ -9,6 +9,3 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/openrdate/openrdate-${PV}.tar.gz \
 
 inherit autotools
 
-do_stage() {
-        autotools_stage_all
-}

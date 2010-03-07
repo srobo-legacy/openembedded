@@ -18,7 +18,3 @@ inherit autotools
 DISABLE_LIBMINIMAL ?= "--disable-libminimal"
 EXTRA_OECONF = "${DISABLE_LIBMINIMAL}"
 
-do_stage() {
-	echo "NOTE: stage package ${PF} is: (${PN},${PV},${PR})"
-	autotools_stage_all
-}

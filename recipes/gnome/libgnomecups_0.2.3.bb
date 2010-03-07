@@ -12,7 +12,3 @@ do_compile_append () {
 	sed 's:${STAGING_DIR_HOST}::' < libgnomecups-1.0.pc.old > libgnomecups-1.0.pc
 }
 
-do_stage() {
-	autotools_stage_all
-}
-

@@ -60,7 +60,3 @@ python __anonymous() {
 do_configure_prepend() {
 	sed -i s:OPT_GNUTLS/bin:OPT_GNUTLS:g configure.ac
 }
-
-do_stage () {
-	autotools_stage_all
-}

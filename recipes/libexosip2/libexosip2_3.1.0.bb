@@ -13,6 +13,3 @@ S = "${WORKDIR}/${SRCNAME}-${PV}"
 inherit autotools pkgconfig
 EXTRA_OECONF = "--disable-josua"
 
-do_stage() {
-        autotools_stage_all
-}

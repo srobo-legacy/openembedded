@@ -22,7 +22,3 @@ do_configure_prepend () {
 	sed -i 's:$CPPFLAGS -I$includedir:$CPPFLAGS:' ${S}/configure.ac
 }
 
-do_stage() {    
-	autotools_stage_all
-}
-

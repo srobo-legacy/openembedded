@@ -17,6 +17,3 @@ do_install_append() {
 	rm ${D}${libdir}/nautilus/extensions-*/*.la
 }
 
-do_stage() {
-	autotools_stage_all
-}

@@ -18,8 +18,4 @@ do_configure_prepend() {
 
 PARALLEL_MAKE = ""
 
-do_stage() {
-        autotools_stage_all
-}
-
 

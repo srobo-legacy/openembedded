@@ -13,6 +13,3 @@ do_configure_append() {
 
 AUTOTOOLS_STAGE_PKGCONFIG = "1"
 
-do_stage() {
-	autotools_stage_all
-}

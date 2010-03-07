@@ -24,6 +24,3 @@ FILES_${PN} += "${libdir}/thunarx-1/*.so \
                 ${datadir}/xfce4"
 FILES_${PN}-dbg += "${libdir}/thunarx-1/.debug/ ${libexecdir}/xfce4/panel-plugins/.debug/"
 
-do_stage () {
- 	autotools_stage_all
-}

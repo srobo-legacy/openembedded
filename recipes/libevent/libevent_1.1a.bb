@@ -10,7 +10,3 @@ SRC_URI = "http://monkey.org/~provos/libevent-${PV}.tar.gz"
 
 inherit autotools
 
-do_stage() {
-	autotools_stage_all
-}
-

@@ -10,8 +10,4 @@ inherit pkgconfig gpe autotools
 SRC_URI = "${GPE_MIRROR}/${PN}-${PV}.tar.bz2"
 
 
-do_stage () {
-	autotools_stage_all
-}
-
 

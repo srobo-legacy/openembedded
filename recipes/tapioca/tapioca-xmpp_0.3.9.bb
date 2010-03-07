@@ -7,6 +7,3 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/tapioca-voip/${P}.tar.gz"
 
 FILES_${PN} += "${datadir}/dbus* ${datadir}/tapioca* "
 
-do_stage () {
-        autotools_stage_all
-}

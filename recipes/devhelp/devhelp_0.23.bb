@@ -10,7 +10,3 @@ SRC_URI += "file://devhelp-includes.patch;patch=1 \
 
 PACKAGES += "gedit-plugin-${PN}"
 FILES_gedit-plugin-${PN} += "${libdir}/gedit-2"
-
-do_stage() {
-	autotools_stage_all
-}

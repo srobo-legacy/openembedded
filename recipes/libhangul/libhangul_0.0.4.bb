@@ -9,6 +9,3 @@ SRC_URI = "http://kldp.net/frs/download.php/3733/${PN}-${PV}.tar.gz"
 
 inherit autotools pkgconfig lib_package
 
-do_stage() {
-       autotools_stage_all
-}

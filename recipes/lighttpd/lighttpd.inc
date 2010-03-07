@@ -42,10 +42,6 @@ do_install_append() {
 	install -m 0644 ${WORKDIR}/index.html ${D}/www/pages/
 }
 
-do_stage() {
-	autotools_stage_all
-}
-
 FILES_${PN} += "${sysconfdir} /www"
 
 PACKAGES_DYNAMIC = "lighttpd-module-*"

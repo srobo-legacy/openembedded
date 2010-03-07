@@ -17,6 +17,3 @@ S = "${WORKDIR}/LibVNCServer-${PV}"
 EXTRA_OEMAKE_append=" SUBDIRS='libvncserver' "
 
 inherit autotools
-do_stage() {
-    autotools_stage_all
-}

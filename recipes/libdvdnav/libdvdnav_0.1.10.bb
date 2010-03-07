@@ -12,6 +12,3 @@ SRC_URI="${SOURCEFORGE_MIRROR}/dvd/${PN}-${PV}.tar.gz"
 
 inherit autotools
 
-do_stage() {
-	autotools_stage_all
-}

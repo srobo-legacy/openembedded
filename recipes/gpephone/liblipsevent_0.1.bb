@@ -11,6 +11,3 @@ SRC_URI = "${GPEPHONE_MIRROR}/${P}/lips_event-${PV}.tar.gz"
 
 S = ${WORKDIR}/lips_event-${PV}
 
-do_stage () {
-	autotools_stage_all
-}

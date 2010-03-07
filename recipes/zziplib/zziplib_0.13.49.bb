@@ -9,8 +9,4 @@ SRC_URI += "\
 
 #EXTRA_OECONF = "--srcdir=${S} --enable-builddir=${S}/build"
 
-do_stage() {
-  autotools_stage_all
-}
-
 BBCLASSEXTEND="native"

@@ -20,10 +20,6 @@ EXTRA_AUTORECONF += "--exclude=libtoolize"
 EXTRA_OECONF = "--without-x --without-freetype --without-perl"
 EXTRA_OECONF_openprotium = "--without-x --without-freetype --without-xml --without-perl"
 
-do_stage() {
-	autotools_stage_all
-}
-
 FILES_${PN} += "${libdir}/ImageMagick-${IMVER}/modules-Q16/*/*.so \
                 ${libdir}/ImageMagick-${IMVER}/modules-Q16/*/*.la \
                 ${libdir}/ImageMagick-${IMVER}/config/ \

@@ -9,6 +9,3 @@ inherit autotools
 require sphinx-fpu.inc
 EXTRA_OECONF += "${@get_sphinx_fpu_setting(bb, d)}"
 
-do_stage () {
-    autotools_stage_all
-}

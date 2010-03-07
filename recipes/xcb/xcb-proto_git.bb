@@ -5,7 +5,3 @@ PR = "r0"
 SRC_URI = "git://anongit.freedesktop.org/git/xcb;protocol=git"
 S = "${WORKDIR}/git/xcb-proto"
 
-do_stage() {
-	autotools_stage_all
-}
-

@@ -11,6 +11,3 @@ inherit gpephone pkgconfig autotools
 
 FILES_${PN} += "$(datadir)/libmsgenabler"
 
-do_stage () {
-	autotools_stage_all
-}

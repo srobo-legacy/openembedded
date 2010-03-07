@@ -50,10 +50,6 @@ FILES_libedata-cal-dev = "${libdir}/libedata-cal-*.so ${libdir}/pkgconfig/libeda
 FILES_libedataserver = "${libdir}/libedataserver-*.so.*"
 FILES_libedataserver-dev = "${libdir}/libedataserver-*.so ${libdir}/pkgconfig/libedataserver-*.pc ${includedir}/evolution-data-server-*/libedataserver/*.h"
 
-do_stage () {
-        autotools_stage_all
-}
-
 do_install_append () {
 	rm ${D}${libdir}/evolution-data-server-*/*/*.la
 }

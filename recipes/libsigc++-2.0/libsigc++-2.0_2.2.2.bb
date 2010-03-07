@@ -15,7 +15,3 @@ FILES_${PN}-dev += "${libdir}/sigc++-*/"
 
 AUTOTOOLS_STAGE_PKGCONFIG = "1"
 
-do_stage() {
-	autotools_stage_all
-}
-

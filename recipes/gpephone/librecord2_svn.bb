@@ -20,6 +20,3 @@ FILES_${PN}-dev += "${includedir} ${libdir}/*.la ${libdir}/*.so"
 
 LDFLAGS += " -L${STAGING_LIBDIR}"
 
-do_stage () {
-	autotools_stage_all
-}

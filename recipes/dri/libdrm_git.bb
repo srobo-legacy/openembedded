@@ -19,7 +19,3 @@ S = "${WORKDIR}/git"
 EXTRA_OECONF_append_shr = " --enable-glamo-experimental-api --disable-radeon --disable-intel"
 
 inherit autotools pkgconfig
-
-do_stage() {
-	autotools_stage_all
-}

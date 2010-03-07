@@ -10,6 +10,3 @@ SRC_URI = "${GPEPHONE_MIRROR}/ptim-headers-${PV}/imheaders-${PV}.tar.bz2"
 
 S = "${WORKDIR}/imheaders-${PV}"
 
-do_stage () {
-    autotools_stage_all
-}

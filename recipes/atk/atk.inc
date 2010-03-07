@@ -8,7 +8,3 @@ DEPENDS = "glib-2.0 gtk-doc-native"
 inherit autotools pkgconfig
 
 EXTRA_OECONF = "--disable-glibtest"
-
-do_stage () {
-	autotools_stage_all
-}

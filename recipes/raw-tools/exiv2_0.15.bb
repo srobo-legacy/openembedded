@@ -7,8 +7,4 @@ SRC_URI = "http://www.exiv2.org/exiv2-${PV}.tar.gz"
 inherit autotools pkgconfig lib_package
 
 
-do_stage() {
-       autotools_stage_all
-} 
-
 

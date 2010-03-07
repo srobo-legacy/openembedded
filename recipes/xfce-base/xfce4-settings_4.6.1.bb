@@ -15,6 +15,3 @@ SRC_URI += " \
     file://xfce4-settings-4.6.1-configure.patch;patch=1 \
 "
 
-do_stage() {
-autotools_stage_all
-}

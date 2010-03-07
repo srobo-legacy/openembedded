@@ -9,10 +9,6 @@ PR = "r2"
 
 inherit xfce 
 
-do_stage() {
-	autotools_stage_all
-}
-
 
 do_stage_append () {
 	install -d ${PKG_CONFIG_DIR}

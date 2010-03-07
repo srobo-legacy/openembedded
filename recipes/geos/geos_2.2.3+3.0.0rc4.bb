@@ -14,8 +14,4 @@ inherit autotools pkgconfig lib_package binconfig
 
 EXTRA_OECONF = "--disable-swig"
 
-do_stage() {
-       autotools_stage_all
-}       
-
 

@@ -20,7 +20,3 @@ do_compile_append() {
                   libxklavier.pc
 }
 
-do_stage() {
-	autotools_stage_all
-}
-

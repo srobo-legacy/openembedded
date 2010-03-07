@@ -32,6 +32,3 @@ do_configure_append () {
 	find -name Makefile -exec sed -i '/\/usr\/bin\/orbit-idl-2/{s:/usr/bin:${STAGING_BINDIR_NATIVE}:;s:/usr/share:${STAGING_DATADIR}:g}' {} \;
 }
 
-do_stage() {
-	autotools_stage_all
-}

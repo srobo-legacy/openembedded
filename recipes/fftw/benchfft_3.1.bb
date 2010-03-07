@@ -16,7 +16,3 @@ do_compile_prepend() {
 	sed -i -e 's:all-recursive:$(RECURSIVE_TARGETS):g' ${S}/Makefile
 }
 
-do_stage () {
-        autotools_stage_all
-}
-

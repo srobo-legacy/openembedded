@@ -140,8 +140,4 @@ if [ -f /usr/bin/uim-module-manager ]; then
 fi
 }
 
-do_stage() {
-	autotools_stage_all
-}
-
 BBCLASSEXTEND="native"

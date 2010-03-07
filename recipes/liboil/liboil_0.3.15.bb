@@ -12,6 +12,3 @@ SRC_URI = "http://liboil.freedesktop.org/download/${P}.tar.gz \
 
 inherit autotools pkgconfig
 
-do_stage() {
-	autotools_stage_all
-}

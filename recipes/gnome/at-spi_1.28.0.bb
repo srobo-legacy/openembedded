@@ -16,10 +16,6 @@ do_configure_prepend () {
 	sed -i "s|LIBBONOBO_IDL_DIR=.*|LIBBONOBO_IDL_DIR=${STAGING_DATADIR}/idl//bonobo-2.0|" ${S}/configure.in
 }
 
-do_stage () {
-	autotools_stage_all
-}
-
 FILES_${PN} += " \
                 ${libdir}/bonobo \
                 ${libdir}/gtk-2.0 \

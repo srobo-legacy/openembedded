@@ -9,10 +9,6 @@ inherit xfce46
 
 EXTRA_OECONF += " --enable-startup-notification"
 
-do_stage() {
-    autotools_stage_all
-}
-
 do_install() {
     oe_runmake DESTDIR=${D} install
 }

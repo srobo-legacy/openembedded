@@ -48,6 +48,3 @@ PACKAGES += "${PN}-bin"
 FILES_${PN} = "${libdir}"
 FILES_${PN}-bin = "${bindir}"
 
-do_stage() {
-  autotools_stage_all
-}

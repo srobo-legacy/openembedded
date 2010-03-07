@@ -9,6 +9,3 @@ GPE_TARBALL_SUFFIX = "bz2"
 
 inherit autotools pkgconfig gpe
 
-do_stage () {
-        autotools_stage_all
-}

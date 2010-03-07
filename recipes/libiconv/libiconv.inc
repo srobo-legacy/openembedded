@@ -21,6 +21,3 @@ do_configure_append () {
         sed -i s/^hardcode_libdir_flag_spec/#hardcode_libdir_flag_spec/ ${S}/*-libtool
 }
 
-do_stage () {
-	autotools_stage_all
-}

@@ -11,10 +11,6 @@ do_configure_prepend() {
 	sed -i -e s:'`$PKG_CONFIG --variable=defsdir pygtk-2.0`':\"${STAGING_DATADIR}/pygtk/2.0/defs\":g ${S}/configure.in
 }
 
-do_stage() {
-    autotools_stage_all
-}
-
 FILES_${PN} += "${datadir}/xfce4/ \
                 ${libdir}/xfce4/mcs-plugins/exo-preferred-applications-settings.so"
 FILES_${PN}-dev += "${libdir}/xfce4/mcs-plugins/exo-preferred-applications-settings.*"

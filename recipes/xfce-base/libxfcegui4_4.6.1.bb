@@ -9,10 +9,6 @@ PR = "r4"
 
 inherit xfce46
 
-do_stage() {
-   autotools_stage_all
-}
-
 LEAD_SONAME = "libxfcegui4.so.4"
 
 FILES_${PN} += "${libdir}/xfce4/modules ${libdir}/libglade/2.0/*.so ${datadir}/xfce4/mime ${datadir}/icons/hicolor"

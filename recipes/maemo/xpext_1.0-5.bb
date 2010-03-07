@@ -17,6 +17,3 @@ do_configure_prepend () {
   ./autogen.sh
 }
 
-do_stage() {
-	autotools_stage_all
-}

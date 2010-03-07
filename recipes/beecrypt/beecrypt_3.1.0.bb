@@ -14,9 +14,4 @@ acpaths=""
 
 EXTRA_OECONF="--with-arch=${TARGET_ARCH} --enable-shared --enable-static"
 
-do_stage() {
-    autotools_stage_all
-}
-
-
 BBCLASSEXTEND="native"

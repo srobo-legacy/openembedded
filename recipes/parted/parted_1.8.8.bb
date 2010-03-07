@@ -14,6 +14,3 @@ EXTRA_OECONF = "--disable-Werror ac_cv_func_calloc_0_nonnull=yes"
 
 inherit autotools pkgconfig
 
-do_stage() {
-	autotools_stage_all
-}

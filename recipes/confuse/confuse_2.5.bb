@@ -11,9 +11,4 @@ inherit autotools binconfig pkgconfig lib_package
 
 EXTRA_OECONF = "--enable-shared"
 
-do_stage() {
-    autotools_stage_all
-}
-
-
 BBCLASSEXTEND="native"

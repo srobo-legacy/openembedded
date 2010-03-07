@@ -20,7 +20,3 @@ FILES_${PN} += "${libdir}/gegl-0.0"
 FILES_${PN}-dbg += "${libdir}/gegl-0.0/.debug"
 
 
-do_stage() {
-        autotools_stage_all
-}
-
