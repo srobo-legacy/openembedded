@@ -3,7 +3,9 @@ LICENSE = "GPLv2"
 
 PR = "r2"
 
-SRC_URI = "http://mirror.its.uidaho.edu/pub/savannah/attr/attr-${PV}.src.tar.gz"
+SRC_URI = "http://mirror.its.uidaho.edu/pub/savannah/attr/attr-2.4.44.src.tar.gz;name=attr2444srctargz"
+SRC_URI[attr2444srctargz.md5sum] = "d132c119831c27350e10b9f885711adc"
+SRC_URI[attr2444srctargz.sha256sum] = "9f6214b8e53f4bba651ac5a72c0f6193b12aa21fbf1d675d89a7b4bc45264498"
 
 inherit gettext autotools lib_package
 
