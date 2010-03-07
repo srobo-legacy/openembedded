@@ -10,8 +10,6 @@ PV = "0.5+git"
 PR = "r3"
 PR_append = ".gitr${SRCREV}"
 
-DEFAULT_PREFERENCE = "-1"
-DEFAULT_PREFERENCE_angstrom = "1"
 
 SRCREV = "bdc9164b405d18cfc5dbde2a33f070341d5ad673"
 

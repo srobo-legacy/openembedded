@@ -6,8 +6,6 @@ DEPENDS     = "glib-2.0 e2fsprogs-libs sqlite3"
 PR          = "r0"
 PV = "0.1+svnr-${SRCREV}"
 
-DEFAULT_PREFERENCE = "-1"
-
 GPE_TARBALL_SUFFIX = "bz2"
 inherit gpephone pkgconfig autotools
 

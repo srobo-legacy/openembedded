@@ -6,8 +6,6 @@ DEPENDS += "ncurses glib-2.0"
 PV = "0.8.11+svn${SRCDATE}"
 PR = "r4"
 
-DEFAULT_PREFERENCE = "-1"
-
 PACKAGES += "${PN}-common"
 FILES_${PN} = "${bindir}/irssi"
 FILES_${PN}-common = "${datadir}/irssi ${sysconfdir}"

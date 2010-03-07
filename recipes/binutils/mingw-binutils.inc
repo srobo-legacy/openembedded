@@ -6,5 +6,3 @@ require binutils.inc
 SRC_URI = "${SOURCEFORGE_MIRROR}/mingw/binutils-${PV}-src.tar.gz"
 
 S = "${WORKDIR}/binutils-${PV}"
-
-DEFAULT_PREFERENCE = "-1"

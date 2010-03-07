@@ -5,7 +5,6 @@ HOMEPAGE = "http://www.trolltech.com"
 PRIORITY = "optional"
 LICENSE = "LGPLv2.1 GPLv3"
 
-DEFAULT_PREFERENCE = "-1"
 inherit sdk
 
 SRC_URI = "ftp://ftp.trolltech.com/qt/source/qt-everywhere-opensource-src-${PV}.tar.gz \

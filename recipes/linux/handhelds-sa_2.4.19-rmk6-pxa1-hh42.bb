@@ -2,8 +2,6 @@ SECTION = "kernel"
 DESCRIPTION = "handhelds.org Linux kernel for StrongArm processor based devices."
 LICENSE = "GPL"
 PR = "r0"
-DEFAULT_PREFERENCE = "-1"
-
 KERNEL_CCSUFFIX = "-3.3.4"
 COMPATIBLE_HOST = "arm.*-linux"
 COMPATIBLE_MACHINE = '(h3600|simpad)'

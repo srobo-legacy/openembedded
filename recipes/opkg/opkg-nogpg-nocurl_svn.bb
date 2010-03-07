@@ -13,5 +13,3 @@ EXTRA_OECONF += " --disable-curl --enable-static --disable-shared"
 do_configure_prepend() {
 	sed -i -e s:-Werror::g ${S}/libopkg/Makefile.am
 }
-
-DEFAULT_PREFERENCE = "-1"

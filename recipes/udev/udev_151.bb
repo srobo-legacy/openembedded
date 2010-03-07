@@ -5,8 +5,6 @@ LICENSE = "GPL"
 
 PR = "r3"
 
-# Untested
-DEFAULT_PREFERENCE = "-1"
 
 # Needed for udev-extras
 DEPENDS = "gperf-native usbutils acl glib-2.0"

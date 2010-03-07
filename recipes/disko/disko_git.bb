@@ -3,8 +3,6 @@ LICENSE = "GPL"
 PV = "1.6.1+gitr${SRCREV}"
 PR = "r0"
 
-DEFAULT_PREFERENCE = "-1"
-
 require disko.inc
 
 DEPENDS += "taglib directfb virtual/libx11 hal libxv libxxf86vm"

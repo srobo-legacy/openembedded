@@ -11,8 +11,6 @@ BBCLASSEXTEND="native"
 
 SRCREV = "7a15fa25ddb88ebb4ac00772854271f102f06e81"
 
-DEFAULT_PREFERENCE = "-1"
-
 SRC_URI = "git://anongit.freedesktop.org/~sandmann/pixman;protocol=git;branch=flags \
            file://0003-Generic-C-implementation-of-pixman_blt-with-overlapp.patch;patch=1 \
            file://0004-Support-of-overlapping-src-dst-for-pixman_blt_mmx.patch;patch=1 \

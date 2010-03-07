@@ -9,8 +9,6 @@ SRCREV ?= "1c17792094eb"
 PV = "0.0.1+gitr${SRCREV}"
 PR = "r1"
 
-DEFAULT_PREFERENCE = "-1"
-
 SRC_URI = "git://github.com/spaetz/calc.git;protocol=http;branch=master"
 S = "${WORKDIR}/git"
 

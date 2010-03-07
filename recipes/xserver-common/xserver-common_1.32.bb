@@ -5,8 +5,6 @@ RDEPENDS_${PN} = "xmodmap xrandr xdpyinfo"
 PR = "r1"
 
 PACKAGE_ARCH = "all"
-DEFAULT_PREFERENCE = "-1"
-
 # we are using a gpe-style Makefile
 inherit gpe
 

@@ -1,7 +1,5 @@
 require dates.inc
 
-DEFAULT_PREFERENCE = "-1"
-
 PV = "0.4.5+svnr${SRCPV}"
 S = "${WORKDIR}/trunk"
 

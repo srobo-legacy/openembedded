@@ -4,8 +4,6 @@ SRC_URI = "file://icmpquery.c \
 	   file://Makefile"
 PV = "1.03"
 
-DEFAULT_PREFERENCE="-1"
-
 
 S = "${WORKDIR}"
 LICENSE = "GPL"

@@ -5,8 +5,6 @@ LICENSE = "LGPL"
 
 PR="r1"
 
-DEFAULT_PREFERENCE = "-1"
-
 TARGET_CC_ARCH += "${LDFLAGS}"
 
 SRC_URI = "\

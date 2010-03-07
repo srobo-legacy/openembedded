@@ -3,8 +3,6 @@ require mono_svn.inc
 DEPENDS = "mono-native mono-mcs-intermediate glib-2.0 perl-native"
 
 PR = "r0"
-DEFAULT_PREFERENCE = "-1"
-
 SRC_URI += ""
 
 # Per http://www.mono-project.com/Mono:ARM

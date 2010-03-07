@@ -8,5 +8,3 @@ inherit autotools
 SRC_URI += "${GPE_EXTRA_SVN}"
 
 S = "${WORKDIR}/${PN}"
-
-DEFAULT_PREFERENCE = "-1"

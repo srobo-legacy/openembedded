@@ -6,8 +6,6 @@ DEPENDS = "gtk+ ptim-headers"
 PV = "0.1+svnr-${SRCREV}"
 PR = "r1"
 
-DEFAULT_PREFERENCE = "-1"
-
 inherit gpephone pkgconfig autotools
 
 SRC_URI = "svn://projects.linuxtogo.org/svn/gpephone/trunk/source/ptim;module=imengine"

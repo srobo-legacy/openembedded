@@ -25,5 +25,3 @@ do_stage () {
 }
 
 headers = "todo-db.h"
-
-DEFAULT_PREFERENCE = "-1"

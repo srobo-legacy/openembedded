@@ -3,7 +3,6 @@ LICENSE = "GPL"
 DEPENDS = "libmatchbox startup-notification"
 SECTION = "x11/wm"
 PV = "0.9.1+svn${SRCDATE}"
-DEFAULT_PREFERENCE = "-1"
 
 PR = "r1"
 

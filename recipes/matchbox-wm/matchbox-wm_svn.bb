@@ -4,8 +4,6 @@ DEPENDS = "libmatchbox virtual/libx11 libxext libxcomposite libxfixes libxdamage
 RDEPENDS = ""
 PV = "1.1+svn${SRCDATE}"
 PR = "r4"
-DEFAULT_PREFERENCE = "-1"
-
 SRC_URI = "svn://svn.o-hand.com/repos/matchbox/trunk;module=matchbox-window-manager;proto=http \
 	   file://kbdconfig"
 

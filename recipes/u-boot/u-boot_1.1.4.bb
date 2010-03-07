@@ -2,8 +2,6 @@ require u-boot.inc
 
 PR = "r1"
 
-DEFAULT_PREFERENCE = "-1"
-
 SRC_URI = "ftp://ftp.denx.de/pub/u-boot/u-boot-${PV}.tar.bz2 \
           file://u-boot-make381-fix.patch;patch=1"
 

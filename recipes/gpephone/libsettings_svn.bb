@@ -6,8 +6,6 @@ DEPENDS = "glib-2.0 gconf"
 PV = "0.0+svnr-${SRCREV}"
 PR = "r1"
 
-DEFAULT_PREFERENCE = "-1"
-
 inherit gpephone pkgconfig autotools
 
 SRC_URI = "${GPEPHONE_SVN}"

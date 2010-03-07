@@ -1,5 +1,3 @@
-DEFAULT_PREFERENCE = "-1"
-
 DESCRIPTION = "Xlib/XCB: Xlib with XCB transport"
 SECTION = "x11/libs"
 LICENSE = "XFree86"

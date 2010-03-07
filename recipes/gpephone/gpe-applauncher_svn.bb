@@ -6,7 +6,6 @@ PR          = "r1"
 PV          = "0.11+svnr-${SRCREV}"
 
 SRC_URI_OVERRIDES_PACKAGE_ARCH = "0"
-DEFAULT_PREFERENCE = "-1"
 
 inherit gpephone autotools
 SRC_URI = "svn://projects.linuxtogo.org/svn/gpephone/trunk/source;module=${PN}"

@@ -7,8 +7,6 @@ PV = "0.2+gitr${SRCREV}"
 PR = "r0"
 PE = "1"
 
-DEFAULT_PREFERENCE = "-1"
-
 SRC_URI = "git://slimlogic.co.uk/alsa-scenario;branch=master;protocol=git"
 S = "${WORKDIR}/git"
 

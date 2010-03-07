@@ -14,5 +14,3 @@ SRC_URI = "svn://gtk-webcore.svn.sourceforge.net/svnroot/gtk-webcore/trunk;modul
 
 S = "${WORKDIR}/osb-browser"
 
-DEFAULT_PREFERENCE = "-1"
-

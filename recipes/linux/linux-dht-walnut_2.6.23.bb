@@ -4,8 +4,6 @@ require linux.inc
 
 DESCRIPTION = "Linux kernel for DHT-Walnut (ppc)  machine"
 
-DEFAULT_PREFERENCE = "-1"
-
 PR = "r0"
 DEPENDS = "u-boot"
 

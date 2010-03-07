@@ -16,5 +16,3 @@ do_stage() {
 }
 
 FILES_${PN}-dbg += "${libexecdir}/libgpelaunch/.debug"
-
-DEFAULT_PREFERENCE = "-1"

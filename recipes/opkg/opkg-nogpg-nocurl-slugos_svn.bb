@@ -58,5 +58,3 @@ pkg_postinst_${PN} () {
 pkg_postrm_${PN} () {
   update-alternatives --remove opkg ${bindir}/opkg-cl
 }
-
-DEFAULT_PREFERENCE = "-1"

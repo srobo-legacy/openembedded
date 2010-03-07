@@ -9,8 +9,6 @@ SRC_URI = "svn://trac.aircrack-ng.org/svn/branch;module=1.0-dev;proto=http"
  
 S="${WORKDIR}/1.0-dev"
  
-DEFAULT_PREFERENCE = "-1"
-
 export TOOL_PREFIX = "${HOST_SYS}-"
 
 do_compile() {

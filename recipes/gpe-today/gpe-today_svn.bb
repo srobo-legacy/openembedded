@@ -20,5 +20,3 @@ do_compile () {
         oe_runmake PREFIX=${prefix}
         oe_runmake all-desktop PREFIX=${prefix}
 }
-
-DEFAULT_PREFERENCE = "-1"

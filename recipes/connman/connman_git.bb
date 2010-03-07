@@ -30,8 +30,6 @@ PV = "0.42+git"
 PR = "r2"
 PR_append = ".gitr${SRCREV}"
 
-DEFAULT_PREFERENCE = "-1"
-DEFAULT_PREFERENCE_angstrom = "1"
 
 SRC_URI = "\
   git://git.kernel.org/pub/scm/network/connman/connman.git;protocol=git \

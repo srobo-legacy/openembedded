@@ -3,9 +3,6 @@ LICENSE = "BSD"
 DESCRIPTION = "A library for configuring and customizing font access."
 DEPENDS = "expat freetype zlib"
 
-DEFAULT_PREFERENCE = "-1"
-DEFAULT_PREFERENCE_angstrom = "1"
-
 SRCREV = "96194cc3fa484837bf41598ff3f3d09b97c8dba4"
 SRC_URI = "git://anongit.freedesktop.org/~behdad/fontconfig;protocol=git \
 "

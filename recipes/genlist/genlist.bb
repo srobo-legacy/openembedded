@@ -6,8 +6,6 @@ PR = "r1"
 SRC_URI = "file://genlist.c \
 	   file://Makefile"
 
-DEFAULT_PREFERENCE="-1"
-
 S = "${WORKDIR}"
 
 do_compile() {

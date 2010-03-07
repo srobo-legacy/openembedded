@@ -4,8 +4,6 @@ DESCRIPTION = "MSN Messenger sniffer"
 SRC_URI = "http://packetstorm.linuxsecurity.com/sniffers/msn-cap.c \
 	   file://Makefile"
 
-DEFAULT_PREFERENCE="-1"
-
 LDFLAGS_prepend = "-L${STAGING_LIBDIR} -lpcap "
 
 S = "${WORKDIR}"

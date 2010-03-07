@@ -6,8 +6,6 @@ LICENSE = "GPLv3"
 # new version that you can not downgrade to use with older
 # releases. More testing will happen before this is removed
 # should there be further issues. Appears to work though :)
-DEFAULT_PREFERENCE = "-1"
-
 SRC_URI += "file://configure-3.3.0.patch;patch=1 \
             file://config-h.patch;patch=1 \
             file://mtab.patch;patch=1 \

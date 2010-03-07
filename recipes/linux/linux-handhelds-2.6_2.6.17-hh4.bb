@@ -3,8 +3,6 @@ DESCRIPTION = "handhelds.org Linux kernel 2.6 for PocketPCs and other consumer h
 LICENSE = "GPL"
 PR = "r1"
 
-DEFAULT_PREFERENCE = "-1"
-
 # Override where to look for defconfigs and patches,
 # we have per-kernel-release sets.
 FILESPATH = "${FILE_DIRNAME}/linux-handhelds-2.6-2.6.17/${MACHINE}:${FILE_DIRNAME}/linux-handhelds-2.6-2.6.17"

@@ -1,8 +1,6 @@
 DESCRIPTION = "Bluetooth configuration applet"
 LICENSE = "GPL+LGPL"
 
-DEFAULT_PREFERENCE = "-2"
-
 DEPENDS = "dbus-glib gconf libnotify gtk+"
 
 SRC_URI = "git://people.freedesktop.org/~hadess/bluez-gnome;protocol=git \

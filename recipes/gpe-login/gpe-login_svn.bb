@@ -29,5 +29,3 @@ ${sysconfdir}/X11/Xinit.d/99gpe-login \
 ${sysconfdir}/X11/Xsession.d/50autolock \
 "
 
-
-DEFAULT_PREFERENCE = "-1"

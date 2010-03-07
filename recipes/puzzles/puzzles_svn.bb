@@ -1,5 +1,3 @@
-DEFAULT_PREFERENCE = "-1"
-
 DEPENDS = "gtk+ libxt"
 PV = "r7436+svn${SRCDATE}"
 

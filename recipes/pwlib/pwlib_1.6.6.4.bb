@@ -7,8 +7,6 @@
 # Released under the MIT license (see /COPYING)
 
 
-DEFAULT_PREFERENCE = "-1"
-
 HOMEPAGE="http://www.openh323.org/docs/PWLib/"
 DESCRIPTION="Portable Text and GUI C/C++ Class Libarary."
 LICENSE = "GPL"

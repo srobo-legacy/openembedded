@@ -7,8 +7,6 @@ PR = "${INC_PR}.0"
 PR_append = "+gitr${SRCREV}"
 PE = "2"
 
-DEFAULT_PREFERENCE = "-1"
-
 SRCREV = "780c95caf9888fa4548dfe4c1c78a7e7ce99a9ed"
 SRC_URI = "git://anongit.freedesktop.org/xorg/xserver;protocol=git;branch=master \
 # pending changes http://lists.x.org/archives/xorg-devel/2010-January/005127.html

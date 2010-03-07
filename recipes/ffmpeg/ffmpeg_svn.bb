@@ -8,10 +8,6 @@ PE = "1"
 PV = "0.5.0+${PR}+svnr${SRCPV}"
 PR = "r0"
 
-DEFAULT_PREFERENCE = "-1"
-DEFAULT_PREFERENCE_angstrom = "1"
-DEFAULT_PREFERENCE_shr = "1"
-
 SRC_URI = "svn://svn.ffmpeg.org/ffmpeg/;module=trunk"
 
 S = "${WORKDIR}/trunk"

@@ -5,8 +5,6 @@ DEPENDS = "libmatchbox"
 PV = "0.9.1+svn${SRCDATE}"
 PR = "r1"
 
-DEFAULT_PREFERENCE = "-1"
-
 SRC_URI = "svn://svn.o-hand.com/repos/matchbox/trunk;module=matchbox-common;proto=http"
 S = "${WORKDIR}/matchbox-common"
 

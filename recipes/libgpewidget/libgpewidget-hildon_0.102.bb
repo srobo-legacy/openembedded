@@ -6,8 +6,6 @@ PRIORITY    = "optional"
 DEPENDS     = "gtk+ libxrender gtk-doc intltool-native sdk-default-icons"
 PROVIDES    = "libgpewidget"
 
-DEFAULT_PREFERENCE = "-1"
-
 inherit autotools pkgconfig
 
 SRC_URI     = "${GPE_MIRROR}/libgpewidget-${PV}.tar.bz2"

@@ -10,5 +10,3 @@ SRC_URI = "cvs://anonymous@gtk-webcore.cvs.sourceforge.net/cvsroot/gtk-webcore;m
            file://gcc4-fno-threadsafe-statics-NRCore.patch;patch=1"
 
 S = "${WORKDIR}/NRCore"
-
-DEFAULT_PREFERENCE = "-1"

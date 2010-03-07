@@ -5,8 +5,6 @@ PRIORITY = "optional"
 PROVIDES = "libfribidi"
 
 # Slightly incompatible with 0.10.x, so:
-DEFAULT_PREFERENCE = "-1"
-DEFAULT_PREFERENCE_angstrom = "1"
 
 inherit autotools_stage lib_package pkgconfig
 

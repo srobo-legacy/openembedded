@@ -1,7 +1,5 @@
 require tasks.inc
 
-DEFAULT_PREFERENCE = "-1"
-
 PV = "0.13+svnr${SRCPV}"
 S = "${WORKDIR}/trunk"
 

@@ -5,7 +5,6 @@ DESCRIPTION = "Linux kernel for Xilinx ML403 Virtex 4 fpga board"
 LICENSE = "GPL"
 DEPENDS = "git-native"
 PR = "r1"
-DEFAULT_PREFERENCE = "-1"
 COMPATIBLE_MACHINE = "xilinx-ml403"
 SRC_URI = "git://source.mvista.com/git/linux-xilinx-26;protocol=git \
            file://xilinx-ml403_defconfig "

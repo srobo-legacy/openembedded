@@ -3,7 +3,6 @@ DEPENDS = "zlib"
 PV = "0.9.0+cvs${SRCDATE}"
 PR = "r4"
 
-DEFAULT_PREFERENCE = "-1"
 FILESDIR = "${WORKDIR}"
 
 SRC_URI = "\

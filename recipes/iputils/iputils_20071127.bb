@@ -7,8 +7,6 @@ DEPENDS = "docbook-utils-native"
 
 PR = "r1"
 
-DEFAULT_PREFERENCE_angstrom = "2"
-
 SRC_URI = "http://ftp.de.debian.org/debian/pool/main/i/iputils/iputils_${PV}.orig.tar.gz \
            file://debian/fix-dead-host-ping-stats.diff;patch=1 \
            file://debian/add-icmp-return-codes.diff;patch=1 \

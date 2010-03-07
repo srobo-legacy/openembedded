@@ -5,8 +5,6 @@ LICENSE = "GPL"
 DEPENDS = "libgpewidget sqlite"
 PV = "0.2.9+svnr${SRCPV}"
 
-DEFAULT_PREFERENCE = "-1"
-
 inherit pkgconfig autotools
 
 SRC_URI = "\

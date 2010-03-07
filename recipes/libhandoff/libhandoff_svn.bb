@@ -5,7 +5,6 @@ PRIORITY = "optional"
 DEPENDS  = "glib-2.0"
 PV = "0.1+svn${SRCDATE}"
 PR = "r0"
-DEFAULT_PREFERENCE = "-1"
 
 inherit pkgconfig gpe autotools
 

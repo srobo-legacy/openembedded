@@ -10,7 +10,5 @@ SRC_URI = "svn://gnome-mplayer.googlecode.com/svn/;module=trunk;proto=http \
 "
 
 # Untested
-DEFAULT_PREFERENCE = "-1"
-
 #hack, should use CXX to link:
 LDFLAGS_append = " -lstdc++ "

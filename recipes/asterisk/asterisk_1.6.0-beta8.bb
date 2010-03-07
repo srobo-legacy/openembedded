@@ -11,8 +11,6 @@ DEPENDS = "speex readline zlib openssl curl popt gnutls sqlite libogg libvorbis"
 PV = "1.5.0+1.6.0beta8"
 PR = "r2"
 
-DEFAULT_PREFERENCE = "-1"
-
 
 SRC_URI="http://ftp.digium.com/pub/asterisk/releases/asterisk-${PV}.tar.gz\
 	file://sounds.xml.patch;patch=1\

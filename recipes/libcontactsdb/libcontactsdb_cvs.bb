@@ -10,8 +10,6 @@ S = "${WORKDIR}/${PN}"
 PV = "0.3+cvs${SRCDATE}"
 PR = "r1"
 
-DEFAULT_PREFERENCE = "-1"
-
 inherit autotools gpe pkgconfig
 
 SRC_URI = "${HANDHELDS_CVS};module=gpe/base/${PN}"

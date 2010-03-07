@@ -6,8 +6,6 @@ DEPENDS = "gtk+ cairo libxrender gtk-doc"
 PV = "0.114+svn${SRCDATE}"
 PR = "r1"
 
-DEFAULT_PREFERENCE = "-1"
-
 inherit gpe autotools pkgconfig
 
 SRC_URI = "${GPE_SVN}"

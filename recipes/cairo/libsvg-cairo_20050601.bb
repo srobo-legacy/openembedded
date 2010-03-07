@@ -6,7 +6,6 @@ LICENSE = "LGPL"
 PRIORITY = "optional"
 DEPENDS = "libsvg cairo"
 DESCRIPTION = "SVG rendering library"
-DEFAULT_PREFERENCE = "1"
 SRC_URI = "cvs://anoncvs:anoncvs@cvs.cairographics.org/cvs/cairo;module=libsvg-cairo;date=${FIXEDSRCDATE} \
 	   file://libsvg-cairo-libtool.diff;patch=1"
 S = "${WORKDIR}/libsvg-cairo"

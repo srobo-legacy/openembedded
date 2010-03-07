@@ -9,8 +9,6 @@ INC_PR = "r5"
 MY_ARCH := "${PACKAGE_ARCH}"
 PACKAGE_ARCH = "${@base_contains('COMBINED_FEATURES', 'madwifi', '${MACHINE_ARCH}', '${MY_ARCH}', d)}"
 
-DEFAULT_PREFERENCE = "-2"
-
 SRC_URI = "http://hostap.epitest.fi/releases/wpa_supplicant-${PV}.tar.gz \
 	file://defconfig-0.6.0-gnutls \
 	file://ifupdown.sh \

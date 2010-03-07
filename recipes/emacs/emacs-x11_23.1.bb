@@ -5,8 +5,6 @@ DEPENDS += "gtk+ libungif"
 
 EXTRA_OECONF = "--without-sound --with-x-toolkit=gtk"
 
-DEFAULT_PREFERENCE = "-1"
-
 RREPLACES = "emacs"
 
 FILESPATH = "${FILE_DIRNAME}/emacs-${PV}:${FILE_DIRNAME}/files"

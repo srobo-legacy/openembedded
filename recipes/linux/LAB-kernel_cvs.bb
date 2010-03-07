@@ -6,8 +6,6 @@ PV = "${K_MAJOR}.${K_MINOR}.${K_MICRO}-hh${HHV}+cvs${SRCDATE}"
 #!BIG FAT WARNING:
 #build this *before* building your real kernel, otherwise external modules will pickup the wrong headers
 
-DEFAULT_PREFERENCE = "-1"
-
 COMPATIBLE_HOST = "arm.*-linux"
 COMPATIBLE_MACHINE = "h2200"
 

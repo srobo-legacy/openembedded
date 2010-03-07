@@ -1,7 +1,5 @@
 require linux-preboot.inc
 
-DEFAULT_PREFERENCE = "-1"
-DEFAULT_PREFERENCE_palmpre = "-1"
 
 # Hacks should clearly named and at the bottom
 SRC_URI += "${KERNELORG_MIRROR}/pub/linux/kernel/v2.6/linux-2.6.24.tar.bz2 \

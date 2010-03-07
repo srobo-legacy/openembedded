@@ -23,5 +23,3 @@ do_stage () {
 }
 
 headers = "pim-categories.h pim-categories-ui.h"
-
-DEFAULT_PREFERENCE = "-1"
