@@ -1,3 +1,5 @@
+XORG_PN = "util-macros"
+
 require xorg-util-common.inc
 
 DESCRIPTION = "X autotools macros"
