@@ -5,7 +5,9 @@ DEPENDS = "udev zlib ncurses virtual/libintl"
 
 inherit autotools
 
-INC_PR = "r12"
+DEFAULT_PREFERENCE = "-1"
+
+INC_PR = "r13"
 
 # allows for a release candidate
 RC ?= ""
