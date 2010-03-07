@@ -3,6 +3,7 @@ SECTION = "console/utils"
 LICENSE = "GPL"
 PR = "r2"
 
+DEFAULT_PREFERENCE = "-1"
 SRC_URI = "${SOURCEFORGE_MIRROR}/strace/strace-${PV}.tar.bz2 \
           "
 
