@@ -1,6 +1,8 @@
 DESCRIPTION = "Library for rendering SVG files"
 SECTION = "x11/utils"
 DEPENDS = "bzip2 gtk+ libcroco cairo libart-lgpl libxml2 popt"
+DEPENDS_virtclass-native = "cairo-native pango-native gdk-pixbuf-csource-native"
+
 LICENSE = "LGPL"
 
 PR = "r1"

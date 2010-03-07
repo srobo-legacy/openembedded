@@ -33,5 +33,3 @@ EXTRA_OECONF = "\
   --disable-openssl \
   --disable-poll \
 "
-
-BBCLASSEXTEND="native"

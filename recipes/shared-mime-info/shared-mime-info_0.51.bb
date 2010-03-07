@@ -1,6 +1,7 @@
 require shared-mime-info.inc
 
 DEPENDS = "libxml2 intltool-native glib-2.0 shared-mime-info-native"
+DEPENDS_virtclass-native = "libxml2-native intltool-native glib-2.0-native"
 PR = "r2"
 
 do_install_append() {

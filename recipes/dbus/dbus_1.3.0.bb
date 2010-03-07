@@ -20,5 +20,3 @@ SRC_URI = "\
 DEFAULT_PREFERENCE = "-1"
 
 PR = "r1"
-
-BBCLASSEXTEND="native"

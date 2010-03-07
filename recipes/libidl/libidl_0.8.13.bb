@@ -1,6 +1,7 @@
 require libidl.inc
 
 DEPENDS = "glib-2.0 flex-native libidl-native"
+DEPENDS_virtclass-native = "glib-2.0-native flex-native"
 
 PR = "r0"
 
