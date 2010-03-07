@@ -48,6 +48,8 @@ I'm sure you can find a suitable task, but if not here are some suggestions:
 - convert native and sdk recipes to BBCLASSEXTEND
 - try to identify very outdated recipes
 - try to identify unneeded DEPENDencys.
+- eliminate strange dependencies (e.g. if I build console-image, x and gnome stuff is build
+  that should be decoupled (maybe by having two recipes)
 - remove DEFAULT_PREFERENCE
 - ....
 
