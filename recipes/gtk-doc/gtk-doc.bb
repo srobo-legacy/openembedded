@@ -14,5 +14,3 @@ do_stage() {
 	install -d ${STAGING_DATADIR}/aclocal
 	install -m 0644 ${WORKDIR}/gtk-doc.m4 ${STAGING_DATADIR}/aclocal/
 }
-
-BBCLASSEXTEND="native"

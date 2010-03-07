@@ -3,6 +3,7 @@ HOMEPAGE = "http://www.gnu.org/software/ncurses/ncurses.html"
 LICENSE = "MIT"
 SECTION = "libs"
 DEPENDS = "ncurses-native"
+DEPENDS_virtclass-native = ""
 
 inherit autotools
 

@@ -32,6 +32,3 @@ do_install() {
 		install -m 0755 $i ${D}${bindir}
 	done
 }
-
-
-BBCLASSEXTEND="native"

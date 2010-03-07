@@ -10,4 +10,4 @@ require ncurses.inc
 
 LEAD_SONAME = "libncurses.so.5"
 
-BBCLASSEXTEND="native"
+BBCLASSEXTEND="native sdk"
