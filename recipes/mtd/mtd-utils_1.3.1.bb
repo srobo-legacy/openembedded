@@ -26,4 +26,4 @@ do_configure_prepend() {
 	fi
 }
 
-BBCLASSEXTEND="native"
+#BBCLASSEXTEND="native"

@@ -39,5 +39,3 @@ do_stage() {
 
 FILES_${PN} = "${libdir}/lib*.so.*"
 FILES_${PN}-dev += "${bindir}"
-
-BBCLASSEXTEND="native"
