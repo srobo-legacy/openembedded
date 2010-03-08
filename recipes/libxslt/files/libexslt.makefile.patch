@@ -1,0 +1,13 @@
+Index: libxslt-1.1.22/libexslt/Makefile.am
+===================================================================
+--- libxslt-1.1.22.orig/libexslt/Makefile.am
++++ libxslt-1.1.22/libexslt/Makefile.am
+@@ -11,8 +11,6 @@ exsltincdir = $(includedir)/libexslt
+ exsltinc_HEADERS =                      \
+ 	exslt.h				\
+ 	exsltconfig.h			\
+-	exslt.h				\
+-	exsltconfig.h			\
+ 	exsltexports.h
+ 
+ libexslt_la_SOURCES =                   \
