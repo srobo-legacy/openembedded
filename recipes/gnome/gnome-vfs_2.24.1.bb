@@ -16,7 +16,7 @@ RREPLACES = "gnome-vfs-dbus"
 
 EXTRA_OECONF = " \
                  --disable-openssl \
-                 --enable-gnutls \
+                 --disable-gnutls \
                  --enable-avahi \
                  --with-samba-includes=${STAGING_INCDIR} \
                "
