@@ -113,8 +113,6 @@ RDEPENDS_${PN}-x = "\
   xinput-calibrator \
 # All localedata based on IMAGE_LINGUAS
   ${@get_rdepends(bb, d)} \
-# Make sure it's available for those who want's to play with illume2  
-  e-wm-config-illume2-shr \
 "
 
 RDEPENDS_${PN}-apps = "\

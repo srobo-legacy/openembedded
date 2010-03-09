@@ -17,6 +17,7 @@ RDEPENDS_${PN} += "\
 		enotes \
 		epdfview \
 		estardict \
+		e-wm-config-illume2-shr \
 		fbreader \
 		ffalarms \
 		gpe-calendar \
