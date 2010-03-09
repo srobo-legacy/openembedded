@@ -3,9 +3,7 @@ HOMEPAGE = "http://www.openssl.org/"
 LICENSE = "openssl"
 SECTION = "libs/network"
 
-SRC_URI = "http://www.openssl.org/source/openssl-0.9.8j.tar.gz;name=openssl098jtargz"
-SRC_URI[openssl098jtargz.md5sum] = "a5cb5f6c3d11affb387ecf7a997cac0c"
-SRC_URI[openssl098jtargz.sha256sum] = "7131242042dbd631fbd83436f42aea1775e7c32f587fa4ada5a01df4c3ae8e8b"
+SRC_URI = "http://www.openssl.org/source/openssl-${PV}.tar.gz;name=src"
 S = "${WORKDIR}/openssl-${PV}"
 
 INC_PR = "r11"
