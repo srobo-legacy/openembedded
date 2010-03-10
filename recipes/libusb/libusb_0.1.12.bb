@@ -3,7 +3,7 @@ HOMEPAGE = "http://libusb.sf.net"
 SECTION = "libs"
 LICENSE = "LGPL"
 PROVIDES = "virtual/libusb0"
-PR = "r3"
+PR = "r4"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/libusb/libusb-${PV}.tar.gz \
 	   file://configure_fix.patch;patch=1"
@@ -34,5 +34,3 @@ do_stage() {
 PACKAGES =+ "libusbpp"
 
 FILES_libusbpp = "${libdir}/libusbpp*.so.*"
-
-BBCLASSEXTEND="native"
