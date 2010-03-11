@@ -8,14 +8,14 @@ LICENSE = "GPLv2"
 DEPENDS += "ncurses"
 RPROVIDES_${PN} += "readline"
 LEAD_SONAME = "libreadline.so"
-PR = "r4"
+PR = "r5"
 
-SRC_URI = "ftp://ftp.gnu.org/gnu/readline/readline-${PV}.tar.gz;name=readline52targz \
-           file://configure_fix.patch;patch=1 \
-           file://acinclude.m4"
-SRC_URI[readline52targz.md5sum] = "e39331f32ad14009b9ff49cc10c5e751"
-SRC_URI[readline52targz.sha256sum] = "12e88d96aee2cd1192500356f0535540db499282ca7f76339fb4228c31249f45"
-
+SRC_URI = "\
+  ftp://ftp.gnu.org/gnu/readline/readline-${PV}.tar.gz \
+  file://fix-includes.patch;patch=1 \
+  file://configure_fix.patch;patch=1 \
+  file://acinclude.m4 \
+"
 S = "${WORKDIR}/readline-${PV}"
 
 inherit autotools
@@ -31,5 +31,3 @@ do_install () {
 	oe_libinstall -so -C shlib libhistory ${D}${libdir}
 	oe_libinstall -so -C shlib libreadline ${D}${libdir}
 }
-
-BBCLASSEXTEND="native"
