@@ -3,7 +3,7 @@ DESCRIPTION = "udev is a daemon which dynamically creates and removes device nod
 the hotplug package and requires a kernel not older than 2.6.12."
 LICENSE = "GPL"
 
-PR = "r4"
+PR = "r5"
 
 
 # Needed for udev-extras
@@ -11,6 +11,9 @@ DEPENDS = "gperf-native usbutils acl glib-2.0"
 
 # needed for init.d script
 RDEPENDS_${PN} += "udev-utils"
+
+# hack to fix that scsi.h uses u8 whereas linux/types.h provides __u8
+CFLAGS += "-Du8=__u8"
 
 SRC_URI = "http://kernel.org/pub/linux/utils/kernel/hotplug/udev-${PV}.tar.gz;name=udev151targz \
 	   file://mount.blacklist \
