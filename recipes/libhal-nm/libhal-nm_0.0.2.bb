@@ -9,8 +9,3 @@ SRC_URI = "http://www.handhelds.org/~mmp/files/libhal-nm-${PV}.tar.gz"
 PR = "r1"
 
 inherit autotools
-
-do_install () {
-	oe_runmake DESTDIR=${D} install
-}
-

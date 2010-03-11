@@ -19,10 +19,6 @@ do_configure_append() {
     find ${S} -type f | xargs sed -i 's:I/usr/include:I${STAGING_INCDIR}:g'
 }
 
-do_install() {
-        oe_runmake 'DESTDIR=${D}' install
-}
-
 FILES_lite-dbg_append = " ${libdir}/directfb-1.0-0/*/*/.debug/*.so \
                           ${libdir}/directfb-1.0-0/*/.debug/*.so \
                         "
