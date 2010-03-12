@@ -2,10 +2,11 @@ require linux-libc-headers.inc
 
 INHIBIT_DEFAULT_DEPS = "1"
 DEPENDS += "unifdef-native"
-PR = "r2"
+PR = "r3"
 
 SRC_URI = "${KERNELORG_MIRROR}/pub/linux/kernel/v2.6/linux-${PV}.tar.bz2 \
 	   file://export_sa_family_t.patch;patch=1 \
+           file://scsi-use-__u8.patch;patch=1 \
 	  "
 S = "${WORKDIR}/linux-${PV}"
 
