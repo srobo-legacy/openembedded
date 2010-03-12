@@ -2,8 +2,6 @@ require barebox.inc
 
 PR = "r0"
 
-DEFAULT_PREFERENCE = "-1"
-
 BAREBOX_REVISION ?= "0"
 
 S = "${WORKDIR}/barebox-${PV}.${BAREBOX_REVISION}"

@@ -5,8 +5,6 @@ PV = "3.4+3.5b4"
 MOZPV = "3.5b4"
 PR = "r0"
 
-DEFAULT_PREFERENCE = "-1"
-
 SRC_URI = "hg://hg.mozilla.org/;module=mozilla-central;rev=8c9a6d851018 \
            file://jsautocfg.h \
            file://jsautocfg-dontoverwrite.patch;patch=1 \

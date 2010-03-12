@@ -5,8 +5,6 @@ DEPENDS = "libpcap"
 LICENSE = "BSD GPLv2"
 
 # Not well tested
-DEFAULT_PREFERENCE = "-1"
-
 SRC_URI = "http://ppp.samba.org/ftp/ppp/ppp-${PV}.tar.gz \
         file://ppp-2.4.4-mppe-mppc.1.1.patch;patch=1 \
 	file://makefile.patch;patch=1 \

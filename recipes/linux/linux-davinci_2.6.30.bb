@@ -5,8 +5,6 @@ KERNEL_IMAGETYPE = "uImage"
 
 COMPATIBLE_MACHINE = "(dm6446-evm|dm6467-evm|dm355-evm|davinci-sffsdr|dm355-leopard)"
 
-DEFAULT_PREFERENCE = "1"
-
 SRCREV = "5212151f26e688416faac9f6f33ddd958f7de96c"
 
 # The main PR is now using MACHINE_KERNEL_PR, for davinci see conf/machine/include/davinci.inc

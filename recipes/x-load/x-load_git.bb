@@ -1,7 +1,5 @@
 require x-load.inc
 
-DEFAULT_PREFERENCE_am3517-evm = "-1"
-DEFAULT_PREFERENCE_omap3-pandora = "-1"
 
 FILESDIR = "${@os.path.dirname(bb.data.getVar('FILE',d,1))}/x-load-git/${MACHINE}"
 

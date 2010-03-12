@@ -16,7 +16,3 @@ EXTRA_OECONF = " --with-libdvdcss-includes=${STAGING_INCDIR} \
                  --with-libdvdcss-libs=${STAGING_LIBDIR} \
 "
 
-do_stage() {
-	autotools_stage_all
-}
-

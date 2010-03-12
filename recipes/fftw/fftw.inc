@@ -16,11 +16,6 @@ do_configure_prepend() {
         echo 'AM_PROG_AS' >> ${S}/configure.ac 
 }
 
-do_stage () {
-        autotools_stage_all
-}
-
-
 PACKAGES =+ "lib${PN}"
 
 FILES_lib${PN} = "${libdir}/lib*.so.*"

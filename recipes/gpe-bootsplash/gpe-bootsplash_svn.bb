@@ -32,5 +32,3 @@ pkg_postrm() {
         update-alternatives --remove bootsplash-l /usr/share/gpe/splash-gpe-landscape.svg
         update-alternatives --remove bootsplash-p /usr/share/gpe/splash-gpe-portrait.svg
 }
-
-DEFAULT_PREFERENCE = "-1"

@@ -18,7 +18,3 @@ PACKAGES =+ "libhiker libsqlfs"
 FILES_libhiker += "${libdir}/libhiker*.so.*"
 FILES_libsqlfs += "${libdir}/libsql*.so.*"
 
-do_stage() {
-	autotools_stage_all
-}
-

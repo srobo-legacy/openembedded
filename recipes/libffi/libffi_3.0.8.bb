@@ -79,3 +79,5 @@ do_stage () {
 		install -m 0644 include/$i ${STAGING_INCDIR}/
 	done
 }
+
+BBCLASSEXTEND="native"

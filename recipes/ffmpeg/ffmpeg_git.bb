@@ -6,8 +6,6 @@ PE = "1"
 PV = "0.5.0+${PR}+gitr${SRCREV}" 
 PR = "r0"
 
-DEFAULT_PREFERENCE = "-1"
-
 #FFBRANCH_arm = "arm"
 FFBRANCH ?= "master"
 

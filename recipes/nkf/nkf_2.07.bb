@@ -11,3 +11,5 @@ do_install() {
 	install -m 0755 nkf ${D}${bindir}
 	install -m 0644 nkf.1 ${D}${mandir}/man1
 }
+
+BBCLASSEXTEND="native"

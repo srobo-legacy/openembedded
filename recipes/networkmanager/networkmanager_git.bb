@@ -1,7 +1,5 @@
 require networkmanager-0.7.inc
 
-DEFAULT_PREFERENCE = "-1"
-
 SRCREV = "b9c125fa0a2a9878d9ac0f6140f14f436ddb1723"
 PV = "0.7.1+git"
 PR_append = ".gitr${SRCREV}"

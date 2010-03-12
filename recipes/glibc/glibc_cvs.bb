@@ -6,8 +6,6 @@ PV = "2.3.5+cvs${SRCDATE}"
 
 GLIBC_ADDONS ?= "ports,linuxthreads"
 
-DEFAULT_PREFERENCE = "-1"
-
 #
 # For now, we will skip building of a gcc package if it is a uclibc one
 # and our build is not a uclibc one, and we skip a glibc one if our build

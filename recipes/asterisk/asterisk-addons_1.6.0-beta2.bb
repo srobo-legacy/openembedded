@@ -9,8 +9,6 @@ SECTION = "console/telephony"
 DEPENDS = "asterisk openssl curl"
 PR = "r1"
 
-DEFAULT_PREFERENCE = "-1"
-
 SRC_URI="http://downloads.digium.com/pub/asterisk/asterisk-addons-${PV}.tar.gz"
 
 ARCH_efika="ppc"

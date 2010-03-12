@@ -8,8 +8,4 @@ inherit autotools pkgconfig binconfig lib_package
 
 EXTRA_OECONF = " --enable-shared "
 
-do_stage() {
-        autotools_stage_all
-}
-
 

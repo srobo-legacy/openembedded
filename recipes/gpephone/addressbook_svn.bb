@@ -5,8 +5,6 @@ PRIORITY    = "optional"
 PR          = "r0"
 PV = "0.1+svnr-${SRCREV}"
 
-DEFAULT_PREFERENCE = "-1"
-
 DEPENDS = "gtk+ libgpewidget libgpephone dbus-glib libabenabler libiac libim"
 
 inherit gpephone autotools

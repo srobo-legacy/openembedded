@@ -4,8 +4,6 @@ LICENSE = "GPL"
 DEPENDS = "gtk+ libxine"
 PR = "r2"
 
-DEFAULT_PREFERENCE = "-1"
-
 # Long list of RDEPENDS required to playback mp3/ogg audio and mpeg/mpeg4 video
 RDEPENDS = "libxine-plugin-vo-out-xshm \
 	    libxine-plugin-vo-out-none \

@@ -14,5 +14,3 @@ inherit autotools pkgconfig
 
 EXTRA_OECONF = " --disable-gtkmozembed "
 
-DEFAULT_PREFERENCE = "-1"
-

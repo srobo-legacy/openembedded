@@ -2,8 +2,6 @@ PR = "r1"
 DESCRIPTION = "The GNU Compiler Collection - MinGW port"
 HOMEPAGE = "http://www.mingw.org/"
 
-DEFAULT_PREFERENCE = "-1"
-DEFAULT_PREFERENCE_mingw32 = "1"
 
 inherit autotools gettext
 

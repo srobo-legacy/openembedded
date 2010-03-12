@@ -55,3 +55,5 @@ PACKAGES = "libxalan2-serializer-java ${JPN}"
 
 FILES_libxalan2-serializer-java = "${datadir_java}/serializer*.jar"
 
+
+BBCLASSEXTEND="native"

@@ -11,12 +11,14 @@ RCONFLICTS_gettext-libintl = "proxy-libintl"
 
 BBCLASSEXTEND = "native nativesdk"
 
-SRC_URI = "${GNU_MIRROR}/gettext/gettext-${PV}.tar.gz \
+SRC_URI = "${GNU_MIRROR}/gettext/gettext-${PV}.tar.gz;name=gettext017targz \
 	   file://autotools.patch;patch=1 \
 	   file://wchar-uclibc.patch;patch=1 \
 	   file://use_open_properly.patch;patch=1 \
 	   file://gettext-autoconf-lib-link-no-L.patch;patch=1 \
 	  "
+SRC_URI[gettext017targz.md5sum] = "58a2bc6d39c0ba57823034d55d65d606"
+SRC_URI[gettext017targz.sha256sum] = "209638bb8e162f22c281145a34e220c66f1f6e9ff5e4c50c6f2ef2ded59537ba"
 
 SRC_URI_append_linux-uclibc = " file://gettext-error_print_progname.patch;patch=1"
 SRC_URI_append_linux-uclibceabi = " file://gettext-error_print_progname.patch;patch=1"

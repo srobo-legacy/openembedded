@@ -44,6 +44,3 @@ inherit autotools pkgconfig
 
 EXTRA_OECONF = "STAGING_DIR=${STAGING_DIR_HOST}"
 
-do_stage() {
-	autotools_stage_all
-}

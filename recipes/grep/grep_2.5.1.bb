@@ -35,3 +35,5 @@ pkg_prerm_${PN} () {
 	update-alternatives --remove egrep egrep.${PN}
 	update-alternatives --remove fgrep fgrep.${PN}
 }
+
+BBCLASSEXTEND="native"

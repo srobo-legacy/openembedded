@@ -15,8 +15,6 @@ SRC_URI = "cvs://anonymous@gtk-webcore.cvs.sourceforge.net/cvsroot/gtk-webcore;m
            file://gcc4-fno-threadsafe-statics-NRCit.patch;patch=1"
 S = "${WORKDIR}/NRCit"
 
-DEFAULT_PREFERENCE = "-1"
-
 inherit autotools pkgconfig
 
 do_configure () {

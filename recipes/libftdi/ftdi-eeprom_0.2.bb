@@ -11,3 +11,5 @@ S = "${WORKDIR}/ftdi_eeprom-${PV}"
 inherit autotools
 
 EXTRA_OECONF = "--disable-docs"
+
+BBCLASSEXTEND="native"

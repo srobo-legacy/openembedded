@@ -8,3 +8,5 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/docutils/docutils-${PV}.tar.gz"
 S = "${WORKDIR}/docutils-${PV}"
 
 inherit distutils
+
+BBCLASSEXTEND="native"

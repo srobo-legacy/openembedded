@@ -17,3 +17,5 @@ FILES_${PN}-dbg += "${bindir}/dbusxx-xml2cpp ${bindir}/dbusxx-introspect"
 FILES_${PN}-dev += "${bindir}/.dev"
 FILES_${PN} = "${libdir}/*.so.*"
 
+
+BBCLASSEXTEND="native"

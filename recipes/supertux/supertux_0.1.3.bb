@@ -18,5 +18,3 @@ export SDL_CONFIG = "${STAGING_BINDIR_CROSS}/sdl-config"
 EXTRA_OECONF = "--disable-opengl"
 
 inherit autotools sdl
-
-DEFAULT_PREFERENCE = "-1"

@@ -1,8 +1,6 @@
 PR = "r2"
 require u-boot.inc
 
-DEFAULT_PREFERENCE = "-1"
-DEFAULT_PREFERENCE_hipox = "1"
 
 SRC_URI = "ftp://ftp.denx.de/pub/u-boot/u-boot-${PV}.tar.bz2 "
 

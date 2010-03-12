@@ -5,3 +5,5 @@ REALPN = "Epsilon"
 
 require divmod.inc
 
+
+BBCLASSEXTEND="native"

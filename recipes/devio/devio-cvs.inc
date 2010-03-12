@@ -1,6 +1,4 @@
 # CVS based releases, disfavour these
-DEFAULT_PREFERENCE = "-1"
-
 include devio.inc
 
 # this is a CVS only release

@@ -10,3 +10,5 @@ LICENSE = "GPL-2"
 
 SECTION = "libs"
 
+
+BBCLASSEXTEND="native"

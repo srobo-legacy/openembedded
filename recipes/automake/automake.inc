@@ -28,7 +28,9 @@ RDEPENDS_automake += "\
     perl-module-strict \
     perl-module-text-parsewords \
     perl-module-vars "
-SRC_URI = "${GNU_MIRROR}/automake/automake-${PV}.tar.bz2"
+SRC_URI = "${GNU_MIRROR}/automake/automake-${PV}.tar.bz2;name=automake1111tarbz2"
+SRC_URI[automake1111tarbz2.md5sum] = "c2972c4d9b3e29c03d5f2af86249876f"
+SRC_URI[automake1111tarbz2.sha256sum] = "5b159d3c0e0a1f87de71b68bcb9f1a1c49e9e71749c9b723f17e2e1e0295c7ae"
 INC_PR = "r3"
 AUTOMAKE_API = "${@".".join(bb.data.getVar("PV",d,1).split(".")[0:2])}"
 

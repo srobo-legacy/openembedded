@@ -20,7 +20,3 @@ do_configure_append() {
 }
 
 
-do_stage() {
-	autotools_stage_all
-}
-

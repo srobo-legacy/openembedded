@@ -3,8 +3,6 @@ LICENSE = "GPL"
 DEPENDS = "libnotify networkmanager dbus-glib libglade gconf gnome-keyring"
 RDEPENDS = "networkmanager"
 
-DEFAULT_PREFERENCE = "-1"
-
 SRCREV = "447befc06fcfcb13322deb66bcdc9067bda0915b"
 PV = "0.7.999+git"
 PR_append = ".gitr${SRCREV}"

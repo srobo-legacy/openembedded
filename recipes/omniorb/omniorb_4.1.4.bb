@@ -43,3 +43,5 @@ do_stage () {
         export EmbeddedSystem=1
         autotools_stage_all
 }
+
+BBCLASSEXTEND="native"

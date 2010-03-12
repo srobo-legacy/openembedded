@@ -9,3 +9,5 @@ SRC_URI = "http://www.southern-storm.com.au/download/treecc-${PV}.tar.gz \
 
 inherit autotools
 
+
+BBCLASSEXTEND="native"

@@ -27,3 +27,5 @@ do_install() {
 		man1dir="${D}${mandir}/man1" \
 		install
 }
+
+BBCLASSEXTEND="native"

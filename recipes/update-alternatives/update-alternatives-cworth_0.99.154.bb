@@ -13,3 +13,7 @@ do_install () {
 }
 
 require ../opkg/update-alternatives-merge.inc
+
+BBCLASSEXTEND="native"
+
+BBCLASSEXTEND="native"

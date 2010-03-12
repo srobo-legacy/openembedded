@@ -17,6 +17,3 @@ EXTRA_OECONF += "--disable-verbose \
 
 FILES_${PN} += "${datadir}/themes ${datadir}/gnome*"
 
-do_stage () {
-	 autotools_stage_all
-}

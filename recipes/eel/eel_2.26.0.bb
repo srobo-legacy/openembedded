@@ -12,6 +12,3 @@ SRC_URI += "file://eel-no-strftime.patch;patch=1"
 DEPENDS = "gnome-vfs gnome-desktop gnome-menus libgnomeui virtual/gail"
 EXTRA_OECONF = "--disable-gtk-doc"
 
-do_stage() {
-	autotools_stage_all
-}

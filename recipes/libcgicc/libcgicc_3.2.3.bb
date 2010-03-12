@@ -1,1 +1,0 @@
-require libcgicc.inc

@@ -13,8 +13,6 @@ S = "${WORKDIR}/cumulus/cumulus"
 
 inherit opie
 
-DEFAULT_PREFERENCE = "-1"
-
 export OE_QMAKE_LINK="${CXX}"
 EXTRA_QMAKEVARS_POST += "INCLUDEPATH+=-I."
 

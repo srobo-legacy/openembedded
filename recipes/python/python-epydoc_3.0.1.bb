@@ -10,3 +10,5 @@ SRC_URI = "http://downloads.sourceforge.net/project/${SRCNAME}/${SRCNAME}/${PV}/
 S = "${WORKDIR}/${SRCNAME}-${PV}" 
  
 inherit distutils 
+
+BBCLASSEXTEND="native"

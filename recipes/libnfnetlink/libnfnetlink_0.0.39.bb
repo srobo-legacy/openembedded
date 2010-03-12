@@ -19,7 +19,3 @@ inherit autotools pkgconfig
 #	oe_runconf
 #}
 
-do_stage() {
-	autotools_stage_all
-}
-

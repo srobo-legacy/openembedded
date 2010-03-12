@@ -11,3 +11,5 @@ do_stage() {
 	echo >${STAGING_KERNEL_DIR}/kernel-ccsuffix
 	echo >${STAGING_KERNEL_DIR}/kernel-ldsuffix
 }
+
+BBCLASSEXTEND="native"

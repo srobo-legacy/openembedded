@@ -294,3 +294,5 @@ inherit meta
 
 do_package_write_ipk() {
 }
+
+BBCLASSEXTEND="native"

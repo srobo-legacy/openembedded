@@ -16,3 +16,5 @@ do_install() {
 	rm ${D}${bindir}/rec
 	ln -s /usr/bin/play ${D}${bindir}/rec
 }
+
+BBCLASSEXTEND="native"

@@ -4,8 +4,6 @@ DEPENDS += "gst-plugins-base agg libmad"
 
 acpaths = " -Imacros"
 
-DEFAULT_PREFERENCE = "-1"
-DEFAULT_PREFERENCE_angstrom = "1"
 
 SRC_URI += "file://gnash-glib-dependency.patch;patch=1"
 

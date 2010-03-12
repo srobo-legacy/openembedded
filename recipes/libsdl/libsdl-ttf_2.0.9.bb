@@ -17,3 +17,5 @@ TARGET_CC_ARCH += "${LDFLAGS}"
 do_configure() { 
    oe_runconf
 }
+
+BBCLASSEXTEND="native"

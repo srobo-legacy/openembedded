@@ -85,3 +85,5 @@ python do_package() {
 		bb.data.setVar('PKG_${PN}', 'libdb3', d)
 	bb.build.exec_func('package_do_package', d)
 }
+
+BBCLASSEXTEND="native"

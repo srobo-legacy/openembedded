@@ -1,5 +1,3 @@
-DEFAULT_PREFERENCE = "-1"
-
 DESCRIPTION = "Xlib/XCB: Xlib with XCB transport"
 SECTION = "x11/libs"
 LICENSE = "XFree86"
@@ -26,6 +24,3 @@ do_compile() {
 	oe_runmake
 }
 
-do_stage() {
-	autotools_stage_all
-}

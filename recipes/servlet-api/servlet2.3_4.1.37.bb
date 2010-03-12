@@ -39,3 +39,5 @@ do_compile() {
 
   fastjar -C build -c -m src/etc/manifest -f ${JARFILENAME} .
 }
+
+BBCLASSEXTEND="native"

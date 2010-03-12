@@ -18,6 +18,8 @@ SRC_URI = "http://kernel.org/pub/linux/utils/kernel/hotplug/udev-${PV}.tar.gz \
 	   file://mount.blacklist \
 	   file://run.rules \
 	   "
+SRC_URI[udev151targz.md5sum] = "5e66b90bfa91e9ed101fdb66735af658"
+SRC_URI[udev151targz.sha256sum] = "a1fbc567ab6c2062ce32cebe6c96664282a979e0b7bf402b16fb3795c9ac0ae8"
 SRC_URI += " \
        file://udev.rules \
        file://devfs-udev.rules \

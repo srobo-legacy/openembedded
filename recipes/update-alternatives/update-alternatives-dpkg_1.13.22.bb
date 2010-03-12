@@ -10,3 +10,7 @@ do_install () {
 
     install -m 0755 scripts/update-alternatives ${D}${sbindir}/update-alternatives
 }
+
+BBCLASSEXTEND="native"
+
+BBCLASSEXTEND="native"

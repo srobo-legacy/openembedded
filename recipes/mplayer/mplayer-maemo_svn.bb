@@ -4,8 +4,6 @@ PRIORITY = "optional"
 HOMEPAGE = "http://www.mplayerhq.hu/"
 DEPENDS = "virtual/libsdl xsp libmad zlib libpng jpeg liba52 freetype fontconfig alsa-lib lzo ncurses lame libxv virtual/libx11"
 
-DEFAULT_PREFERENCE_avr32 = "-1"
-
 PV = "0.0+1.0rc1+svnr${SRCPV}"
 PE = "1"
 

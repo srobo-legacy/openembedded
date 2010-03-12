@@ -16,6 +16,3 @@ EXTRA_OECONF = "\
 		--with-gnome \
 		--with-bz2"
 
-do_stage() {
-	autotools_stage_all
-}

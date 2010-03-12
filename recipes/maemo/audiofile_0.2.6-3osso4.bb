@@ -1,4 +1,3 @@
-DEFAULT_PREFERENCE = "-1"
 PR = "r0"
 SECTION = "libs"
 LICENSE = "LGPL GPL"

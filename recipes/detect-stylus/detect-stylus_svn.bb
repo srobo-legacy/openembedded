@@ -16,8 +16,6 @@ S = "${WORKDIR}/${PN}"
 
 export CVSBUILD="no"
 
-DEFAULT_PREFERENCE = "-1"
-
 PACKAGES =+ "detect-tsdevice"
 
 FILES_detect-tsdevice = "${bindir}/detect-tsdevice"

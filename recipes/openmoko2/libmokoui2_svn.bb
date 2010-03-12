@@ -18,9 +18,5 @@ do_configure_prepend() {
         touch gtk-doc.make
 }
 
-do_stage() {
-        autotools_stage_all
-}
-FILES_${PN} += "${libdir}/python2.6/site-packages/mokoui.*"
 FILES_${PN}-dbg += "${libdir}/python2.6/site-packages/.debug/"
 FILES_${PN}-dev += "/usr/share/vala/vapi/"

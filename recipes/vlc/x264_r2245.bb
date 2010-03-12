@@ -21,6 +21,3 @@ DEPENDS_x86 = "yasm-native"
 
 EXTRA_OECONF = '--enable-shared ${X264_DISABLE_ASM} --extra-cflags="${X264_ECFLAGS}"'
 
-do_stage() {
-        autotools_stage_all
-}

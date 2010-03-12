@@ -33,3 +33,5 @@ do_compile() {
   fastjar -C build -c -m src/manifest.resolver -f ${JARFILENAME} org
 }
 
+
+BBCLASSEXTEND="native"

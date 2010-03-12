@@ -4,8 +4,6 @@ LICENSE = "GPL"
 HOMEPAGE = "http://www.artsoft.org/rocksndiamonds/"
 AUTHOR = "Holger Schemel <info@artsoft.org>"
 
-DEFAULT_PREFERENCE = "-1"
-
 SRC_URI = "http://artsoft.org/RELEASES/unix/rocksndiamonds/rocksndiamonds-${PV}.tar.gz \
 	file://rocksndiamonds.png"
 

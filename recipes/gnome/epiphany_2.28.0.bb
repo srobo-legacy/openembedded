@@ -11,10 +11,6 @@ do_configure_prepend() {
         sed -i -e s:help::g Makefile.am
 }
 
-do_stage () {
-	autotools_stage_all
-}
-
 FILES_${PN} += "${datadir}/icons ${datadir}/dbus-1"
 
 

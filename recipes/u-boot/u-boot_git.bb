@@ -154,6 +154,7 @@ PV_da850-omapl138-evm      = "2009.08+gitr${SRCREV}"
 SRC_URI_hawkboard          = "git://arago-project.org/git/people/sekhar/u-boot-omapl1.git;protocol=git;branch=master"
 SRCREV_hawkboard           = "0d291f2f255e6d66a78b3dc2445362a96ae39a57"
 PV_hawkboard               = "2009.08+gitr${SRCREV}"
+SRC_URI_hawkboard          += "file://lib_arm_board.patch;patch=1"
 
 SRC_URI_dm355-leopard = "git://www.denx.de/git/u-boot-arm.git;protocol=git;branch=next \
                         file://leopardboard-support.patch;patch=1 \

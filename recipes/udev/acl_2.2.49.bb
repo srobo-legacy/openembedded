@@ -5,7 +5,9 @@ PR = "r1"
 
 DEPENDS = "attr"
 
-SRC_URI = "http://mirror.its.uidaho.edu/pub/savannah/acl/acl-${PV}.src.tar.gz"
+SRC_URI = "http://mirror.its.uidaho.edu/pub/savannah/acl/acl-${PV}.src.tar.gz;name=acl2249srctargz"
+SRC_URI[acl2249srctargz.md5sum] = "181445894cca986da9ae0099d5ce2d08"
+SRC_URI[acl2249srctargz.sha256sum] = "b9c7f4752e4ef4930a62fa5aa0d7efe1cba2b5a3a2d6ee2b45c0a70c72b7e5d5"
 
 inherit autotools lib_package
 

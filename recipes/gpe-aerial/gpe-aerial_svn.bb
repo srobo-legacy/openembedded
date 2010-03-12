@@ -12,5 +12,3 @@ PV = "0.3.0+svn${SRCDATE}"
 SRC_URI = "${GPE_EXTRA_SVN}"
 
 S = "${WORKDIR}/gpe-aerial"
-
-DEFAULT_PREFERENCE = "-1"

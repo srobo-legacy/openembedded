@@ -8,6 +8,3 @@ PR = "r1"
 
 inherit xfce46
 
-do_stage() {
-   autotools_stage_all
-}

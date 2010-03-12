@@ -18,10 +18,12 @@ CXXFLAGS_append_arm += "-UHAVE_64BIT_TYPES -DWORDS_BIGENDIAN=1"
 
 do_install() {
 	oe_runmake 'DESTDIR=${D}' install
-    ln -s ${bindir}/jikes ${D}${bindir}/javac.jikes
+        ln -s ${bindir}/jikes ${D}${bindir}/javac.jikes
 }
 
 PROVIDES = "virtual/javac"
 ALTERNATIVE_NAME = "javac"
 ALTERNATIVE_LINK = "/usr/bin/javac"
 ALTERNATIVE_PATH = "${bindir}/javac.jikes"
+
+BBCLASSEXTEND="native"

@@ -7,3 +7,5 @@ SRC_URI += "file://fdiskbsdlabel-avr32.patch;patch=1"
 SRC_URI += "file://util-linux-2.12r-cramfs-1.patch;patch=1" 
 
 PR = "r15"
+
+BBCLASSEXTEND="native"

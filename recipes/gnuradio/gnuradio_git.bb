@@ -1,7 +1,5 @@
 require gnuradio.inc
 
-DEFAULT_PREFERENCE = "-1"
-
 DEPENDS += " gsl "
 
 #SRCREV = "0cd478fdc090123e09b7ee21c88e5657abab8ae0"

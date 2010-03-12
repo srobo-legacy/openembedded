@@ -6,3 +6,5 @@ PE = "1"
 
 RDEPENDS += "mkfontscale"
 
+
+BBCLASSEXTEND="native"

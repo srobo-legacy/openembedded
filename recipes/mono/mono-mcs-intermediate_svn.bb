@@ -7,6 +7,4 @@
 
 require mono_svn.inc
 require mono-mcs-intermediate.inc
-
-DEFAULT_PREFERENCE = "-1"
 EXTRA_OECONF_append = " --without-tls "

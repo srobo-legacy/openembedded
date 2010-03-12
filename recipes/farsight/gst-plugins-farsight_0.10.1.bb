@@ -20,9 +20,4 @@ EXTRA_OECONF = " \
 FILES_${PN} += "${libdir}/gstreamer-0.10/*so"
 FILES_${PN}-dev += "${libdir}/gstreamer-0.10/*.a ${libdir}/gstreamer-0.10/*.so.*"
 
-do_stage() {
-autotools_stage_all
-}
-
-
 

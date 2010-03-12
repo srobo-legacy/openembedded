@@ -7,7 +7,3 @@ LICENSE = "LGPL"
 DEPENDS = "esound"
 
 
-do_stage() {
-       autotools_stage_all
-}
-

@@ -1,6 +1,8 @@
 DESCRIPTION = "Library for rendering SVG files"
 SECTION = "x11/utils"
 DEPENDS = "bzip2 gtk+ libcroco cairo libart-lgpl libxml2 popt"
+DEPENDS_virtclass-native = "cairo-native pango-native gdk-pixbuf-csource-native"
+
 LICENSE = "LGPL"
 
 PR = "r1"
@@ -30,6 +32,4 @@ fi
         gdk-pixbuf-query-loaders > /etc/gtk-2.0/gdk-pixbuf.loaders
 }
 
-do_stage() {
-	autotools_stage_all
-}
+BBCLASSEXTEND="native"

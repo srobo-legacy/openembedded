@@ -13,8 +13,4 @@ ARM_INSTRUCTION_SET = "arm"
 
 inherit autotools pkgconfig
 
-do_stage() {
-	autotools_stage_all
-}	
-
 FILES_${PN}-doc += "${datadir}/libatomic_ops/COPYING ${datadir}/libatomic_ops/*.txt"

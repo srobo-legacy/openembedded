@@ -14,3 +14,5 @@ SRC_URI = "\
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
 inherit distutils
+
+BBCLASSEXTEND="native"

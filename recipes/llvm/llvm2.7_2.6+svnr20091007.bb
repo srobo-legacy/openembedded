@@ -23,3 +23,5 @@ EXTRA_OECMAKE += "\
 S = "${WORKDIR}/trunk"
 
 LLVM_RELEASE = "2.7"
+
+BBCLASSEXTEND="native"

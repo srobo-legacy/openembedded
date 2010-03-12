@@ -14,3 +14,5 @@ S = "${WORKDIR}/git"
 inherit autotools_stage pkgconfig vala
 
 FILES_${PN}-dev += "${datadir}/gir-1.0"
+
+BBCLASSEXTEND="native"

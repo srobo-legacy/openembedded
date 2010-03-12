@@ -5,8 +5,6 @@ RDEPENDS = "perl"
 
 SRC_URI = "http://www.wardriving.ch/hpneu/blue/perl/ghettotooth.pl"
 
-DEFAULT_PREFERENCE="-1"
-
 
 S = "${WORKDIR}"
 do_install() {

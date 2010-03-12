@@ -16,5 +16,3 @@ S = "${WORKDIR}/${PN}"
 
 
 FILES_${PN} += "${datadir}"
-
-DEFAULT_PREFERENCE = "-1"

@@ -40,3 +40,5 @@ pkg_postrm() {
 			${sysconfdir}/sgml/sgml-ent.cat
 }
 
+
+BBCLASSEXTEND="native"

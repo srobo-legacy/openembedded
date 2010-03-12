@@ -11,7 +11,3 @@ do_install() {
 	install -m 0755 ${S}/table ${D}${bindir}/table
 }
 
-#do_stage () {
-#        autotools_stage_all
-#}
-

@@ -1,5 +1,3 @@
-#DEFAULT_PREFERENCE = "-1"
-
 LICENSE = "GPL"
 SECTION = "x11/gnome/libs"
 PR = "r0"

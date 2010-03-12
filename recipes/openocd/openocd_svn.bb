@@ -12,3 +12,5 @@ S = "${WORKDIR}/trunk"
 
 DEPENDS = "libftdi"
 EXTRA_OECONF = " --enable-ft2232_libftdi --disable-ftdi2232 --disable-ftd2xx"
+
+BBCLASSEXTEND="native"

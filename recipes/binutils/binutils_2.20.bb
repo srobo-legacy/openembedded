@@ -5,7 +5,7 @@ INC_PR = "r1"
 PR = "${INC_PR}.4"
 
 SRC_URI = "\
-     ${GNU_MIRROR}/binutils/binutils-${PV}.tar.bz2 \
+     ${GNU_MIRROR}/binutils/binutils-${PV}.tar.bz2;name=binutils220tarbz2 \
      file://binutils-uclibc-100-uclibc-conf.patch;patch=1 \
      file://110-arm-eabi-conf.patch;patch=1 \
      file://binutils-uclibc-300-001_ld_makefile_patch.patch;patch=1 \
@@ -16,6 +16,8 @@ SRC_URI = "\
      file://binutils-arm-non-empty-know.patch;patch=1 \
      file://binutils_unexport_LD_LIBRARY_PATH_for_CC_FOR_BUILD.patch;patch=1 \
      "
+SRC_URI[binutils220tarbz2.md5sum] = "ee2d3e996e9a2d669808713360fa96f8"
+SRC_URI[binutils220tarbz2.sha256sum] = "e1df09f0aa3b50154ef93bfefe86d65d01c22cfb44d73299ad95e772133a75b0"
 
 # powerpc patches
 SRC_URI += "\

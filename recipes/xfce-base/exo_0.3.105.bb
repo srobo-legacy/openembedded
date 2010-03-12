@@ -18,10 +18,6 @@ do_configure_prepend() {
 	sed -i -e s:'`$PKG_CONFIG --variable=defsdir pygtk-2.0`':\"${STAGING_DATADIR}/pygtk/2.0/defs\":g ${S}/configure.in
 }
 
-do_stage() {
-    autotools_stage_all
-}
-
 FILES_${PN} += "${datadir}/xfce4/ \
                 ${libdir}/python*/site-packages/* \
                 ${prefix}/share/pygtk/2.0/defs/exo-0.3/exo.defs \

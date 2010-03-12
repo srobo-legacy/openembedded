@@ -1,1 +1,0 @@
-require hal-info.inc

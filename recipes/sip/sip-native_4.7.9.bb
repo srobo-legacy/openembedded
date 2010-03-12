@@ -6,8 +6,6 @@ PRIORITY = "optional"
 LICENSE = "GPL"
 PR = "ml0"
 
-DEFAULT_PREFERENCE = "-1"
-
 SRC_URI = "http://www.riverbankcomputing.co.uk/static/Downloads/sip4/sip-${PV}.tar.gz"
 S = "${WORKDIR}/sip-${PV}/sipgen"
 

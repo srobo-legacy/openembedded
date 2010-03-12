@@ -22,3 +22,5 @@ do_compile() {
   fastjar -c -m manifest.commons -f ${JARFILENAME} -C build .
 }
 
+
+BBCLASSEXTEND="native"

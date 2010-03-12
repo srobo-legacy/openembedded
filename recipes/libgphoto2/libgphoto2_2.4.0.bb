@@ -24,8 +24,4 @@ FILES_libgphotoport = "${libdir}/libgphoto2_port.so.*"
 FILES_${PN} += "${libdir}/udev/*"
 FILES_${PN}-dbg += "${libdir}/*/*/.debug"
 
-do_stage() {
-        autotools_stage_all
-}
-
 

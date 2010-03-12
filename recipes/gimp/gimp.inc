@@ -27,10 +27,6 @@ do_configure_append() {
 }
 
 
-do_stage() {
-        autotools_stage_all
-}
-
 python populate_packages_prepend () {
 	cv_libdir = bb.data.expand('${libdir}', d)
 	do_split_packages(d, cv_libdir, '^lib(.*)\.so\.*', 'lib%s', 'GIMP %s library', extra_depends='', allow_links=True)

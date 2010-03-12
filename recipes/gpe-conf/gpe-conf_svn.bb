@@ -1,5 +1,3 @@
-DEFAULT_PREFERENCE = "-1"
-
 DESCRIPTION = "Configuration applets for GPE"
 SECTION = "gpe"
 PRIORITY = "optional"

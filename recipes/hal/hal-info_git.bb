@@ -20,5 +20,3 @@ EXTRA_OECONF = "--disable-recall --disable-video"
 PACKAGE_ARCH = "all"
 FILES_${PN} += "${datadir}/hal/"
 
-# By default, use the released hal-info
-DEFAULT_PREFERENCE = "-1"

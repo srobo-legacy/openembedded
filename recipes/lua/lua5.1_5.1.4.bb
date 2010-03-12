@@ -35,3 +35,5 @@ do_install () {
 		install
 }
 
+
+BBCLASSEXTEND="native"

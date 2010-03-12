@@ -10,3 +10,5 @@ CP = "log4j-1.2 servlet-2.3 logkit"
 
 COMPILE_FINDARGS = "-name '*.java' -and -not -name '*Avalon*'"
 
+
+BBCLASSEXTEND="native"

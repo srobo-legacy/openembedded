@@ -23,5 +23,3 @@ do_configure_prepend() {
 do_configure_prepend_nylon() {
 	LDFLAGS="`echo "$LDFLAGS" | sed "s/ -Wl,--as-needed//"`"
 }
-
-DEFAULT_PREFERENCE = "-1"

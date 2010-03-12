@@ -11,6 +11,3 @@ inherit autotools pkgconfig
 
 FILES_${PN}-dbg += "${libdir}/${PN}/plugins/.debug"
 
-do_stage() {
-	autotools_stage_all
-}

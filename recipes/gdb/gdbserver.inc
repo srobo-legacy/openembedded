@@ -2,8 +2,6 @@ require gdb-common.inc
 
 INC_PR = "r2"
 
-DEFAULT_PREFERENCE_avr32 = "-99"
-
 FILES_gdbserver = "${bindir}/gdbserver"
 
 RRECOMMENDS_gdb_append_linux = " glibc-thread-db "

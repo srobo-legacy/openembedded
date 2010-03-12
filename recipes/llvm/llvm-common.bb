@@ -12,3 +12,5 @@ do_stage() {
 	install -d ${STAGING_BINDIR_CROSS}
   install -m 0755 ${WORKDIR}/llvm-config ${STAGING_BINDIR_CROSS}
 }
+
+BBCLASSEXTEND="native"

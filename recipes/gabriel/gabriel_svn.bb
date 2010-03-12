@@ -12,3 +12,5 @@ S = "${WORKDIR}/gabriel"
 inherit autotools_stage
 
 RDEPENDS = "socat"
+
+BBCLASSEXTEND="native"

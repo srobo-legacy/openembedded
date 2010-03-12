@@ -14,5 +14,3 @@ S = "${WORKDIR}/${PN}"
 
 FILES_${PN} = " ${bindir} ${datadir}/pixmaps ${datadir}/applications"
 FILES_${PN} += " ${datadir}/gpe/pixmaps"
-
-DEFAULT_PREFERENCE = "-1"

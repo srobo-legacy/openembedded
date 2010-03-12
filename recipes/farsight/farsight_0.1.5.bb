@@ -22,9 +22,3 @@ EXTRA_OECONF = " \
 FILES_${PN} += "${libdir}/farsight-0.1/*so"
 FILES_${PN}-dev += "${libdir}/farsight-0.1/*.a ${libdir}/farsight-0.1/*.so.*"
 
-do_stage() {
-autotools_stage_all
-}
-
-
-

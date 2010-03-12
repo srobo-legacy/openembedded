@@ -1,0 +1,130 @@
+README.sanity
+=============
+
+The fact that you are reading this probably means that you checked out the
+sanity branch of openembedded. Great. Welcome aboard!
+
+This readme file will explain a little bit on the purpose of this branch and
+what you should and should not do.
+
+Purpose
+-------
+The purpose of this branch is to create a high-quality version of the
+openembedded recipes. 
+
+Although quality is a debatable topic, I'll try to illustrate my 
+intention with some examples.
+- only have one recipe for a package. If you need an older version: well that
+  is where a version management system is for
+- small footprint recipes: if the recipe needs to be big there is probably
+  something fundamentally wrong with it.
+- well documenented recipes. The recipes should have a decent header 
+  giving things like DESCRIPTION, LICENSE etc etc
+- be fairly up to date. In most cases it is pointless to have a recipe for a
+  2004 version of a package, which is deemed obsolete
+- tuned towards small footprint. Currently sometimes you see recipes being 
+  dragged in, that makes you think WTF. If I want to create a NAS I do not want
+  to compile e.g. pango.
+
+Status
+------
+
+Is the above all there in this branch?
+Big chuckle: no. This is the start Currently it builds the helloworld package for
+hawkboard (using the minimal distribution), and building console-image for
+hawkboard is in progress.
+But I hope this section will be expanded in the near future.
+
+Contribute
+----------
+
+Sounds cool, can I contribute?
+Be my guest. If you agree with the purpose of this branch, follow the guidelines
+given below and act accordingly and with common sense, be my guest.
+I'm sure you can find a suitable task, but if not here are some suggestions:
+- build and test on your platform (and please use tinderbox)
+- propose a standard header (and eventually implement it)
+- remove do_stage from recipes
+- convert native and sdk recipes to BBCLASSEXTEND
+- try to identify outdated recipes
+- update recipes to the latest version
+- try to identify unneeded DEPENDencys.
+- eliminate strange dependencies (e.g. if I build console-image, x and gnome stuff is build
+  that should be decoupled (maybe by having two recipes)
+- remove DEFAULT_PREFERENCE
+- merge patches from the main branch
+- eliminate unused files
+- ....
+
+Guidelines
+----------
+Talking about guidelines, in order to keep things streamlined, there are a 
+few small guidelines.
+
+Typically there should be only one recipe for a package. Ideally this should do the
+native part as well as the target part. In some cases multiple recipes might be
+unaoidable (e.g. kernel, u-boot, gcc), but generally multiple recipes are not good
+If a platform or distro needs an older version and cannot work with a newer one then
+the underlying problem should be fixed instead of pinning the old version.
+And note that this is a development branch. If you want stability use a stable
+branch.
+
+Having said that there might be a few cases where it is really unavoidable to have
+multiple recipes. In that case the older recipe should contain a short rationale why
+this old version is still there.
+
+BTW: u-boot, kernel and gcc are considered to be special:
+Different systems can IMHO use different kernel versions and have different u-boot
+recipes. Actually one could also view that each machine has its own u-boot recipe
+but for some reasons it might be efficient to merge them. Similar for kernel
+recipes. Gcc is also somewhat special as it might well be that when a new version
+is made not all architectures are supported/stable, so I can imagine different
+variants for different architectures.
+
+Adding new recipes: of course if a new package is added there is a chance that
+another package/image/machine breaks. Of course it is not nice, and it should be
+avoided. But hey, it is a dev branch. Those things happen. 
+In order to do things reasonably failsafe way please take the following steps into
+account:
+- make sure you start with a buildable system
+- after your change is made, verify that it builds and executed on at least one 
+  hardware platform
+- if possible build a fresh image that contains the package and others. console-image
+  might be a good start. That way you learn if a package using your package breaks 
+  due to the new versions.
+- if the above results in errors, fix them before pushing your new recipe.
+- if you feel it is useful to push the recipe before it is fully mature, add a
+  DEFAULT_PREFERENCE = "-1" to the recipe. This is typically useful for wide-impact
+  changes that you want to have tested or reviewed by others. This should only be a transient
+  situation. Also there should be only one recipe with DEFAULT_PREFERENCE in it.
+- if you feel your recipe might cause harm for others, use a two stage commit
+  first commit your new recipe with DEFAULT_PREFERENCE = "-1". Next in a separate
+  commit do two things: remove the DEFAULT_PREFERENCE line and remove the old recipe
+  (together with all patches etc for it). That way if desired it becomes easy to
+  revert to the old situation (if there happens to be an issue after all).
+
+Also when making a very global change (e.g. one that affects many recipes), ask
+around first to avoid that someone else does the same thing. As a general rule use
+small commits and push regularly and with a decent commit message)
+
+Of course all other guidelines of oe also apply.
+
+And, if in doubt, consult others. (e.g. eFfeM in #oe, the author of this readme).
+
+Finally
+-------
+Feel free to bring over recipes etc from the main branch but make sure they do
+adhere the quality standards of this branch (and please do give credit if you take 
+from the main branch).
+
+It is also ok to merge things back to the main branch (but I appreciate it if
+credit is given). However be careful. It is hot out there. Especially deleting
+recipes or changing preferences might turn on the heat.
+
+When all fails: use common sense.
+
+And, most importantly: have fun!
+
+FM.
+
+

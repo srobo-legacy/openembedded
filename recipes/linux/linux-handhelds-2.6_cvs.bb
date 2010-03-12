@@ -4,8 +4,6 @@ LICENSE = "GPL"
 PV = "${K_MAJOR}.${K_MINOR}.${K_MICRO}-hh${HHV}+cvs${SRCDATE}"
 PR = "r1"
 
-DEFAULT_PREFERENCE = "-1"
-
 # Override where to look for defconfigs and patches,
 # we have per-kernel-release sets.
 FILESPATH = "${FILE_DIRNAME}/linux-handhelds-2.6-2.6.21/${MACHINE}:${FILE_DIRNAME}/linux-handhelds-2.6-2.6.21"

@@ -12,8 +12,6 @@ SRC_URI = "cvs://anonymous@gtk-webcore.cvs.sourceforge.net/cvsroot/gtk-webcore;m
            file://gcc4-fno-threadsafe-statics-JavaScriptCore.patch;patch=1"
 S = "${WORKDIR}/JavaScriptCore"
 
-DEFAULT_PREFERENCE = "-1"
-
 inherit autotools pkgconfig
 
 # zap CPPFLAGS to avoid trouble with internal vs. pcre from staging

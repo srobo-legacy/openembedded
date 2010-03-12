@@ -12,7 +12,3 @@ inherit autotools
 
 EXTRA_OECONF = "--with-gnu-ld"
 
-do_stage () {
-	autotools_stage_all
-}
-

@@ -9,5 +9,3 @@ SRC_URI = "${GPE_SVN} \
 S = "${WORKDIR}/${PN}"
 
 require blueprobe.inc
-
-DEFAULT_PREFERENCE = "-1"

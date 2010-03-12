@@ -8,3 +8,5 @@ and PostScript), and for comparing SGML files."
 SRC_URI = "ftp://sources.redhat.com/pub/docbook-tools/new-trials/SOURCES/docbook-utils-${PV}.tar.gz"
 
 inherit autotools
+
+BBCLASSEXTEND="native"

@@ -12,3 +12,5 @@ RDEPENDS = "liboro-java"
 CP = "oro"
 
 MAINSOURCES = "src/java/org"
+
+BBCLASSEXTEND="native"

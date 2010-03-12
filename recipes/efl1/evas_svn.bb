@@ -77,4 +77,3 @@ GLES ?= "sgx"
 EXTRA_OECONF += "\
         --enable-gl-x11 --enable-gl-flavor-gles --enable-gles-variety-${GLES} \
 "
-

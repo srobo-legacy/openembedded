@@ -36,7 +36,3 @@ do_install_append() {
         rm ${D}/usr/lib/python2.6/site-packages/xapian.py?
 }
 
-do_stage () {
-     autotools_stage_all
-}
-

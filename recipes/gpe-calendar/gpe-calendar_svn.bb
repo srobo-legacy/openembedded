@@ -1,5 +1,3 @@
-DEFAULT_PREFERENCE = "-1"
-
 DESCRIPTION = "GPE calendar"
 SECTION = "gpe"
 LICENSE = "GPL"

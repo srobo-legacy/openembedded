@@ -17,6 +17,3 @@ S = ${WORKDIR}/lips_im-${PV}
 
 FILES_${PN} += " ${datadir}/dbus-1"
 
-do_stage () {
-	autotools_stage_all
-}

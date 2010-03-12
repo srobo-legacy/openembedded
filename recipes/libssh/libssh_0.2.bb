@@ -27,3 +27,5 @@ do_stage () {
 	done
 	oe_libinstall -so -C libssh libssh ${STAGING_LIBDIR}
 }
+
+BBCLASSEXTEND="native"

@@ -54,3 +54,5 @@ do_install() {
 PACKAGES =+ "${PN}-lib"
 FILES_${PN}-lib = "${libdir}/libtk8.4.so.*"
 FILES_${PN} += "${libdir}"
+
+BBCLASSEXTEND="native"

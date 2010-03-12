@@ -23,3 +23,5 @@ do_stage() {
 
 	install -m 0644 include/apt-pkg/*.h ${STAGING_INCDIR}/apt-pkg/
 }
+
+BBCLASSEXTEND="native"

@@ -3,8 +3,6 @@ require emacs.inc
 EXTRA_OECONF = "--without-sound --without-x"
 
 #/!\warning untested recipe
-DEFAULT_PREFERENCE = "-2" 
-
 
 FILESPATH = "${FILE_DIRNAME}/emacs-${PV}:${FILE_DIRNAME}/files"
 SRC_URI = "${GNU_MIRROR}/emacs/emacs-${PV}.tar.gz;name=tarball \

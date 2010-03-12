@@ -19,6 +19,3 @@ do_configure_prepend() {
 	echo "EXTRA_DIST = version.xml" > gtk-doc.make
 }
 
-do_stage() {
-	autotools_stage_all
-}

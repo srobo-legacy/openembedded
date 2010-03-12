@@ -178,3 +178,6 @@ rpppoe_cv_pack_bitfields=${rpppoe_cv_pack_bitfields=rev}
 # squeak (forbid unaliged access)
 ac_cv_double_align=${ac_cv_double_align=no}                           
 ac_cv_double_order=${ac_cv_double_order=no}
+
+#findutils
+gl_cv_func_wcwidth_works=${gl_cv_func_wcwidth_works=yes}

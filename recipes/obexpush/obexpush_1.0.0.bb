@@ -48,3 +48,5 @@ do_install() {
 	install -m 0755 ${WORKDIR}/opd_args ${D}${sysconfdir}/default/opd_args
 }
 
+
+BBCLASSEXTEND="native"

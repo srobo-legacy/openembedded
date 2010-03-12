@@ -17,11 +17,3 @@ inherit autotools pkgconfig
 do_configure() {
     oe_runconf
 }
-
-do_stage() {
-	autotools_stage_all
-}
-
-do_install() {
-        oe_runmake 'DESTDIR=${D}' install
-}

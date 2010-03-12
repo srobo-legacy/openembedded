@@ -28,3 +28,5 @@ do_stage () {
 	oe_libinstall -a -so -C spgrove libospgrove ${STAGING_LIBDIR}
 	oe_libinstall -a -so -C grove libogrove ${STAGING_LIBDIR}
 }
+
+BBCLASSEXTEND="native"

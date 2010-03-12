@@ -5,8 +5,6 @@ PRIORITY    = "optional"
 PR          = "r0"
 PV = "0.0+svnr-${SRCREV}"
 
-DEFAULT_PREFERENCE = "-1"
-
 DEPENDS = "gtk+ librecord2 libgpephone"
 
 inherit gpephone autotools pkgconfig

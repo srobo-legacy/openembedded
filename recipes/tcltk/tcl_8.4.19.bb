@@ -53,3 +53,5 @@ PACKAGES =+ "${PN}-lib"
 FILES_${PN}-lib = "${libdir}/libtcl8.4.so.*"
 FILES_${PN} += "${libdir}/tcl8.4"
 FILES_${PN}-dev += "${libdir}/tclConfig.sh"
+
+BBCLASSEXTEND="native"

@@ -21,3 +21,5 @@ do_stage() {
 	done
 }
 
+
+BBCLASSEXTEND="native"

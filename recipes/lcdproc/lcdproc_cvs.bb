@@ -7,8 +7,6 @@ PRIORITY = "optional"
 SECTION = "utils"
 PV = "0.4.99+cvs${SRCDATE}"
 
-DEFAULT_PREFERENCE = "-1"
-
 DEPENDS = "${@((bb.data.getVar('LCDPROC_DRIVERS',d) or 'curses,text').find('curses') != -1) and 'ncurses' or ''}"
 RRECOMMENDS_lcdproc = "lcdd"
 

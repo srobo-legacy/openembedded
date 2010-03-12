@@ -5,10 +5,6 @@ LICENSE = "X11"
 
 PR = "r1"
 
-DEFAULT_PREFERENCE = "-1"
-DEFAULT_PREFERENCE_angstrom = "2"
-DEFAULT_PREFERENCE_shr = "2"
-
 BBCLASSEXTEND="native"
 
 SRC_URI = "http://cairographics.org/releases/pixman-${PV}.tar.gz;name=archive \

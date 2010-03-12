@@ -6,3 +6,5 @@ SRC_URI = "http://www.jdl.com/pub/software/dtc-${PV}.tgz"
 
 S = "${WORKDIR}/dtc"
 
+
+BBCLASSEXTEND="native"

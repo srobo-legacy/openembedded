@@ -8,3 +8,5 @@ SRC_URI = "http://www.pobox.com/~sheff/sw/e2tools/e2tools-${PV}.tar.gz \
 S = "${WORKDIR}/e2tools-${PV}"
 
 inherit autotools
+
+BBCLASSEXTEND="native"

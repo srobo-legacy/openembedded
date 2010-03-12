@@ -22,9 +22,5 @@ do_configure_prepend() {
     echo "EXTRA_DIST = version.xml" > gnome-doc-utils.make
 }
 
-do_stage() {
-	autotools_stage_all
-}
-
 FILES_${PN} += " ${datadir}/gtksourceview-2.0"
 

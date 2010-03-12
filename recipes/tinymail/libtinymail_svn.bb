@@ -5,8 +5,6 @@ DEPENDS = "gtk+ glib-2.0 gnome-vfs gconf libgnomeui"
 PV = "0.0.5+svnr${SRCPV}"
 PR = "r4"
 
-DEFAULT_PREFERENCE = "-1"
-
 EXTRA_OECONF=" --disable-gnome --with-platform=gpe --with-html-component=none"
 
 SRC_URI = "svn://svn.tinymail.org/svn/tinymail/;module=trunk;proto=http \

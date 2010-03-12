@@ -11,6 +11,3 @@ inherit gpephone pkgconfig autotools
 
 LDFLAGS += " -L${STAGING_LIBDIR}"
 
-do_stage () {
-	autotools_stage_all
-}

@@ -11,7 +11,6 @@ require linux-libc-headers.inc
 #   particular header, check it's content, and if copyright notice isn't present,
 #   standard linux kernel license applies.
 # since we assume GPL for linux i think we can also assume it here
-DEFAULT_PREFERENCE = "-1"
 INHIBIT_DEFAULT_DEPS = "1"
 PR = "r6"
 

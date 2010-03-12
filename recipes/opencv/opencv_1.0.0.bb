@@ -63,7 +63,3 @@ DESCRIPTION_python-opencv = "Python bindings to opencv"
 FILES_python-opencv = "${libdir}/*/site-packages/*"
 RDEPENDS_python-opencv = "python-core"
 
-do_stage() {
-	autotools_stage_all
-}
-

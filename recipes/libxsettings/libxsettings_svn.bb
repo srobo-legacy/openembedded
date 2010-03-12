@@ -28,5 +28,3 @@ do_stage () {
 }
 
 headers = "xsettings-common.h"
-
-DEFAULT_PREFERENCE = "-1"

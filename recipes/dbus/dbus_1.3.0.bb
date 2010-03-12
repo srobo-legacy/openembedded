@@ -17,6 +17,4 @@ SRC_URI = "\
 "            
 
 # This is the development version of dbus that will lead to 1.4.x
-DEFAULT_PREFERENCE = "-1"
-
 PR = "r1"

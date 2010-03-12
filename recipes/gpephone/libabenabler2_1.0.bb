@@ -18,6 +18,3 @@ do_configure_prepend () {
         touch "${S}/po/POTFILES.in"
 }
 
-do_stage () {
-	autotools_stage_all
-}

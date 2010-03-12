@@ -31,6 +31,3 @@ do_compile() {
     oe_runmake
 }
 
-do_stage () {
-        autotools_stage_all
-}

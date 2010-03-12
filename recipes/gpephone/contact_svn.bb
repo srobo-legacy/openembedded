@@ -14,5 +14,3 @@ S = "${WORKDIR}/contact/trunk"
 
 
 FILES_${PN} += "${datadir}"
-
-DEFAULT_PREFERENCE = "-1"

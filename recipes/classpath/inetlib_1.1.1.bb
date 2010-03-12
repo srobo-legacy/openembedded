@@ -28,3 +28,5 @@ do_compile() {
 do_install_append() {
   java_install
 }
+
+BBCLASSEXTEND="native"

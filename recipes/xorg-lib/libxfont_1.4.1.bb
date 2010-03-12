@@ -12,3 +12,5 @@ PE = "1"
 EXTRA_OECONF += " --disable-devel-docs "
 
 XORG_PN = "libXfont"
+
+BBCLASSEXTEND="native"

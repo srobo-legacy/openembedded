@@ -8,3 +8,5 @@ SRC_URI = "\
 	file://cacao-disable-stackbase-check.patch;patch=1 \
 	file://cacao_PR99_C_0.99.3.patch;patch=1 \
 	"
+
+BBCLASSEXTEND="native"

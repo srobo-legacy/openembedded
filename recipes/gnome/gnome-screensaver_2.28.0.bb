@@ -16,10 +16,6 @@ do_configure_prepend () {
 	sed -i -e 's:$CPPFLAGS -I$includedir:$CPPFLAGS:g' configure.ac
 }
 
-do_stage () {
-	autotools_stage_all
-}
-
 FILES_${PN} += "${datadir}/*background* ${datadir}/desktop-directories"
 
 FILES_${PN}-dbg += "${libexecdir}/gnome-screensaver/.debug "

@@ -30,3 +30,5 @@ do_install_append () {
 }
 
 FILES_${PN} += "${libdir}/python* ${datadir}/yum-cli"
+
+BBCLASSEXTEND="native"

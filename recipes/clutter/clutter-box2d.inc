@@ -9,10 +9,6 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 inherit autotools pkgconfig gtk-doc
 
-do_stage () {
-        autotools_stage_all
-}
-
 do_install_append () {
 	install -d ${D}${bindir}
 	install ${S}/examples/.libs/blockbox ${D}${bindir}

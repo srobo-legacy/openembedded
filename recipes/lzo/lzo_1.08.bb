@@ -34,3 +34,5 @@ do_stage() {
 
         oe_libinstall -a -so -C src liblzo ${STAGING_LIBDIR}
 }
+
+BBCLASSEXTEND="native"

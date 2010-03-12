@@ -1,5 +1,3 @@
-DEFAULT_PREFERENCE = "-2"
-
 require xserver-kdrive-common.inc
 PV = "1.4+git${SRCDATE}"
 

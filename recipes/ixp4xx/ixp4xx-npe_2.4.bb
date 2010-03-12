@@ -40,3 +40,5 @@ do_stage() {
 	install ${S}/NPE-C ${STAGING_FIRMWARE_DIR}/
 }
 
+
+BBCLASSEXTEND="native"

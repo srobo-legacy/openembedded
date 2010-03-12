@@ -9,7 +9,3 @@ PACKAGES += "${PN}-mibs ${PN}-pibs"
 FILES_${PN}-mibs += "${datadir}/mibs"
 FILES_${PN}-pibs += "${datadir}/pibs"
 
-do_stage() {
-      autotools_stage_all
-}
-

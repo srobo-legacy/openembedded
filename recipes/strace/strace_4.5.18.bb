@@ -3,12 +3,7 @@ SECTION = "console/utils"
 LICENSE = "GPL"
 PR = "r2"
 
-# this recipe is missing patches for arm and sh
 DEFAULT_PREFERENCE = "-1"
-DEFAULT_PREFERENCE_avr32 = "1"
-DEFAULT_PREFERENCE_mips = "1"
-DEFAULT_PREFERENCE_mipsel = "1"
-
 SRC_URI = "${SOURCEFORGE_MIRROR}/strace/strace-${PV}.tar.bz2 \
           "
 

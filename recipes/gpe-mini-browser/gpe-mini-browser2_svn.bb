@@ -19,5 +19,3 @@ do_install() {
 }
 
 require gpe-mini-browser.inc
-
-#DEFAULT_PREFERENCE = "-1"

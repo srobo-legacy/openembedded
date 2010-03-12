@@ -39,3 +39,5 @@ FILES_${PN} += " ${datadir}/errors/English/* \
                  ${datadir}/mib.txt"
 
 FILES_${PN}-locale += " ${datadir}/errors/* " 
+
+BBCLASSEXTEND="native"

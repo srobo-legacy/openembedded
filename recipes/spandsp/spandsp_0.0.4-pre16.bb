@@ -10,5 +10,3 @@ do_configure_append() {
 }
 
 require spandsp.inc
-
-DEFAULT_PREFERENCE = "-16"

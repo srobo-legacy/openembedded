@@ -15,6 +15,3 @@ SRC_URI = "http://www.etla.net/libstroke/${P}.tar.gz \
 
 inherit autotools pkgconfig
 
-do_stage () {
-	autotools_stage_all
-}

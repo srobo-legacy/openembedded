@@ -13,10 +13,6 @@ do_configure_prepend() {
 
 
 AUTOTOOLS_STAGE_PKGCONFIG = "1"
-do_stage() {
-        autotools_stage_all
-}
-
 FILES_${PN} += "${libdir}/python*/site-packages"
 FILES_${PN}-dbg += "${libdir}/python*/site-packages/.debug"
 

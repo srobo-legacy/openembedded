@@ -21,3 +21,5 @@ do_compile() {
 
   fastjar -C build -c -f ${JARFILENAME} .
 }
+
+BBCLASSEXTEND="native"

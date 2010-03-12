@@ -22,3 +22,5 @@ do_install () {
 	install -d ${D}${bindir}
 	install -m 0755 slugimage ${D}${bindir}/
 }
+
+BBCLASSEXTEND="native"

@@ -3,8 +3,6 @@ PR = "r1"
 
 KLIBC_FETCHDIR = "Testing"
 
-DEFAULT_PREFERENCE = "-1"
-
 # temporary override here in the recipe
 # until 1.5.16 is released
 

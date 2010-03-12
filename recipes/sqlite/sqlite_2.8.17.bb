@@ -59,3 +59,5 @@ do_install() {
 PACKAGES += "${PN}-bin"
 FILES_${PN}-bin = "${bindir}/*"
 FILES_${PN} = "${libdir}/*.so.*"
+
+BBCLASSEXTEND="native"

@@ -6,3 +6,5 @@ PE = "1"
 DEPENDS += "util-macros"
 
 XORG_PN = "xproto"
+
+BBCLASSEXTEND="native sdk"

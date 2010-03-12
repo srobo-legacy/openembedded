@@ -2,8 +2,6 @@ require u-boot.inc
 
 PV = "2009.01"
 
-DEFAULT_PREFERENCE = "-1"
-
 DEFAULT_PREFERENCE_at91rm9200dk	 = "1"
 DEFAULT_PREFERENCE_at91sam9rlek	 = "1"
 DEFAULT_PREFERENCE_at91sam9260ek = "1"

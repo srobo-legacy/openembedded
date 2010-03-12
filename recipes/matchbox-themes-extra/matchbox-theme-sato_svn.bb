@@ -3,8 +3,6 @@ LICENSE = "GPL"
 DEPENDS = "matchbox-wm"
 SECTION = "x11/wm"
 
-DEFAULT_PREFERENCE = "-1"
-
 PV = "0.1+svnr${SRCPV}"
 PR = "r0"
 

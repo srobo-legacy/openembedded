@@ -1,6 +1,5 @@
 require linux-libc-headers.inc
 
-DEFAULT_PREFERENCE = "-1"
 INHIBIT_DEFAULT_DEPS = "1"
 PR = "r1"
 

@@ -16,7 +16,4 @@ EXTRA_OECONF += "--disable-localpng --disable-localjpeg --disable-localzlib \
 FILES_${PN} += "${datadir}/htmldoc/fonts"
 FILES_${PN} += "${datadir}/htmldoc/data"
 
-
-do_install() {
-	oe_runmake 'DESTDIR=${D}' install
-}
+BBCLASSEXTEND="native"

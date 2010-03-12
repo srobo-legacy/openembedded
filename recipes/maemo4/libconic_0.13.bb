@@ -8,8 +8,4 @@ SRC_URI = "http://repository.maemo.org/pool/maemo4.0/free/source/libc/${PN}/${PN
 
 inherit autotools pkgconfig
 
-do_stage() {
-	autotools_stage_all
-}
-
 

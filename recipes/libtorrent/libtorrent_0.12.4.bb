@@ -11,7 +11,3 @@ inherit autotools pkgconfig
 
 EXTRA_OECONF = "--enable-aligned"
 
-do_stage() {
-	autotools_stage_all
-}
-

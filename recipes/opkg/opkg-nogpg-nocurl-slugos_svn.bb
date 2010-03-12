@@ -30,11 +30,6 @@ SRCREV = "${SRCREV_pn-opkg}"
 
 EXTRA_OECONF += "--disable-gpg --enable-static --disable-shared"
 
-# Not sure this is needed; needs to be investigated and removed if not
-do_stage() {
-	autotools_stage_all
-}
-
 # The nogpg version isn't getting much love and has an unused variable which trips up -Werror
 do_configure_prepend() {
 	sed -i -e s:-Werror::g ${S}/libopkg/Makefile.am
@@ -58,5 +53,3 @@ pkg_postinst_${PN} () {
 pkg_postrm_${PN} () {
   update-alternatives --remove opkg ${bindir}/opkg-cl
 }
-
-DEFAULT_PREFERENCE = "-1"

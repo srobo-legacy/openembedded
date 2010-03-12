@@ -14,7 +14,3 @@ LEAD_SONAME = "libaoss.so.0"
 do_configure_prepend () {
 	touch NEWS README AUTHORS ChangeLog
 }
-
-do_stage () {
-	autotools_stage_all
-}

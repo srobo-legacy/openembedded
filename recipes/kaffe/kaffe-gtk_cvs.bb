@@ -1,7 +1,5 @@
 
 PV = "1.1.5+cvs${SRCDATE}"
-DEFAULT_PREFERENCE = "-1"
-
 SRC_URI = "cvs://readonly:readonly@cvs.kaffe.org/cvs/kaffe;module=kaffe"
 S = "${WORKDIR}/kaffe"
 

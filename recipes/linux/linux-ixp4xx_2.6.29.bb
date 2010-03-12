@@ -1,8 +1,6 @@
 require linux.inc
 require linux-ixp4xx.inc
 
-DEFAULT_PREFERENCE = "-1"
-
 VANILLA_VERSION = "2.6.29"
 KERNEL_RELEASE = "2.6.29"
 

@@ -26,10 +26,6 @@ do_install_prepend() {
         install -m 0755 ${WORKDIR}/owhttpd ${D}${sysconfdir}/init.d/owhttpd
         install -m 0755 ${WORKDIR}/owserver ${D}${sysconfdir}/init.d/owserver
 }
-do_stage() {
-        autotools_stage_all
-}
-
 PACKAGES =+ "owftpd owhttpd owserver owshell libowcapi libow libownet owmon owtap"
 
 DESCRIPTION_owftpd = "Anoymous FTP server for 1-wire access"

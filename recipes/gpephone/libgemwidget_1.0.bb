@@ -12,6 +12,3 @@ SRC_URI += " file://disable-tests.patch;patch=1 file://libgemwidget-fixup.diff;p
 
 FILES_${PN} += "${datadir}/gem"
 
-do_stage () {
-	autotools_stage_all
-}

@@ -16,5 +16,3 @@ S = "${WORKDIR}/${PN}"
 
 FILES_${PN} += " ${datadir}/gpe ${datadir}/gpe-contacts"
 
-DEFAULT_PREFERENCE = "-1"
-

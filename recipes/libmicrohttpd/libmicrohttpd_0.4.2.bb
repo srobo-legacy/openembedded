@@ -9,7 +9,3 @@ SRC_URI = "ftp://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-${PV}.tar.gz"
 
 inherit autotools pkgconfig
 
-do_stage() {
-        oe_runmake DESTDIR="${D}" install
-        autotools_stage_all
-}

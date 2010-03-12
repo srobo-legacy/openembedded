@@ -24,6 +24,3 @@ do_configure_append() {
 	if ! test -f libtool ; then cp -a *-libtool libtool ; fi
 }
 
-do_stage() {
-	autotools_stage_all
-}

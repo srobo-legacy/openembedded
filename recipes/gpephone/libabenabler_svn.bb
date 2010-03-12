@@ -6,8 +6,6 @@ DEPENDS     = "glib-2.0 librecord liblipsevent libim sqlite3"
 PR          = "r0"
 PV = "0.1+svnr-${SRCREV}"
 
-DEFAULT_PREFERENCE = "-1"
-
 inherit gpephone pkgconfig autotools
 
 SRC_URI = "${GPEPHONE_SVN}"
@@ -16,6 +14,3 @@ S = "${WORKDIR}/${PN}"
 
 LDFLAGS += " -L${STAGING_LIBDIR}"
 
-do_stage () {
-	autotools_stage_all
-}

@@ -4,8 +4,6 @@ DEPENDS = "findutils-native virtual/javac-native kaffeh-native fastjar-native bl
 LICENSE = "GPL"
 HOMEPAGE = "http://sourceforge.net/projects/avetanabt/"
 
-DEFAULT_PREFERENCE = "-1"
-
 PV = "20060413+cvs${SRCDATE}"
 PR = "r5"
 

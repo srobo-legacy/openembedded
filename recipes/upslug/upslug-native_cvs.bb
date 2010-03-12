@@ -8,8 +8,6 @@ PRIORITY = "optional"
 LICENSE = "GPLv2"
 COMPATIBLE_MACHINE = "nslu2"
 
-# Use releases in preference
-DEFAULT_PREFERENCE = "-1"
 
 SRC_URI = "cvs://anonymous@nslu.cvs.sourceforge.net/cvsroot/nslu;method=pserver;module=upslug"
 

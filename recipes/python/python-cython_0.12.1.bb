@@ -14,3 +14,5 @@ SRC_URI[archive.md5sum] = "cf9f98e982258f8516620277975016f3"
 SRC_URI[archive.sha256sum] = "0f384ec20c579b80d1960a5795d6517a6885305efa9964bcbf6a7b8da88b9c77"
 
 inherit distutils
+
+BBCLASSEXTEND="native"

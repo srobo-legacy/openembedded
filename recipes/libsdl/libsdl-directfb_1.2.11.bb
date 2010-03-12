@@ -2,8 +2,6 @@ require libsdl.inc
 
 DEPENDS = "alsa-lib directfb"
 # extra-keys.patch is missing
-DEFAULT_PREFERENCE = "-1" 
-
 PR = "${INC_PR}.0"
 
 SRC_URI = "\

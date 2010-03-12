@@ -20,6 +20,3 @@ FILES_${PN}-dev += "${libdir}/${PN}/*{SOLIBSDEV} ${libdir}/${PN}/*.la ${libdir}/
 
 export CXXFLAGS += " -L${STAGING_LIBDIR} -lstdc++ "
 
-do_stage() {
-	autotools_stage_all
-}

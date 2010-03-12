@@ -11,5 +11,3 @@ SRC_URI = "${GPE_SVN} \
 S = "${WORKDIR}/${PN}"
 
 export CVSBUILD="no"
-
-DEFAULT_PREFERENCE = "-1"

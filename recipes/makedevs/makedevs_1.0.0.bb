@@ -28,4 +28,4 @@ ALTERNATIVE_NAME = "makedevs"
 ALTERNATIVE_LINK = "${base_sbindir}/makedevs"
 ALTERNATIVE_PRIORITY = "50"
 
-
+#BBCLASSEXTEND="native"

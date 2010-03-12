@@ -155,3 +155,5 @@ ${sysconfdir}/my.cnf"
 
 DESCRIPTION_${PN}-leftovers = "unpackaged and probably unneeded files for ${PN}"
 FILES_${PN}-leftovers = "/"
+
+BBCLASSEXTEND="native"

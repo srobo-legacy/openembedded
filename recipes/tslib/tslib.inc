@@ -21,10 +21,6 @@ inherit autotools pkgconfig
 EXTRA_OECONF        = "--enable-shared"
 EXTRA_OECONF_mnci   = "--enable-shared --disable-h3600 --enable-input --disable-corgi --disable-collie --disable-mk712 --disable-arctic2 --disable-ucb1x00 "
 
-do_stage () {
-	autotools_stage_all
-}
-
 do_install () {
 	autotools_do_install
 	install -d ${D}${sysconfdir}/profile.d/

@@ -10,9 +10,5 @@ inherit autotools
 
 EXTRA_OECONF += " --with-pkgdocdir=${docdir}/eb"
 
-do_stage () {
-	autotools_stage_all
-}
-
 PACKAGES =+ "eb-utils"
 FILES_eb-utils = "/usr/bin/*"

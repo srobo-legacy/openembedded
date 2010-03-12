@@ -6,8 +6,6 @@ DEPENDS = "gtk+ ptim-headers libiac"
 PV = "0.1+svnr-${SRCREV}"
 PR = "r2"
 
-DEFAULT_PREFERENCE = "-1"
-
 inherit gpephone pkgconfig autotools
 
 SRC_URI = "svn://projects.linuxtogo.org/svn/gpephone/trunk/source/ptim;module=immanager"
@@ -26,6 +24,3 @@ do_install_append () {
 
 
 
-do_stage () {
-    autotools_stage_all
-}

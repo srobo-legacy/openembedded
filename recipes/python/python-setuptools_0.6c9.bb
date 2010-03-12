@@ -23,3 +23,5 @@ RDEPENDS = "\
   python-distutils \
   python-compression \
 "
+
+BBCLASSEXTEND="native"

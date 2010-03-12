@@ -37,3 +37,5 @@ do_compile () {
 do_install () {
 	oe_runmake 'INSTALLROOT=${D}' install
 }
+
+BBCLASSEXTEND="native"

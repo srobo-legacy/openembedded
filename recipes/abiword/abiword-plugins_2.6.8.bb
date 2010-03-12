@@ -11,8 +11,6 @@ SRC_URI = "http://www.abiword.org/downloads/abiword/${PV}/source/abiword-plugins
 #           file://abiword-cxx-for-ld-fix.patch;patch=1 \
 	   "
 
-DEFAULT_PREFERENCE = "2"
-
 inherit autotools
 
 PARALLEL_MAKE=""

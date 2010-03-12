@@ -11,8 +11,6 @@ SECTION = "devel/mono"
 DEPENDS = "mono"
 RDEPENDS = "mono"
 
-DEFAULT_PREFERENCE = "-1"
-
 inherit autotools mono
 
 SRC_URI = "http://go-mono.com/sources/xsp/xsp-${PV}.tar.bz2"

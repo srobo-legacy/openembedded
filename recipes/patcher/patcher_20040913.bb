@@ -13,3 +13,5 @@ do_install() {
 	install -d ${D}${bindir}
 	install -m 0755 patcher.py ${D}${bindir}/patcher
 }
+
+BBCLASSEXTEND="native"
