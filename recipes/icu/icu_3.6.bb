@@ -41,6 +41,3 @@ icu_sysroot_preprocess () {
         sed -i -e s:^prefix=:prefix=\"${STAGING_DIR_TARGET}/usr\": ${SYSROOT_DESTDIR}${STAGING_BINDIR_CROSS}/icu-config
 }	
 
-
-
-BBCLASSEXTEND="native"

@@ -1,11 +1,9 @@
+inherit native
 require xorg-font-common.inc
 
-PACKAGE_ARCH = "${BASE_PACKAGE_ARCH}"
+XORG_PN = "font-util"
 
-DESCRIPTION = "X font utils."
-
-DEPENDS = "encodings util-macros"
-RDEPENDS = "mkfontdir mkfontscale encodings"
+DEPENDS = "bdftopcf-native util-macros-native"
 
 PE = "1"
 PR = "${INC_PR}.1"
