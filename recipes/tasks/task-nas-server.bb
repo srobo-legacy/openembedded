@@ -1,7 +1,7 @@
 DESCRIPTION = "Tasks for a Network Attached Storage server"
 LICENSE = "MIT"
 PROVIDES = "task-nas-server-everything"
-PR = "r2"
+PR = "r3"
 
 inherit task
 
@@ -41,7 +41,7 @@ RRECOMMENDS_task-nas-server-samba = "\
 
 DESCRIPTION_task-nas-server-iscsi = "NAS-Server: iscsi Server"
 RDEPENDS_task-nas-server-iscsi = "\
-	tgt iscsi-target open-iscsi-server open-iscsi-target \
+	tgt iscsi-target \
 "
 RRECOMMENDS_task-nas-server-iscsi = "\
 "
