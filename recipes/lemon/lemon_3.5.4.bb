@@ -9,5 +9,3 @@ do_install() {
 	install -d ${D}${mandir}/man1
 	install -m 0644 ${WORKDIR}/lemon.1 ${D}${mandir}/man1/
 }
-
-BBCLASSEXTEND="native"
