@@ -7,6 +7,8 @@ SRC_URI = "http://www.open-iscsi.org/bits/open-iscsi-${PV}.tar.gz"
 S = "${WORKDIR}/open-iscsi-${PV}"
 TARGET_CC_ARCH += "${LDFLAGS}"
 
+DEPENDS = "virtual/kernel"
+
 inherit module
 
 do_compile () {
