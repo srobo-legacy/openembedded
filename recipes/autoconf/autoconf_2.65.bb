@@ -4,6 +4,8 @@ PR = "r2"
 
 PARALLEL_MAKE = ""
 
+DEFAULT_PREFERENCE= "-1"
+
 DEPENDS += "m4-native"
 RDEPENDS_${PN} = "m4 gnu-config"
 
