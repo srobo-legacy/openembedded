@@ -11,5 +11,3 @@ do_compile_append() {
                tre.pc
 }
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-

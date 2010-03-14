@@ -9,5 +9,3 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/pupnp/${P}.tar.bz2"
 
 inherit autotools
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-

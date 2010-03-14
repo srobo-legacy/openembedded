@@ -8,6 +8,3 @@ inherit autotools pkgconfig
 OE_LT_RPATH_ALLOW = "any"
 OE_LT_RPATH_ALLOW[export]="1"
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-
-

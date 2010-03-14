@@ -16,5 +16,4 @@ SRC_URI_append_nylon = " file://gcc-3-compatibility.patch;patch=1"
 
 inherit autotools_stage binconfig lib_package
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
 EXTRA_OECONF = "--disable-build-docs"

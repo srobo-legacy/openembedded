@@ -11,5 +11,3 @@ do_configure_append() {
 	sed -i s:doc\ binary:binary:g Makefile
 }
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-

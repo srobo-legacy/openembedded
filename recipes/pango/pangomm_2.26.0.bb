@@ -15,5 +15,3 @@ FILES_${PN}-dev += "${libdir}/*/include/"
 
 EXTRA_OECONF = " --disable-documentation "
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-

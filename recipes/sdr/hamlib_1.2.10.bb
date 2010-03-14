@@ -38,6 +38,3 @@ python populate_packages_prepend () {
 	do_split_packages(d, hamlib_libdir, '^lib(.*)\.so\.*', 'lib%s', 'hamlib %s library', extra_depends='', allow_links=True)
 }
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-
-

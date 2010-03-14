@@ -11,8 +11,6 @@ do_configure_prepend() {
 	sed -i -e s:'`$PKG_CONFIG --variable=defsdir pygtk-2.0`':\"${STAGING_DATADIR}/pygtk/2.0/defs\":g ${S}/configure.ac
 }
 
-
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
 FILES_${PN} += "${libdir}/python*/site-packages"
 FILES_${PN}-dbg += "${libdir}/python*/site-packages/.debug"
 

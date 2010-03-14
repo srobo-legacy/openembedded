@@ -15,5 +15,3 @@ EXTRA_OECMAKE = "-DENABLE_FAM:BOOL=ON \
 
 FILES_${PN} += "${datadir}/dbus-1 \
                "
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-

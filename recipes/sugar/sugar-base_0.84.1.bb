@@ -49,5 +49,3 @@ FILES_${PN} += "${datadir}/${PN} \
 
 FILES_${PN}-dbg += "${libdir}/python*/site-packages/sugar/.debug"
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-

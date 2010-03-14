@@ -13,6 +13,7 @@ PACKAGES = "\
 NAS_SERVER_PACKAGES = "\
 	task-nas-server-base \
 	task-nas-server-samba \
+	task-nas-server-iscsi \
 	task-nas-server-dnsmasq \
 	task-nas-server-iptables \
 	task-nas-server-tzdata \
@@ -36,6 +37,13 @@ RDEPENDS_task-nas-server-samba = "\
 	samba swat \
 "
 RRECOMMENDS_task-nas-server-samba = "\
+"
+
+DESCRIPTION_task-nas-server-iscsi = "NAS-Server: iscsi Server"
+RDEPENDS_task-nas-server-iscsi = "\
+	tgt iscsi-target open-iscsi-server open-iscsi-target \
+"
+RRECOMMENDS_task-nas-server-iscsi = "\
 "
 
 DESCRIPTION_task-nas-server-dnsmasq = "NAS-Server: DNS/DHCP Server"

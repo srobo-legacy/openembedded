@@ -23,5 +23,3 @@ FILES_${PN} += "${datadir}/${PN} \
 
 FILES_${PN}-dbg += "${libdir}/gtk-2.0/2.*/engines/.debug"
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-

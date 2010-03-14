@@ -16,8 +16,6 @@ FILES_${PN} += "${datadir}/application-registry  \
 
 inherit autotools gtk-icon-cache pkgconfig gconf mime
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-
 gnome_stage_includes() {
 	autotools_stage_includes
 }

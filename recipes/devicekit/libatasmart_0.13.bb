@@ -6,7 +6,6 @@ SRC_URI = "git://git.0pointer.de/libatasmart.git;protocol=git"
 S = "${WORKDIR}/git"
 
 inherit autotools_stage lib_package
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
 
 do_compile_prepend() {
 	rm strpool -f

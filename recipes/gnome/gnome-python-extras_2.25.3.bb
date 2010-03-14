@@ -31,5 +31,4 @@ do_configure_prepend() {
         ${S}/configure.ac
 }	
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
 FILES_${PN}-dev += "${datadir}/pygtk"

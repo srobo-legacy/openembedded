@@ -7,6 +7,4 @@ PR = "r2"
 
 inherit autotools
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-
 BBCLASSEXTEND="native"

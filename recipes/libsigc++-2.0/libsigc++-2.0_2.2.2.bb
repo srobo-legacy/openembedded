@@ -13,5 +13,3 @@ EXTRA_AUTORECONF = "--exclude=autoheader"
 
 FILES_${PN}-dev += "${libdir}/sigc++-*/"
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-

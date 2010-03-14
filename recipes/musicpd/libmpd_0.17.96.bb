@@ -7,6 +7,3 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/musicpd/libmpd-${PV}.tar.gz"
 
 inherit autotools_stage
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-
-

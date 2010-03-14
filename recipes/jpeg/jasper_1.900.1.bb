@@ -8,4 +8,3 @@ inherit autotools lib_package
 
 EXTRA_OECONF = "--enable-shared"
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"

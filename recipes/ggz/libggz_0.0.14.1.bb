@@ -6,6 +6,3 @@ SRC_URI = "http://ftp.belnet.be/packages/ggzgamingzone/ggz/${PV}/${PN}-${PV}.tar
 
 inherit autotools
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-
-

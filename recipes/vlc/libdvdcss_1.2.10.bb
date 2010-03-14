@@ -9,8 +9,3 @@ inherit autotools
 
 EXTRA_OECONF = " --disable-doc "
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-
-
-
-

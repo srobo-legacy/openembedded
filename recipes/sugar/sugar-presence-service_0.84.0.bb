@@ -23,6 +23,3 @@ FILES_${PN} += "${datadir}/${PN} \
 
 FILES_${PN}-dbg += "${libdir}/python*/site-packages/*/.debug"
 
-
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-

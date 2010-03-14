@@ -18,5 +18,3 @@ FILES_${PN} += "${datadir}/${PN} \
                 ${datadir}/dbus-1 \
                 ${sysconfdir} "
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-

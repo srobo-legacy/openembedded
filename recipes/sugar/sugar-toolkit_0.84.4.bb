@@ -15,5 +15,3 @@ do_configure_prepend() {
         install -m 0644 ${WORKDIR}/acinclude.m4 ${S}/
 }
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-

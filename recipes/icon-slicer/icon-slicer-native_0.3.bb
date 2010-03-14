@@ -8,7 +8,3 @@ DEPENDS = "gdk-pixbuf-csource-native popt-native"
 
 S = "${WORKDIR}/icon-slicer-${PV}"
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-
-
-

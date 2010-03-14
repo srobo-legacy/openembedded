@@ -14,5 +14,3 @@ FILES_${PN} = "${libdir}/lib*.so.*"
 FILES_${PN}-dev = "${includedir}/ ${libdir}/"
 FILES_${PN}-doc = "${datadir}/"
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-

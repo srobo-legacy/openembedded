@@ -6,8 +6,6 @@ DEPENDS = "gmime eds-dbus"
 
 inherit gnome
 
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
-
 # Build of documentation is not yet possible:
 do_configure_prepend() {
 	sed -i -e s:docs::g ${S}/Makefile.am

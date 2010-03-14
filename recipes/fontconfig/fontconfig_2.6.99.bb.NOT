@@ -22,7 +22,6 @@ DEBIAN_NOAUTONAME_fontconfig-utils = "1"
 PARALLEL_MAKE = ""
 
 inherit autotools_stage
-AUTOTOOLS_STAGE_PKGCONFIG = "1"
 
 export HASDOCBOOK="no"
 
