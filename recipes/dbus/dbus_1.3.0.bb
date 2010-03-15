@@ -10,6 +10,7 @@ SRC_URI = "\
   file://will-5.patch;patch=1 \
   file://will-6.patch;patch=1 \
   \
+  file://improve-threading-stability.patch;patch=1 \
   file://tmpdir.patch;patch=1 \
   file://fix-install-daemon.patch;patch=1 \
   file://0001-Make-the-default-DBus-reply-timeout-configurable.patch;patch=1 \
@@ -17,4 +18,5 @@ SRC_URI = "\
 "            
 
 # This is the development version of dbus that will lead to 1.4.x
-PR = "r1"
+
+PR = "r2"
