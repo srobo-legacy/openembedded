@@ -191,18 +191,8 @@ SRCREV_pn-shr-config ?= "37dd7ac950e2bfd438801faf34c29fccfdbbaccf"
 SRCREV_pn-shr-contacts ?= "9d7ca1cecb93022e5b890cd87756ac6f072710ca"
 SRCREV_pn-shr-dialer ?= "9d7ca1cecb93022e5b890cd87756ac6f072710ca"
 SRCREV_pn-shr-installer ?= "8608816ea1a1ac14b6e9faaa3685dd2b6450e889"
-<<<<<<< HEAD:conf/distro/include/sane-srcrevs.inc
-<<<<<<< HEAD:conf/distro/include/sane-srcrevs.inc
-SRCREV_pn-shr-launcher ?= "103"
-SRCREV_pn-shr-messages ?= "9d7ca1cecb93022e5b890cd87756ac6f072710ca"
-=======
->>>>>>> 67b3bae... sane-srcrevs: move SRCREVs to recipes for openmoko related svn recipes:conf/distro/include/sane-srcrevs.inc
-SRCREV_pn-shr-settings ?= "fd19508d43d8a0d990c63b329d935d2929c091dc"
-SRCREV_pn-shr-specs ?= "062fb8278132ce64eeef3e488bef068387b87aff"
-=======
 SRCREV_pn-shr-settings ?= "c0315c80f3236f1a9ddf23f38520bc88ed173ffd"
 SRCREV_pn-shr-specs ?= "d8f0dc85f1a7a6c0c6d24755f3770a55229621ae"
->>>>>>> c240d00... shr: bump SRCREVs for SHR projects, fsogsmd, remove frameworkd-config from autorev:conf/distro/include/sane-srcrevs.inc
 SRCREV_pn-shr-splash ?= "9d7ca1cecb93022e5b890cd87756ac6f072710ca"
 SRCREV_pn-shr-splash-theme-dontpanic ?= "1cc80e26a4558dfc2268b349d9a1f468e515bcfb"
 SRCREV_pn-shr-splash-theme-handy ?= "1cc80e26a4558dfc2268b349d9a1f468e515bcfb"
