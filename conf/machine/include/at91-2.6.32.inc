@@ -2,7 +2,7 @@
 
 TARGET_ARCH = "arm"
 #PACKAGE_EXTRA_ARCHS = "armv4t armv5te"
-CPU_FAMILY = "at91"
+SOC_FAMILY = "at91"
 
 PREFERRED_PROVIDER_virtual/kernel = "linux"
 PREFERRED_VERSION_linux = "2.6.32"
@@ -10,8 +10,8 @@ PREFERRED_VERSION_linux = "2.6.32"
 PREFERRED_PROVIDER_at91bootstrap = "at91bootstrap_2.13"
 PREFERRED_VERSION_at91bootstrap = "2.13"
 
-PREFERRED_PROVIDER_u-boot = "u-boot_2009.08"
-PREFERRED_VERSION_u-boot = "2009.08"
+PREFERRED_PROVIDER_u-boot = "u-boot_2009.11"
+PREFERRED_VERSION_u-boot = "2009.11"
 
 KERNEL_IMAGETYPE = "uImage"
 

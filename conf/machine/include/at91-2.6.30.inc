@@ -2,7 +2,7 @@
 
 TARGET_ARCH = "arm"
 #PACKAGE_EXTRA_ARCHS = "armv4t armv5te"
-SOC_CLASS = "at91"
+SOC_FAMILY = "at91"
 
 PREFERRED_PROVIDER_virtual/kernel = "linux"
 PREFERRED_VERSION_linux = "2.6.30"
