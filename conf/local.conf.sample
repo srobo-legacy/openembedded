@@ -163,5 +163,9 @@ BBINCLUDELOGS = "yes"
 # rather than installing as the full version and symlinking to the SONAME.
 # PACKAGE_SNAP_LIB_SYMLINKS = "1"
 
+# Uncomment this if you want to install your own multimedia content
+# in the target "/usr/share/multimedia"
+# MULTIMEDIA_FILES = "<dir>/<file>.tar.bz2"
+
 # EDIT THIS FILE and then remove the line below before using!
 REMOVE_THIS_LINE:="${@bb.fatal('Read the comments in your conf/local.conf')}"
