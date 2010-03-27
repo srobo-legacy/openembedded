@@ -8,7 +8,7 @@ RDEPENDS = "python-pprint python-io python-shell python-misc python-lang \
             python-pydoc python-debugger python-textutils python-pickle \
             python-subprocess"
 
-SRC_URI = "http://ipython.scipy.org/dist/ipython-${PV}.tar.gz"
+SRC_URI = "http://ipython.scipy.org/dist/${PV}/ipython-${PV}.tar.gz"
 
 inherit distutils
 
