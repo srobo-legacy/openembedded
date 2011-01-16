@@ -104,7 +104,9 @@ addtask compile_kernelmodules after do_compile before do_install
 kernel_do_install() {
 	unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS MACHINE
 	if (grep -q -i -e '^CONFIG_MODULES=y$' .config); then
-		oe_runmake DEPMOD=echo INSTALL_MOD_PATH="${D}" modules_install
+        	# modules_install doesn't enjoy parallel builds, force it to use only 1 job
+        	# (make will use the last -j option provided -- hacky, but functional)
+		oe_runmake -j 1 DEPMOD=echo INSTALL_MOD_PATH="${D}" modules_install
 	else
 		oenote "no modules to install"
 	fi
